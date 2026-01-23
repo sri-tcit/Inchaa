@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useState, useEffect } from "react";
 
 /**
  * Hook to detect if the page is embedded in a mobile application
@@ -8,15 +8,22 @@ import { useSearchParams } from "next/navigation";
  * @returns boolean - true if embedded, false otherwise
  */
 export function useIsEmbedded(): boolean {
-  const searchParams = useSearchParams();
-  
-  // Check for 'embed' or 'embedded' query parameters
-  const embedParam = searchParams.get("embed");
-  const embeddedParam = searchParams.get("embedded");
-  
-  // Return true if either parameter exists and has a truthy value
-  return (
-    (embedParam !== null && embedParam !== "false" && embedParam !== "0") ||
-    (embeddedParam !== null && embeddedParam !== "false" && embeddedParam !== "0")
-  );
+  const [isEmbedded, setIsEmbedded] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const embedParam = params.get("embed");
+      const embeddedParam = params.get("embedded");
+      
+      const embedded = (
+        (embedParam !== null && embedParam !== "false" && embedParam !== "0") ||
+        (embeddedParam !== null && embeddedParam !== "false" && embeddedParam !== "0")
+      );
+      
+      setIsEmbedded(embedded);
+    }
+  }, []);
+
+  return isEmbedded;
 }
