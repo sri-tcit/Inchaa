@@ -124,7 +124,12 @@ export default function TermsConditions() {
                                             {section.email && (
                                                 <a 
                                                     href={"mailto:" + section.email}
-                                                    className="text-[#3C49DD] hover:underline ml-1"
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        const mailtoLink = "mailto:" + section.email;
+                                                        window.location.href = mailtoLink;
+                                                    }}
+                                                    className="text-[#3C49DD] hover:underline ml-1 cursor-pointer"
                                                 >
                                                     {section.email}
                                                 </a>
