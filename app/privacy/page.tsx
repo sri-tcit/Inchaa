@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { useIsEmbedded } from "@/lib/hooks";
 
 const privacySections = [
     {
@@ -83,11 +84,13 @@ const privacySections = [
 ];
 
 export default function PrivacyPolicy() {
+    const isEmbedded = useIsEmbedded();
+
     return (
         <main className="min-h-screen bg-gradient-to-b from-purple-50/30 via-white to-purple-50/20">
-            <Navbar />
+            {!isEmbedded && <Navbar />}
             
-            <div className="pt-32 pb-20 px-4 md:px-6 bg-[#F8F9FB] relative  before:content-[''] before:fixed before:top-0 before:left-0  before:w-[300px] 
+            <div className={`${isEmbedded ? 'pt-20' : 'pt-32'} pb-20 px-4 md:px-6 bg-[#F8F9FB] relative  before:content-[''] before:fixed before:top-0 before:left-0  before:w-[300px] 
             before:h-[482px] 
                 before:bg-[url('/assets/left-overlay.png')] before:bg-no-repeat before:bg-center before:bg-contain
                 
@@ -151,7 +154,7 @@ export default function PrivacyPolicy() {
                                             {section.content}
                                             {section.email && (
                                                 <a 
-                                                    href={`mailto:${section.email}`}
+                                                    href={"mailto:" + section.email}
                                                     className="text-[#3C49DD] hover:underline ml-1"
                                                 >
                                                     {section.email}
@@ -166,7 +169,7 @@ export default function PrivacyPolicy() {
                 </div>
             </div>
 
-            <Footer />
+            {!isEmbedded && <Footer />}
         </main>
     );
 }

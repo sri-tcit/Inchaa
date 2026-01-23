@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { useIsEmbedded } from "@/lib/hooks";
 
 const termsSections = [
     {
@@ -60,19 +61,13 @@ const termsSections = [
 ];
 
 export default function TermsConditions() {
+    const isEmbedded = useIsEmbedded();
+
     return (
         <main className="min-h-screen bg-gradient-to-b from-purple-50/30 via-white to-purple-50/20">
-            <Navbar />
+            {!isEmbedded && <Navbar />}
             
-            <div className="pt-32 pb-20 px-4 md:px-6 bg-[#F8F9FB] relative  before:content-[''] before:fixed before:top-0 before:left-0  before:w-[300px] 
-            before:h-[482px] 
-                before:bg-[url('/assets/left-overlay.png')] before:bg-no-repeat before:bg-center before:bg-contain
-                
-                after:content-[''] after:fixed after:top-0 after:right-0  after:w-[230px] 
-            after:h-[482px] 
-                after:bg-[url('/assets/right-overlay.png')] after:bg-no-repeat after:bg-center after:bg-contain
-                
-                ">
+            <div className={`${isEmbedded ? 'pt-20' : 'pt-32'} pb-20 px-4 md:px-6 bg-[#F8F9FB] relative before:content-[''] before:fixed before:top-0 before:left-0 before:w-[300px] before:h-[482px] before:bg-[url('/assets/left-overlay.png')] before:bg-no-repeat before:bg-center before:bg-contain after:content-[''] after:fixed after:top-0 after:right-0 after:w-[230px] after:h-[482px] after:bg-[url('/assets/right-overlay.png')] after:bg-no-repeat after:bg-center after:bg-contain`}>
                 <div className="container mx-auto max-w-4xl">
                 <div className="pb-[40px]">
                             <h1 className="text-[#1D2030] text-center font-poppins text-[34px] font-bold leading-[130%] pb-[8px]">
@@ -128,7 +123,7 @@ export default function TermsConditions() {
                                             {section.content}
                                             {section.email && (
                                                 <a 
-                                                    href={`mailto:${section.email}`}
+                                                    href={"mailto:" + section.email}
                                                     className="text-[#3C49DD] hover:underline ml-1"
                                                 >
                                                     {section.email}
@@ -143,7 +138,7 @@ export default function TermsConditions() {
                 </div>
             </div>
 
-            <Footer />
+            {!isEmbedded && <Footer />}
         </main>
     );
 }
