@@ -26,13 +26,13 @@ export default function Home() {
       <div id="features">
         <AllInOneGrid />
       </div>
-      <CustomerCTA />
+      <div id="why-inchaa">
+        <CustomerCTA />
+      </div>
       <CustomerFeatures />
       <ProviderCTA />
       <ProviderFeatures />
-      <div id="why-inchaa">
         <Testimonials />
-      </div>
       <div id="support">
         <HelpSection />
       </div>
