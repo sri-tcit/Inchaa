@@ -61,18 +61,18 @@ export function Hero() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full">
-                            <button className="flex items-center justify-center gap-2 h-[44px] px-8 rounded-[16px] w-full sm:w-auto
+                            {/* <button className="flex items-center justify-center gap-2 h-[44px] px-8 rounded-[16px] w-full sm:w-auto
 bg-[linear-gradient(104deg,#39F_0%,#3040E8_50%,#8C3CDD_100%)] 
 shadow-[0_16px_48px_0_rgba(100,100,150,0.15)]
 text-white text-center font-poppins text-base font-semibold leading-[130%] cursor-pointer">
                                 Get Started Now <ArrowRight className="w-4 h-4" />
-                            </button>
-                            <button className="flex items-center justify-center gap-2 h-[44px] px-8 rounded-[16px] w-full sm:w-auto bg-[rgba(255,255,255,0.70)] shadow-[0_16px_48px_0_rgba(100,100,150,0.15)] text-[#323232] text-center font-poppins text-base font-semibold leading-[130%] cursor-pointer">
+                            </button> */}
+                            {/* <button className="flex items-center justify-center gap-2 h-[44px] px-8 rounded-[16px] w-full sm:w-auto bg-[rgba(255,255,255,0.70)] shadow-[0_16px_48px_0_rgba(100,100,150,0.15)] text-[#323232] text-center font-poppins text-base font-semibold leading-[130%] cursor-pointer">
                                 <Play className="w-4 h-4 fill-current" /> Watch Demo
-                            </button>
+                            </button> */}
                         </div>
 
-                        <div className="flex items-start flex-col gap-4 mt-6 text-sm text-gray-600">
+                        {/* <div className="flex items-start flex-col gap-4 mt-6 text-sm text-gray-600">
                             <p className="text-[#76797B] flex gap-2 font-poppins text-base font-normal leading-6">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <g clipPath="url(#clip0_1_2946)">
@@ -101,7 +101,7 @@ text-white text-center font-poppins text-base font-semibold leading-[130%] curso
                                     5k+
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </motion.div>
 
                     {/* Right Image/Mockup */}

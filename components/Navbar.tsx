@@ -96,6 +96,34 @@ export function Navbar() {
         setMobileMenuOpen(false);
     };
 
+    const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        const isHomePage = pathname === '/';
+        
+        if (isHomePage) {
+            // If already on home page, prevent default navigation and scroll to top
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // If on a different page, navigate to home and scroll to top after navigation
+            e.preventDefault();
+            router.push('/');
+            
+            // Wait for navigation to complete, then scroll to top
+            setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }, 100);
+        }
+        
+        // Close mobile menu after clicking logo
+        setMobileMenuOpen(false);
+    };
+
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     };
@@ -111,7 +139,7 @@ export function Navbar() {
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="flex items-center justify-between">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center gap-2 z-50 relative">
+                        <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 z-50 relative">
                             <Image
                                 src="/assets/incha-logo.svg"
                                 alt="Inchaa Logo"
@@ -155,10 +183,14 @@ export function Navbar() {
 
                         {/* Right Side Actions */}
                         <div className="flex items-center gap-3 md:gap-12">
-                            <span className="hidden md:block text-sm font-medium text-[#76797B]">Join as Provider</span>
-                            <button className="bg-[linear-gradient(108deg,#39F_0%,#3040E8_50%,#8C3CDD_100%)] text-white px-3 py-2 md:px-5 md:py-2.5 rounded-[16px] text-xs md:text-sm font-medium transition-all shadow-lg shadow-blue-600/20 whitespace-nowrap">
+                            <span className="hidden md:block text-[#323232] text-center font-poppins text-[14px] font-semibold leading-[1.3] cursor-pointer">
+                                <a href="https://portal.inchaa.com/login" target="_blank" rel="noopener noreferrer">
+                                    Join as Provider
+                                </a>
+                               </span>
+                            {/* <button className="bg-[linear-gradient(108deg,#39F_0%,#3040E8_50%,#8C3CDD_100%)] text-white px-3 py-2 md:px-5 md:py-2.5 rounded-[16px] text-xs md:text-sm font-medium transition-all shadow-lg shadow-blue-600/20 whitespace-nowrap">
                                 Get the App
-                            </button>
+                            </button> */}
                             <button 
                                 onClick={toggleMobileMenu}
                                 className="md:hidden p-2 text-gray-700 relative z-50"
@@ -222,10 +254,14 @@ export function Navbar() {
                         </Link>
                         <div className="pt-6 mt-4 border-t border-gray-200">
                             <div className="py-2 px-2">
-                                <span className="text-sm font-medium text-[#76797B] block mb-4">Join as Provider</span>
-                                <button className="w-full bg-[linear-gradient(108deg,#39F_0%,#3040E8_50%,#8C3CDD_100%)] text-white px-4 py-3 rounded-[16px] text-sm font-medium shadow-lg shadow-blue-600/20">
+                                <span className="text-[#323232] text-center font-poppins text-[14px] font-semibold leading-[1.3] block mb-4">
+                                    <a href="https://portal.inchaa.com/login" target="_blank" rel="noopener noreferrer">
+                                        
+                                    Join as Provider
+                                    </a></span>
+                                {/* <button className="w-full bg-[linear-gradient(108deg,#39F_0%,#3040E8_50%,#8C3CDD_100%)] text-white px-4 py-3 rounded-[16px] text-sm font-medium shadow-lg shadow-blue-600/20">
                                     Get the App
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                     </nav>

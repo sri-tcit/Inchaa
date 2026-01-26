@@ -23,9 +23,9 @@ export function CTASection() {
                                 Join the fastest growing construction network. Whether you are a pro or a homeowner, Inchaa makes it easy.
                             </p>
                             <div className="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
-                                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-medium transition-all shadow-lg shadow-blue-600/30 cursor-pointer">
+                                {/* <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-medium transition-all shadow-lg shadow-blue-600/30 cursor-pointer">
                                     Get Started Now
-                                </button>
+                                </button> */}
                             </div>
                         </div>
 

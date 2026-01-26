@@ -133,6 +133,9 @@ export function HelpSection() {
                                         whileHover={{ scale: 1.02, y: -2 }}
                                         whileTap={{ scale: 0.98 }}
                                         transition={{ duration: 0.2 }}
+                                        onClick={() => {
+                                            window.location.href = 'mailto:support@inchaa.com';
+                                        }}
                                     >
                                         <div className="flex w-[40px] h-[40px] justify-center items-center rounded-[16px] bg-[#3C49DD]">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -145,22 +148,22 @@ export function HelpSection() {
                                             <div className="text-[#76797B] font-poppins text-[12px] font-normal leading-[150%]">support@inchaa.com</div>
                                         </div>
                                     </motion.button>
-                                    <motion.button 
+                                    {/* <motion.button 
                                         className="rounded-[12px] border border-white/40 bg-white/70 shadow-[0_8px_32px_0_rgba(100,100,150,0.12)] backdrop-blur-[10px] flex items-center gap-[12px] self-stretch p-[16px] w-full cursor-pointer"
                                         whileHover={{ scale: 1.02, y: -2 }}
                                         whileTap={{ scale: 0.98 }}
                                         transition={{ duration: 0.2 }}
-                                    >
-                                        <div className="flex w-[40px] h-[40px] justify-center items-center rounded-[16px] bg-[#3C49DD]">
+                                    > */}
+                                        {/* <div className="flex w-[40px] h-[40px] justify-center items-center rounded-[16px] bg-[#3C49DD]">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
   <path d="M6.58268 16.6669C8.17316 17.4827 10.0028 17.7037 11.7418 17.29C13.4808 16.8763 15.0148 15.8551 16.0675 14.4104C17.1201 12.9656 17.6222 11.1925 17.4832 9.41034C17.3441 7.62821 16.5732 5.95434 15.3092 4.69036C14.0452 3.42638 12.3713 2.65541 10.5892 2.51638C8.80709 2.37735 7.03391 2.87941 5.5892 3.93207C4.14449 4.98474 3.12326 6.51879 2.70953 8.2578C2.29581 9.9968 2.5168 11.8264 3.33268 13.4169L1.66602 18.3335L6.58268 16.6669Z" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-                                        </div>
-                                        <div className="text-left">
+                                        </div> */}
+                                        {/* <div className="text-left">
                                             <div className="text-[#323232] font-poppins text-[14px] font-semibold leading-[130%] pb-[4px]">In-App Chat</div>
                                             <div className="text-[#76797B] font-poppins text-[12px] font-normal leading-[150%]">Available 24/7</div>
-                                        </div>
-                                    </motion.button>
+                                        </div> */}
+                                    {/* </motion.button> */}
                             </div>
                     </motion.div>
                 </div>

@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { VideoSection } from "@/components/VideoSection";
+// import { VideoSection } from "@/components/VideoSection";
 import { JourneySteps } from "@/components/JourneySteps";
 import { AllInOneGrid } from "@/components/AllInOneGrid";
 import { CustomerCTA } from "@/components/CustomerCTA";
@@ -19,7 +19,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#F8F9FB] overflow-hidden">
       <Navbar />
       <Hero />
-      <VideoSection />
+      {/* <VideoSection /> */}
       <div id="how-it-works">
         <JourneySteps />
       </div>
@@ -32,7 +32,7 @@ export default function Home() {
       <CustomerFeatures />
       <ProviderCTA />
       <ProviderFeatures />
-        <Testimonials />
+        {/* <Testimonials /> */}
       <div id="support">
         <HelpSection />
       </div>
