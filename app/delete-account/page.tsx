@@ -71,12 +71,48 @@ export default function DeleteAccount() {
                                 </h2>
                             </motion.div>
 
+                            {/* How to Delete Steps */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: 0.05 }}
+                                className="space-y-4"
+                            >
+                                <h3 className="text-[#1D2030] font-poppins text-[20px] md:text-[24px] font-bold leading-[130%]">
+                                    How to Delete Your Account
+                                </h3>
+                                <p className="text-[#76797B] font-poppins text-[16px] font-normal leading-[150%] mb-4">
+                                    To delete your Inchaa account, follow these steps:
+                                </p>
+                                <ol className="space-y-3 ml-6 list-decimal">
+                                    <li className="text-[#76797B] font-poppins text-[16px] font-normal leading-[150%]">
+                                        Open the Inchaa mobile app on your device
+                                    </li>
+                                    <li className="text-[#76797B] font-poppins text-[16px] font-normal leading-[150%]">
+                                        Navigate to Account settings
+                                    </li>
+                                    <li className="text-[#76797B] font-poppins text-[16px] font-normal leading-[150%]">
+                                        Select "Delete Account" from the account options
+                                    </li>
+                                    <li className="text-[#76797B] font-poppins text-[16px] font-normal leading-[150%]">
+                                        Review the information about account deletion
+                                    </li>
+                                    <li className="text-[#76797B] font-poppins text-[16px] font-normal leading-[150%]">
+                                        Confirm your request to delete the account
+                                    </li>
+                                </ol>
+                                <p className="text-[#76797B] font-poppins text-[14px] font-normal leading-[150%] italic mt-4">
+                                    Note: Account deletion must be initiated through the mobile app. This web page provides information only and cannot be used to delete your account.
+                                </p>
+                            </motion.div>
+
                             {/* Red Warning Box */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: 0.1 }}
+                                transition={{ duration: 0.4, delay: 0.15 }}
                                 className="bg-red-50 border border-red-200 rounded-2xl p-6 md:p-8"
                             >
                                 <p className="text-red-700 font-poppins text-[16px] md:text-[18px] font-bold leading-[130%] mb-4">
@@ -96,7 +132,7 @@ export default function DeleteAccount() {
                                                 initial={{ opacity: 0, x: -10 }}
                                                 whileInView={{ opacity: 1, x: 0 }}
                                                 viewport={{ once: true }}
-                                                transition={{ duration: 0.3, delay: 0.2 + idx * 0.1 }}
+                                                transition={{ duration: 0.3, delay: 0.25 + idx * 0.1 }}
                                                 className="flex items-start gap-4"
                                             >
                                                 <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
@@ -121,7 +157,7 @@ export default function DeleteAccount() {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: 0.3 }}
+                                transition={{ duration: 0.4, delay: 0.4 }}
                                 className="space-y-4"
                             >
                                 <h3 className="text-[#1D2030] font-poppins text-[20px] md:text-[24px] font-bold leading-[130%]">
@@ -140,7 +176,7 @@ export default function DeleteAccount() {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: 0.4 }}
+                                transition={{ duration: 0.4, delay: 0.5 }}
                                 className="space-y-4 pt-4 border-t border-gray-200"
                             >
                                 <h3 className="text-[#1D2030] font-poppins text-[20px] md:text-[24px] font-bold leading-[130%]">
@@ -164,7 +200,7 @@ export default function DeleteAccount() {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: 0.5 }}
+                                transition={{ duration: 0.4, delay: 0.6 }}
                                 className="pt-4 border-t border-gray-200"
                             >
                                 <p className="text-[#76797B] font-poppins text-[16px] font-normal leading-[150%]">
