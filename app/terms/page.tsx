@@ -8,55 +8,75 @@ import { useIsEmbedded } from "@/lib/hooks";
 const termsSections = [
     {
         number: 1,
-        title: "Acceptance of Terms",
-        content: "By accessing and using Inchaa (\"the Platform\"), you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to abide by the above, please do not use this service."
+        title: "Introduction",
+        content: "These Terms and Conditions govern your use of the Inchaa marketplace app. By using the app, you agree to these terms. If you do not agree, please refrain from using our services. Definition: \"Service Provider\" refers to Main Contractors, Sub-Contractors, and Consultants listed on the Inchaa platform."
     },
     {
         number: 2,
-        title: "Description of Service",
-        content: "Inchaa is a digital platform that connects customers with verified contractors, engineers, and consultants. The platform facilitates project management, quotation requests, and communication between users and service providers."
+        title: "Marketplace Services",
+        content: "Inchaa serves as a marketplace platform that connects users with Service Providers. Users can view Service Provider profiles, shortlist/add them, and request quotations. When a customer submits a Request for Quote (RFQ), the selected Service Providers may view the request details and respond with quotations as per the platform workflow. Service Providers listed on the platform are responsible for providing accurate information and ensuring their services meet the expectations of users."
     },
     {
         number: 3,
-        title: "User Registration",
-        intro: "To use certain features of the Platform, you must register for an account. You agree to:",
+        title: "User Responsibilities",
+        intro: "You agree to the following responsibilities:",
         points: [
-            "Provide accurate, current, and complete information during registration",
-            "Maintain and promptly update your account information",
-            "Keep your password secure and confidential",
-            "Accept responsibility for all activities under your account"
+            "Account Information: You agree to provide accurate and up-to-date information when creating and maintaining your account.",
+            "Request for Quote: By submitting an RFQ, you agree that necessary request details may be shared with relevant Service Providers for quotation and communication purposes.",
+            "Reviews: Users can leave reviews for Service Providers. You agree to provide honest and constructive feedback based on your experience.",
+            "Prohibited Activities: You agree not to engage in activities such as posting misleading reviews, fraud, abuse, or attempting to misuse the platform."
         ]
     },
     {
         number: 4,
-        title: "Service Provider Verification",
-        content: "While Inchaa strives to verify service providers on the platform, we do not guarantee the quality, safety, or legality of services offered. Users are encouraged to conduct their own due diligence before engaging any service provider."
+        title: "Service Provider Listings",
+        content: "Service Providers are responsible for managing their listings, including the accuracy of their services and pricing (if shown). Inchaa does not guarantee the quality, availability, or delivery of services offered by Service Providers."
     },
     {
         number: 5,
-        title: "Quotations and Payments",
-        content: "All quotations provided through the Platform are estimates and may be subject to change. Payment terms are agreed upon between the customer and service provider. Inchaa is not responsible for any disputes arising from payment issues."
+        title: "Verification & Account Status",
+        intro: "Inchaa may perform administrative review of Service Provider accounts. Inchaa reserves the right to:",
+        points: [
+            "approve or reject registrations",
+            "request resubmission of information",
+            "deactivate/reactivate accounts based on compliance, policy violations, or operational reasons"
+        ]
     },
     {
         number: 6,
-        title: "Intellectual Property",
-        content: "All content, features, and functionality of the Platform are owned by Inchaa Technologies and are protected by international copyright, trademark, and other intellectual property laws."
+        title: "No Payment System",
+        content: "Currently, there is no payment system within the app. Any financial transactions or agreements between users and Service Providers must be handled outside of the app."
     },
     {
         number: 7,
         title: "Limitation of Liability",
-        content: "Inchaa shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the Platform or any services obtained through the Platform."
+        content: "We are not responsible for any disputes, damages, or service-related issues arising from the services provided by Service Providers. Inchaa is a marketplace platform and does not guarantee that all Service Providers meet specific standards."
     },
     {
         number: 8,
-        title: "Changes to Terms",
-        content: "Inchaa reserves the right to modify these terms at any time. We will notify users of any material changes via email or through the Platform. Continued use of the Platform after changes constitutes acceptance of the new terms."
+        title: "Data Security",
+        content: "We implement reasonable administrative, technical, and physical safeguards to protect user information in accordance with our Privacy Policy. While we take appropriate measures to secure data, no system can be guaranteed to be completely secure. Inchaa shall not be responsible for unauthorized access caused by factors beyond reasonable control. Users are responsible for maintaining the confidentiality of their account credentials and for any activity occurring under their account."
     },
     {
         number: 9,
-        title: "Contact Information",
-        content: "For any questions regarding these Terms & Conditions, please contact us at ",
-        email: "legal@inchaa.com"
+        title: "Termination of Access",
+        content: "We reserve the right to suspend or terminate your access to the app if we believe you have violated these terms."
+    },
+    {
+        number: 10,
+        title: "Changes to Terms",
+        content: "We may update these Terms and Conditions at any time. Any changes will be posted here, and the \"Last Updated\" date will reflect the most recent updates."
+    },
+    {
+        number: 11,
+        title: "Governing Law",
+        content: "These Terms and Conditions are governed by the laws of the United Arab Emirates."
+    },
+    {
+        number: 12,
+        title: "Contact Us",
+        content: "For any questions about these Terms and Conditions, please contact us at ",
+        email: "support@inchaa.com"
     }
 ];
 
@@ -74,7 +94,7 @@ export default function TermsConditions() {
                                 Terms & <span className="bg-gradient-to-r from-[#39F] via-[#3040E8] to-[#8C3CDD] bg-clip-text text-transparent font-poppins text-[34px] font-bold leading-[130%]">Conditions</span>
                             </h1>
                             <p className="text-[#76797B] text-center font-poppins text-[16px] font-normal leading-[150%]">
-                                Last updated: January 2026
+                                Last updated: 26 Jan 2026
                             </p>
                         </div>
 

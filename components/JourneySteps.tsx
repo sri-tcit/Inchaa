@@ -38,11 +38,7 @@ const steps = [
     },
     {
         icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-            <path d="M18.6641 18.6667L22.1641 9.33337L25.6641 18.6667C24.6491 19.425 23.4241 19.8334 22.1641 19.8334C20.9041 19.8334 19.6791 19.425 18.6641 18.6667Z" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M2.33594 18.6667L5.83594 9.33337L9.33594 18.6667C8.32094 19.425 7.09594 19.8334 5.83594 19.8334C4.57594 19.8334 3.35094 19.425 2.33594 18.6667Z" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M8.16406 24.5H19.8307" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M14 3.5V24.5" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M3.5 8.16671H5.83333C8.16667 8.16671 11.6667 7.00004 14 5.83337C16.3333 7.00004 19.8333 8.16671 22.1667 8.16671H24.5" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M25.6693 14H22.7759C22.2661 13.9989 21.7699 14.1649 21.3632 14.4725C20.9566 14.7801 20.6619 15.2124 20.5243 15.7034L17.7826 25.4567C17.7649 25.5173 17.7281 25.5705 17.6776 25.6084C17.6271 25.6462 17.5657 25.6667 17.5026 25.6667C17.4395 25.6667 17.3781 25.6462 17.3276 25.6084C17.2771 25.5705 17.2403 25.5173 17.2226 25.4567L10.7826 2.54337C10.7649 2.48279 10.7281 2.42957 10.6776 2.39171C10.6271 2.35384 10.5657 2.33337 10.5026 2.33337C10.4395 2.33337 10.3781 2.35384 10.3276 2.39171C10.2771 2.42957 10.2403 2.48279 10.2226 2.54337L7.48094 12.2967C7.34381 12.7857 7.05088 13.2166 6.64661 13.5241C6.24234 13.8315 5.74881 13.9986 5.24094 14H2.33594" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>,
         title: "Manage & Track",
         description: "Track progress and handle payments securely."
