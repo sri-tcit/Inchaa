@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   title: "Inchaa - Build Smarter",
   description: "The #1 Construction Ecosystem",
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 };
 
