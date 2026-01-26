@@ -36,6 +36,9 @@ export function Footer() {
                             <Link href="/privacy" className="hover:text-gray-700 transition-colors">
                                 Privacy
                             </Link>
+                            <Link href="/delete-account" className="hover:text-gray-700 transition-colors">
+                                Delete Account
+                            </Link>
                         </nav>
                     </div>
 
