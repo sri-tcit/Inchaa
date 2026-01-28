@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -101,29 +100,7 @@ export default function PrivacyPolicy() {
     const isEmbedded = useIsEmbedded();
 
     return (
-        <>
-            <Head>
-                <title>Inchaa Privacy Policy</title>
-                <meta 
-                    name="description" 
-                    content="Understand how Inchaa collects, uses, and protects your personal data as a customer or service provider on the Inchaa construction marketplace." 
-                />
-                <meta property="og:title" content="Inchaa Privacy Policy" />
-                <meta 
-                    property="og:description" 
-                    content="Learn about the information Inchaa collects, how it is used, data security measures, data sharing, and your rights regarding your personal data." 
-                />
-                <meta property="og:url" content="https://inchaa.com/privacy" />
-                <meta property="og:site_name" content="Inchaa" />
-                <meta property="og:type" content="website" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Inchaa Privacy Policy" />
-                <meta 
-                    name="twitter:description" 
-                    content="Read how Inchaa handles your personal information, protects your data, and supports your privacy rights on the platform." 
-                />
-            </Head>
-            <main className="min-h-screen bg-gradient-to-b from-purple-50/30 via-white to-purple-50/20">
+        <main className="min-h-screen bg-gradient-to-b from-purple-50/30 via-white to-purple-50/20">
             {!isEmbedded && <Navbar />}
             
             <div className={`${isEmbedded ? 'pt-20' : 'pt-32'} pb-20 px-4 md:px-6 bg-[#F8F9FB] relative before:content-[''] before:fixed before:top-0 before:left-0 before:w-[300px] before:h-[482px] before:bg-[url('/assets/left-overlay.png')] before:bg-no-repeat before:bg-center before:bg-contain after:content-[''] after:fixed after:top-0 after:right-0 after:w-[230px] after:h-[482px] after:bg-[url('/assets/right-overlay.png')] after:bg-no-repeat after:bg-center after:bg-contain`}>
@@ -168,7 +145,7 @@ export default function PrivacyPolicy() {
                                     )}
                                     
                                     {section.points && (
-                                        <ul className="space-y-2 ml-6">
+                                        <ul className="space-y-2 ml-6 list-disc">
                                             {section.points.map((point, pointIdx) => (
                                                 <li key={pointIdx} className="text-[#76797B] font-poppins text-[16px] font-normal leading-[150%]">
                                                     {point}
@@ -204,6 +181,5 @@ export default function PrivacyPolicy() {
 
             {!isEmbedded && <Footer />}
         </main>
-        </>
     );
 }
