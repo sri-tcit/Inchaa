@@ -27,14 +27,14 @@ export function FinalDownloadCTA() {
 
                             <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
                                 <div>
-                                    <h4 className="text-[#323232] font-poppins text-[16px] font-semibold leading-[130%]  mb-[0px] pb-[8px]">
+                                    {/* <h4 className="text-[#323232] font-poppins text-[16px] font-semibold leading-[130%]  mb-[0px] pb-[8px]">
                                         Download Now
                                     </h4>
 
                                     <div className="flex gap-4 mb-[34px] flex-wrap lg:flex-row flex-col">
                                         <Image src="/assets/apple-store.png" alt="Apple Store" width={186} height={56} className="w-[140px] md:w-[186px] h-auto" />
                                         <Image src="/assets/google-play.png" alt="Google Play" width={186} height={56} className="w-[140px] md:w-[186px] h-auto" />
-                                    </div>
+                                    </div> */}
 
                                     <div className="flex flex-wrap gap-4 md:gap-[24px]">
 
