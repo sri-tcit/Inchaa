@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
 
 const faqData = [
     {
@@ -78,20 +77,31 @@ export function HelpSection() {
                                 >
                                     <button
                                         onClick={() => toggleAccordion(idx)}
-                                        className="w-full flex justify-between items-start self-stretch px-[24px] py-[20px] text-left cursor-pointer hover:bg-white/80 transition-colors"
+                                        className="w-full flex justify-between items-center self-stretch px-[24px] py-[20px] text-left cursor-pointer hover:bg-white/80 transition-colors"
                                     >
                                         <span className="text-[#323232] font-poppins text-[16px] font-semibold leading-[130%] pr-4">{faq.question}</span>
                                         <motion.div
                                             initial={false}
                                             animate={{ rotate: openIndex === idx ? 180 : 0 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="flex-shrink-0"
+                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                            className="flex-shrink-0 flex items-center justify-center"
                                         >
-                                            {openIndex === idx ? (
-                                                <Minus className="w-5 h-5 text-gray-600" />
-                                            ) : (
-                                                <Plus className="w-5 h-5 text-gray-400" />
-                                            )}
+                                            <svg 
+                                                xmlns="http://www.w3.org/2000/svg" 
+                                                width="16" 
+                                                height="16" 
+                                                viewBox="0 0 10 6" 
+                                                fill="none"
+                                                className="transition-colors"
+                                            >
+                                                <path 
+                                                    d="M0.666626 0.666748L4.66663 4.66675L8.66663 0.666748" 
+                                                    stroke="#323232" 
+                                                    strokeWidth="1.33333" 
+                                                    strokeLinecap="round" 
+                                                    strokeLinejoin="round"
+                                                />
+                                            </svg>
                                         </motion.div>
                                     </button>
                                     <AnimatePresence initial={false}>

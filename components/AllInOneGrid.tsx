@@ -69,9 +69,9 @@ export function AllInOneGrid() {
                             <span className="text-center text-[#76797B] font-poppins text-sm font-normal leading-[1.5]">Features</span>
                         </div>
                     </div>
-                    <h2 className="text-[#1D2030] text-center font-poppins text-[24px] md:text-[34px] font-bold leading-[130%] pb-[16px]">Everything You Need,
-                        <span className="bg-clip-text text-transparent bg-[linear-gradient(106deg,#39F_0%,#3040E8_50%,#8C3CDD_100%)] font-poppins text-[24px] md:text-[34px] font-bold leading-[130%]">
-                            All in One Place</span></h2>
+                    <h2 className="text-[#1D2030] text-center font-poppins text-[24px] md:text-[34px] font-bold leading-[130%] pb-[16px]">Everything You Need, 
+                        <span className="px-1 bg-clip-text text-transparent bg-[linear-gradient(106deg,#39F_0%,#3040E8_50%,#8C3CDD_100%)] font-poppins text-[24px] md:text-[34px] font-bold leading-[130%]">
+                               All in One Place</span></h2>
                     <p className="text-[#76797B] text-center font-poppins text-base font-normal leading-6">
                         Powerful tools designed to streamline your construction journey from start to finish.
                     </p>
