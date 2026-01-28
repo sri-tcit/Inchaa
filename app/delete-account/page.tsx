@@ -1,5 +1,6 @@
 "use client";
 
+import Head from "next/head";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -38,7 +39,29 @@ export default function DeleteAccount() {
     const isEmbedded = useIsEmbedded();
 
     return (
-        <main className="min-h-screen bg-gradient-to-b from-purple-50/30 via-white to-purple-50/20">
+        <>
+            <Head>
+                <title>Delete Your Inchaa Account – Data Removal & Process</title>
+                <meta 
+                    name="description" 
+                    content="Learn how to delete your Inchaa account, what data is removed, and what happens after deletion, including security and data retention details." 
+                />
+                <meta property="og:title" content="Delete Your Inchaa Account – Data Removal & Process" />
+                <meta 
+                    property="og:description" 
+                    content="Step-by-step instructions for deleting your Inchaa account, including OTP verification, permanent data deletion, and important notes before you proceed." 
+                />
+                <meta property="og:url" content="https://inchaa.com/delete-account" />
+                <meta property="og:site_name" content="Inchaa" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Delete Your Inchaa Account – Data Removal & Process" />
+                <meta 
+                    name="twitter:description" 
+                    content="Understand how to delete your Inchaa account safely and what data will be erased from the platform." 
+                />
+            </Head>
+            <main className="min-h-screen bg-gradient-to-b from-purple-50/30 via-white to-purple-50/20">
             {!isEmbedded && <Navbar />}
             
             <div className={`${isEmbedded ? 'pt-20' : 'pt-32'} pb-20 px-4 md:px-6 bg-[#F8F9FB] relative before:content-[''] before:fixed before:top-0 before:left-0 before:w-[300px] before:h-[482px] before:bg-[url('/assets/left-overlay.png')] before:bg-no-repeat before:bg-center before:bg-contain after:content-[''] after:fixed after:top-0 after:right-0 after:w-[230px] after:h-[482px] after:bg-[url('/assets/right-overlay.png')] after:bg-no-repeat after:bg-center after:bg-contain`}>
@@ -224,5 +247,6 @@ export default function DeleteAccount() {
 
             {!isEmbedded && <Footer />}
         </main>
+        </>
     );
 }
