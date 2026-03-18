@@ -6,13 +6,17 @@ const { services } = homeEn;
 
 export function ServicesGrid() {
   return (
-    <section id="services" className="bg-white py-16 md:py-24">
-      <div className="max-w-[1320px] mx-auto px-4 md:px-6">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
-          <h2 className="text-navy text-2xl md:text-[32px] font-bold leading-tight">
-            {services.heading}
-          </h2>
+    <section id="services" className="bg-[#F8F8F8] py-16 md:py-24 border-t border-[#E5E7EB]">
+      <div className="max-w-[1100px] mx-auto px-4 md:px-6">
+        <div className="flex items-center gap-2.5 mb-5">
+          <span className="block w-5 h-[3px] bg-yellow" />
+          <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">
+            Find a professional
+          </span>
         </div>
+        <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-10">
+          {services.heading}
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {services.items.map((s) => (

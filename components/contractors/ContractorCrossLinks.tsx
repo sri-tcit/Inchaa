@@ -9,8 +9,8 @@ const links = [
 
 export function ContractorCrossLinks() {
   return (
-    <section className="bg-white py-16 md:py-20">
-      <div className="max-w-[1320px] mx-auto px-4 md:px-6">
+    <section className="bg-white py-16 md:py-20 border-t border-[#E5E7EB]">
+      <div className="max-w-[1100px] mx-auto px-4 md:px-6">
         <h2 className="text-navy text-lg md:text-xl font-bold">
           Looking for engineers or consultants instead?
         </h2>

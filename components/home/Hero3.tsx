@@ -111,7 +111,7 @@ export function Hero3() {
         </div>
 
         {/* Category entry cards */}
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {/* <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4">
           {CATEGORIES.map(({ icon: Icon, label, description, href }) => (
             <Link
               key={label}
@@ -128,7 +128,7 @@ export function Hero3() {
               <ArrowRight className="w-4 h-4 text-mid-grey group-hover:text-navy ml-auto mt-0.5 flex-shrink-0 transition-colors duration-150" />
             </Link>
           ))}
-        </div>
+        </div> */}
 
       </div>
     </section>

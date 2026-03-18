@@ -43,17 +43,15 @@ export function ConsultantHowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="bg-light-grey py-16 md:py-20">
-      <div className="max-w-[1320px] mx-auto px-4 md:px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.4 }}
-          className="text-navy text-2xl md:text-3xl font-bold text-center mb-12"
-        >
+    <section className="bg-[#F8F8F8] py-16 md:py-20 border-t border-[#E5E7EB]">
+      <div className="max-w-[1100px] mx-auto px-4 md:px-6">
+        <div className="flex items-center gap-2.5 mb-5">
+          <span className="block w-5 h-[3px] bg-yellow" />
+          <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">How it works</span>
+        </div>
+        <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
           How It Works
-        </motion.h2>
+        </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
