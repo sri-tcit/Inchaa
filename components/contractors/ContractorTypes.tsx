@@ -46,25 +46,27 @@ export function ContractorTypes() {
   const [showTrades, setShowTrades] = useState(false);
 
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-white py-16 md:py-24">
       <div className="max-w-[1320px] mx-auto px-4 md:px-6">
-        <h2 className="text-navy text-2xl md:text-3xl font-bold text-center mb-12">
+        <h2 className="text-navy text-2xl md:text-[32px] font-bold leading-tight mb-12">
           What Types of Contractors Can You Find on Inchaa?
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {mainTypes.map((type) => (
             <div
               key={type.title}
-              className="border border-[#E5E7EB] rounded-lg overflow-hidden"
+              className="border border-[#E5E7EB] rounded-lg overflow-hidden group"
             >
-              <img
-                src={type.img}
-                alt={type.title}
-                className="w-full aspect-[3/2] object-cover"
-              />
-              <div className="p-5">
-                <h3 className="text-charcoal text-base font-semibold">{type.title}</h3>
+              <div className="relative aspect-[3/2] overflow-hidden">
+                <img
+                  src={type.img}
+                  alt={type.title}
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-navy text-base font-bold">{type.title}</h3>
                 <p className="mt-2 text-mid-grey text-sm leading-relaxed">
                   {type.description}
                 </p>

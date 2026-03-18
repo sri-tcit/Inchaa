@@ -15,10 +15,11 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [lang, setLang] = useState<"en" | "ar">("en");
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -31,12 +32,15 @@ export function Navbar() {
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 bg-navy transition-shadow duration-200",
-          scrolled && "shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          scrolled
+            ? "bg-navy shadow-[0_1px_0_rgba(255,255,255,0.06)]"
+            : "bg-gradient-to-b from-black/50 to-transparent"
         )}
       >
-        <div className="max-w-[1320px] mx-auto px-4 md:px-6 h-[56px] flex items-center justify-between">
-          <div className="flex items-center gap-8">
+        <div className="max-w-[1320px] mx-auto px-4 md:px-6 h-[64px] flex items-center justify-between">
+          {/* Left: logo + nav links */}
+          <div className="flex items-center gap-10">
             <Link href="/" className="flex items-center z-50 relative">
               <Image
                 src="/assets/incha-logo.svg"
@@ -47,38 +51,58 @@ export function Navbar() {
               />
             </Link>
 
-            <div className="hidden lg:flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-7">
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-150"
+                  className="text-sm font-medium text-white/75 hover:text-white transition-colors duration-150"
                 >
                   {link.label}
                 </Link>
               ))}
-
-              <div className="w-px h-5 bg-white/20" />
-
-              <Link
-                href="/post-project"
-                className="text-sm font-semibold text-white hover:text-yellow transition-colors duration-150"
-              >
-                Post Your Project
-              </Link>
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          {/* Right: Post Project + lang switcher + Join */}
+          <div className="flex items-center gap-5">
             <Link
-              href="/signin"
-              className="hidden md:block text-sm font-medium text-white/70 hover:text-white transition-colors duration-150"
+              href="/post-project"
+              className="hidden lg:block text-sm font-medium text-white/75 hover:text-white transition-colors duration-150"
             >
-              Sign In
+              Post Your Project
             </Link>
+            <div className="hidden lg:block w-px h-4 bg-white/20" />
+
+            {/* Language switcher */}
+            <div className="hidden md:flex items-center border border-white/20 rounded-lg overflow-hidden">
+              <button
+                onClick={() => setLang("en")}
+                className={cn(
+                  "px-3 py-1.5 text-xs font-bold transition-colors duration-150",
+                  lang === "en"
+                    ? "bg-white text-navy"
+                    : "text-white/60 hover:text-white"
+                )}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLang("ar")}
+                className={cn(
+                  "px-3 py-1.5 text-xs font-bold transition-colors duration-150",
+                  lang === "ar"
+                    ? "bg-white text-navy"
+                    : "text-white/60 hover:text-white"
+                )}
+              >
+                AR
+              </button>
+            </div>
+
             <Link
-              href="/join"
-              className="hidden md:flex items-center bg-yellow text-navy text-sm font-semibold px-4 py-2 rounded-lg hover:brightness-95 transition-all duration-150"
+              href="http://inchaa-staging-fe.s3-website.me-central-1.amazonaws.com/service-provider"
+              className="hidden md:flex items-center bg-yellow text-navy text-sm font-bold px-4 py-2 rounded-lg hover:brightness-95 transition-all duration-150"
             >
               Join as a Professional
             </Link>
@@ -94,19 +118,20 @@ export function Navbar() {
         </div>
       </nav>
 
+      {/* Mobile menu */}
       <div
         className={cn(
           "md:hidden fixed inset-0 bg-navy z-40 transition-opacity duration-200",
           mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         )}
       >
-        <div className="pt-[72px] px-6 flex flex-col gap-1">
+        <div className="pt-[80px] px-6 flex flex-col gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-white/70 hover:text-white py-3 border-b border-white/10 transition-colors duration-150"
+              className="text-base font-medium text-white/70 hover:text-white py-3.5 border-b border-white/10 transition-colors duration-150"
             >
               {link.label}
             </Link>
@@ -114,21 +139,40 @@ export function Navbar() {
           <Link
             href="/post-project"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-base font-semibold text-white py-3 border-b border-white/10"
+            className="text-base font-medium text-white/70 hover:text-white py-3.5 border-b border-white/10 transition-colors duration-150"
           >
             Post Your Project
           </Link>
+
+          {/* Mobile language switcher */}
+          <div className="py-3.5 border-b border-white/10 flex items-center gap-2">
+            <span className="text-white/50 text-sm">Language:</span>
+            <div className="flex items-center border border-white/20 rounded-lg overflow-hidden">
+              <button
+                onClick={() => setLang("en")}
+                className={cn(
+                  "px-3 py-1.5 text-xs font-bold transition-colors duration-150",
+                  lang === "en" ? "bg-white text-navy" : "text-white/60 hover:text-white"
+                )}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLang("ar")}
+                className={cn(
+                  "px-3 py-1.5 text-xs font-bold transition-colors duration-150",
+                  lang === "ar" ? "bg-white text-navy" : "text-white/60 hover:text-white"
+                )}
+              >
+                AR
+              </button>
+            </div>
+          </div>
+
           <Link
-            href="/signin"
+            href="http://inchaa-staging-fe.s3-website.me-central-1.amazonaws.com/service-provider"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-base font-medium text-white/70 hover:text-white py-3 border-b border-white/10 transition-colors duration-150"
-          >
-            Sign In
-          </Link>
-          <Link
-            href="/join"
-            onClick={() => setMobileMenuOpen(false)}
-            className="mt-4 flex items-center justify-center bg-yellow text-navy text-sm font-semibold px-4 py-3 rounded-lg"
+            className="mt-6 flex items-center justify-center bg-yellow text-navy text-sm font-bold px-4 py-3 rounded-lg"
           >
             Join as a Professional
           </Link>
