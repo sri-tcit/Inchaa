@@ -16,32 +16,32 @@ export const homeEn = {
         title: "Post Your Project",
         description:
           "Describe what you need – property type, emirate, scope, budget. Takes 2 minutes.",
-        img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=720&h=480&fit=crop",
-        alt: "Person filling out project details",
+        img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=900&fit=crop&q=85",
+        alt: "Homeowner reviewing blueprints and planning a construction project",
       },
       {
         num: "2",
         title: "Receive Quotes",
         description:
           "Verified professionals respond with detailed proposals. Every one is licensed and reviewed.",
-        img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=720&h=480&fit=crop",
-        alt: "Professionals reviewing proposals",
+        img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1200&h=900&fit=crop&q=85",
+        alt: "Contractor professional reviewing project on tablet at construction site",
       },
       {
         num: "3",
         title: "Compare Side by Side",
         description:
           "Review pricing, scope, credentials, and past work in one dashboard. No more WhatsApp chaos.",
-        img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=720&h=480&fit=crop",
-        alt: "Comparing contractor proposals on dashboard",
+        img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=900&fit=crop&q=85",
+        alt: "Reviewing and comparing contractor proposals",
       },
       {
         num: "4",
         title: "Hire with Confidence",
         description:
           "Choose the best match. Manage communication, documents, and tracking from one place.",
-        img: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=720&h=480&fit=crop",
-        alt: "Team finalising project agreement",
+        img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&h=900&fit=crop&q=85",
+        alt: "Construction professional on site after being hired",
       },
     ],
   },
