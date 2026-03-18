@@ -58,7 +58,7 @@ export function ContractorWhyChoose() {
         <div className="mt-12 text-center">
           <PostProjectButton
             campaign="contractors_lp"
-            className="inline-flex items-center bg-yellow text-navy text-sm font-semibold px-5 py-2.5 rounded-lg hover:brightness-95 transition-all duration-150"
+            className="inline-flex items-center bg-yellow text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:brightness-95 transition-all duration-150"
           />
         </div>
       </div>

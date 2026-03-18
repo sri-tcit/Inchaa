@@ -28,7 +28,7 @@ export function ContractorHero() {
           </p>
           <PostProjectButton
             campaign="contractors_lp"
-            className="mt-8 inline-flex items-center bg-yellow text-navy text-sm font-bold px-7 py-3.5 rounded-lg hover:brightness-95 transition-all duration-150"
+            className="mt-8 inline-flex items-center bg-yellow text-white text-sm font-bold px-7 py-3.5 rounded-lg hover:brightness-95 transition-all duration-150"
           />
         </div>
       </div>

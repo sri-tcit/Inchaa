@@ -70,7 +70,7 @@ export function ConsultantHowItWorks() {
                       viewport={{ once: true, margin: "-40px" }}
                       transition={{ duration: 0.35, delay: i * 0.15 }}
                       className={`w-9 h-9 rounded-full text-sm font-bold flex items-center justify-center shrink-0 transition-colors duration-200 ${
-                        isActive ? "bg-yellow text-navy" : "bg-[#E5E7EB] text-mid-grey"
+                        isActive ? "bg-yellow text-white" : "bg-[#E5E7EB] text-mid-grey"
                       }`}
                     >
                       {step.num}
@@ -151,7 +151,7 @@ export function ConsultantHowItWorks() {
         >
           <PostProjectButton
             campaign="consultants_lp"
-            className="inline-flex items-center bg-yellow text-navy text-sm font-semibold px-5 py-2.5 rounded-lg hover:brightness-95 transition-all duration-150"
+            className="inline-flex items-center bg-yellow text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:brightness-95 transition-all duration-150"
           />
         </motion.div>
       </div>

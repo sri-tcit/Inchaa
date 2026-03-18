@@ -158,7 +158,7 @@ export default function AboutPage() {
               <div className="pt-2">
                 <PostProjectButton
                   campaign="about_homeowners"
-                  className="inline-flex items-center bg-yellow text-navy text-sm font-bold px-7 py-3.5 rounded-lg hover:brightness-95 transition-all duration-150"
+                  className="inline-flex items-center bg-yellow text-white text-sm font-bold px-7 py-3.5 rounded-lg hover:brightness-95 transition-all duration-150"
                 >
                   Post Your Project Free
                 </PostProjectButton>

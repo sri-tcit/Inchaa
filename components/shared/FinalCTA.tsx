@@ -25,7 +25,7 @@ export function FinalCTA() {
 
         <PostProjectButton
           campaign="homepage_final_cta"
-          className="inline-flex items-center mt-8 bg-yellow text-navy text-sm font-bold px-7 py-4 rounded-lg hover:brightness-95 transition-all duration-150"
+          className="inline-flex items-center mt-8 bg-yellow text-white text-sm font-bold px-7 py-4 rounded-lg hover:brightness-95 transition-all duration-150"
         >
           {finalCta.cta}
         </PostProjectButton>

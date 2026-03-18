@@ -236,7 +236,7 @@ export default function FAQsPage() {
               <div className="mt-6">
                 <PostProjectButton
                   campaign="faqs_homeowners"
-                  className="inline-flex items-center bg-yellow text-navy text-sm font-bold px-5 py-3 rounded-lg hover:brightness-95 transition-all duration-150"
+                  className="inline-flex items-center bg-yellow text-white text-sm font-bold px-5 py-3 rounded-lg hover:brightness-95 transition-all duration-150"
                 >
                   Post Your Project Free
                 </PostProjectButton>
@@ -267,7 +267,7 @@ export default function FAQsPage() {
               <div className="mt-6">
                 <PostProjectButton
                   campaign="faqs_homeowners"
-                  className="inline-flex items-center bg-yellow text-navy text-sm font-bold px-5 py-3 rounded-lg hover:brightness-95 transition-all duration-150"
+                  className="inline-flex items-center bg-yellow text-white text-sm font-bold px-5 py-3 rounded-lg hover:brightness-95 transition-all duration-150"
                 >
                   Post Your Project Free
                 </PostProjectButton>

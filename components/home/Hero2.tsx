@@ -46,7 +46,7 @@ export function Hero2() {
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <PostProjectButton
             campaign="homepage_hero"
-            className="inline-flex items-center bg-yellow text-navy text-sm font-bold px-7 py-3.5 rounded-lg hover:brightness-95 transition-all duration-150"
+            className="inline-flex items-center bg-yellow text-white text-sm font-bold px-7 py-3.5 rounded-lg hover:brightness-95 transition-all duration-150"
           >
             {hero.cta}
           </PostProjectButton>

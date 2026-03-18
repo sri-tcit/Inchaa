@@ -2,42 +2,41 @@
 
 import { useState } from "react";
 import { Play, X } from "lucide-react";
-import { homeEn } from "@/content/home/en";
-
-const { video } = homeEn;
 
 const DEMO_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
-const POSTER = "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1800&h=900&fit=crop";
 
 export function VideoSection() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <>
-      <section className="relative w-full min-h-[520px] md:min-h-[600px] overflow-hidden flex items-center justify-center">
+      <section className="relative w-full min-h-[560px] md:min-h-[640px] overflow-hidden flex items-center justify-center">
+        {/* Background image */}
         <img
-          src={POSTER}
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1800&h=900&fit=crop&q=85"
           alt="Inchaa in action"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-navy/70" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative z-10 w-full max-w-[860px] mx-auto px-4 md:px-6 py-20 text-center">
-          <h2 className="text-white text-[36px] md:text-[54px] font-bold leading-[1.1] tracking-tight">
-            {video.heading}
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-[760px] mx-auto px-4 md:px-6 py-20 text-center">
+          <h2 className="text-white text-[38px] md:text-[58px] font-bold leading-[1.1] tracking-tight">
+            See Inchaa in Action
           </h2>
-          <p className="mt-4 text-white/60 text-sm md:text-base max-w-sm mx-auto leading-relaxed">
-            {video.subtext}
+          <p className="mt-5 text-white/70 text-base md:text-lg max-w-md mx-auto leading-relaxed">
+            Watch how homeowners post projects and receive verified quotes in minutes.
           </p>
           <button
             onClick={() => setModalOpen(true)}
             aria-label="Watch demo video"
-            className="mt-10 inline-flex items-center gap-3 bg-yellow text-navy text-sm font-bold px-6 py-3 rounded-lg hover:brightness-95 transition-all duration-150"
+            className="mt-10 inline-flex items-center gap-3 bg-white text-navy text-sm font-bold px-7 py-3.5 rounded-full hover:bg-white/90 transition-all duration-150 shadow-lg"
           >
-            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-navy/10">
-              <Play className="w-3.5 h-3.5 fill-navy" />
+            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-navy">
+              <Play className="w-3 h-3 fill-white text-white ml-0.5" />
             </span>
-            {video.cta}
+            Watch the Video
           </button>
         </div>
       </section>
