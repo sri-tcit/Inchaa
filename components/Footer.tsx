@@ -1,52 +1,85 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const serviceLinks = [
+  { label: "Constructor", href: "#services" },
+  { label: "Consultation", href: "#services" },
+  { label: "Engineer", href: "#services" },
+];
+
+const companyLinks = [
+  { label: "About", href: "/about" },
+  { label: "Terms", href: "/terms" },
+  { label: "Privacy", href: "/privacy" },
+];
+
 export function Footer() {
-    return (
-        <footer className="bg-white py-12 border-t border-[#E0E4EB]">
-            <div className="container mx-auto px-4 md:px-6">
-                {/* White content container */}
-                <div className="bg-white rounded-lg p-8 md:p-12">
-                    {/* Top section: Logo/Tagline and Navigation */}
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
-                        {/* Left: Logo and Tagline */}
-                        <div className="space-y-3">
-                            <Link href="/" className="inline-block">
-                                <Image
-                                    src="/assets/incha-logo.svg"
-                                    alt="Inchaa Logo"
-                                    width={126}
-                                    height={24}
-                                    className="h-6 w-auto"
-                                />
-                            </Link>
-                            <p className="text-gray-500 text-sm font-sans">
-                                Built for Builders. Trusted by Professionals.
-                            </p>
-                        </div>
+  return (
+    <footer className="bg-navy pt-12 pb-8">
+      <div className="max-w-[1320px] mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+          <div>
+            <Link href="/">
+              <Image
+                src="/assets/incha-logo.svg"
+                alt="Inchaa"
+                width={100}
+                height={20}
+                className="h-5 w-auto brightness-0 invert"
+              />
+            </Link>
+            <p className="mt-3 text-mid-grey text-xs leading-relaxed">
+              Built for Builders.<br />Trusted by Professionals.
+            </p>
+          </div>
 
-                        {/* Right: Horizontal Navigation */}
-                        <nav className="flex flex-wrap gap-6 text-sm text-gray-500 font-sans">
-                            <Link href="/" className="hover:text-gray-700 transition-colors">
-                                Home
-                            </Link>
-                            <Link href="/terms" className="hover:text-gray-700 transition-colors">
-                                Terms
-                            </Link>
-                            <Link href="/privacy" className="hover:text-gray-700 transition-colors">
-                                Privacy
-                            </Link>
-                        </nav>
-                    </div>
+          <div>
+            <h4 className="text-white text-xs font-semibold mb-3">Services</h4>
+            <ul className="flex flex-col gap-2">
+              {serviceLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-mid-grey text-xs hover:text-white transition-colors duration-150"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                    {/* Bottom: Copyright */}
-                    <div className="border-t border-[#E0E4EB] pt-8">
-                        <p className="text-center text-gray-500 text-sm font-sans">
-                            © {new Date().getFullYear()} Inchaa Technologies. All rights reserved.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    );
+          <div>
+            <h4 className="text-white text-xs font-semibold mb-3">Company</h4>
+            <ul className="flex flex-col gap-2">
+              {companyLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-mid-grey text-xs hover:text-white transition-colors duration-150"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white text-xs font-semibold mb-3">Contact</h4>
+            <ul className="flex flex-col gap-2 text-mid-grey text-xs">
+              <li>info@inchaa.com</li>
+              <li>Dubai, UAE</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 pt-6">
+          <p className="text-mid-grey text-xs text-center">
+            &copy; {new Date().getFullYear()} Inchaa Technologies. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 }

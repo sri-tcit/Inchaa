@@ -1,0 +1,75 @@
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
+import { X } from "lucide-react";
+
+const APP_URL = "https://inchaa.com/app";
+
+function getUtmUrl(medium: string, campaign: string) {
+  return `${APP_URL}?utm_source=website&utm_medium=${medium}&utm_campaign=${campaign}`;
+}
+
+export function PostProjectButton({
+  campaign = "contractors_lp",
+  className = "",
+  children = "Post Your Project Free",
+}: {
+  campaign?: string;
+  className?: string;
+  children?: React.ReactNode;
+}) {
+  const [showModal, setShowModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent));
+  }, []);
+
+  const handleClick = useCallback(() => {
+    if (isMobile) {
+      window.location.href = getUtmUrl("cta", campaign);
+    } else {
+      setShowModal(true);
+    }
+  }, [isMobile, campaign]);
+
+  return (
+    <>
+      <button onClick={handleClick} className={className}>
+        {children}
+      </button>
+
+      {showModal && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50"
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className="relative bg-white rounded-lg p-8 max-w-sm w-full mx-4 text-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-3 right-3 text-mid-grey hover:text-charcoal transition-colors duration-150"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <h3 className="text-charcoal text-lg font-semibold">
+              Post Your Project on the Inchaa App
+            </h3>
+
+            <div className="mt-6 mx-auto w-[180px] h-[180px] rounded-lg bg-light-grey flex items-center justify-center border border-[#E5E7EB]">
+              <span className="text-mid-grey text-xs">QR Code</span>
+            </div>
+
+            <p className="mt-4 text-mid-grey text-sm leading-relaxed">
+              Scan the QR code using your phone camera to download the app and receive quotes.
+            </p>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
