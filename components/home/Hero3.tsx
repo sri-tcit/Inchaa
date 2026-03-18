@@ -54,12 +54,12 @@ export function Hero3() {
       <div className="max-w-[1100px] mx-auto px-4 md:px-6 w-full">
 
         {/* Overline */}
-        <div className="flex items-center gap-2.5 mb-8">
+        {/* <div className="flex items-center gap-2.5 mb-8">
           <span className="block w-5 h-[3px] bg-yellow" />
           <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">
             Construction Marketplace · UAE
           </span>
-        </div>
+        </div> */}
 
         {/* Headline with cycling word */}
         <h1 className="text-navy font-bold leading-[1.06] tracking-tight

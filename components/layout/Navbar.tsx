@@ -64,16 +64,8 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Right: Post Project + lang switcher + Join */}
+          {/* Right: lang switcher + Sign In + Join */}
           <div className="flex items-center gap-5">
-            <Link
-              href="/post-project"
-              className="hidden lg:block text-sm font-medium text-white/75 hover:text-white transition-colors duration-150"
-            >
-              Post Your Project
-            </Link>
-            <div className="hidden lg:block w-px h-4 bg-white/20" />
-
             {/* Language switcher */}
             <div className="hidden md:flex items-center border border-white/20 rounded-lg overflow-hidden">
               <button
@@ -99,6 +91,14 @@ export function Navbar() {
                 AR
               </button>
             </div>
+            <div className="hidden md:block w-px h-4 bg-white/20" />
+
+            <Link
+              href="/sign-in"
+              className="hidden md:block text-sm font-medium text-white/75 hover:text-white transition-colors duration-150"
+            >
+              Sign In
+            </Link>
 
             <Link
               href="http://inchaa-staging-fe.s3-website.me-central-1.amazonaws.com/service-provider"
@@ -137,11 +137,11 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            href="/post-project"
+            href="/sign-in"
             onClick={() => setMobileMenuOpen(false)}
             className="text-base font-medium text-white/70 hover:text-white py-3.5 border-b border-white/10 transition-colors duration-150"
           >
-            Post Your Project
+            Sign In
           </Link>
 
           {/* Mobile language switcher */}
