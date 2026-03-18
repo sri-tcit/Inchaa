@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import { ContractorHero } from "@/components/contractors/ContractorHero";
 import { ContractorTypes } from "@/components/contractors/ContractorTypes";
 import { ContractorHowItWorks } from "@/components/contractors/ContractorHowItWorks";
 import { ContractorWhyChoose } from "@/components/contractors/ContractorWhyChoose";
 import { ContractorFAQ } from "@/components/contractors/ContractorFAQ";
 import { ContractorCrossLinks } from "@/components/contractors/ContractorCrossLinks";
-import { PostProjectButton } from "@/components/PostProjectModal";
+import { PostProjectButton } from "@/components/shared/PostProjectModal";
 
 export const metadata: Metadata = {
   title: "Find Trusted Contractors in the UAE | Inchaa",

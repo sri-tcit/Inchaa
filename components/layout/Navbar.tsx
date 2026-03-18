@@ -36,7 +36,6 @@ export function Navbar() {
         )}
       >
         <div className="max-w-[1320px] mx-auto px-4 md:px-6 h-[56px] flex items-center justify-between">
-          {/* Left: logo + nav links + Post Your Project */}
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center z-50 relative">
               <Image
@@ -70,7 +69,6 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Right: Sign In + Join as Professional */}
           <div className="flex items-center gap-4">
             <Link
               href="/signin"

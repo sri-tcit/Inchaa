@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --navy: #1C2136;
-  --yellow: #E6E62E;
+  --navy: #003049;
+  --yellow: #D62828;
+  --orange: #F77F00;
+  --orange-light: #FCBF49;
   --charcoal: #323232;
   --white: #FFFFFF;
   --light-grey: #F5F5F7;
@@ -15,6 +17,8 @@
 @theme inline {
   --color-navy: var(--navy);
   --color-yellow: var(--yellow);
+  --color-orange: var(--orange);
+  --color-orange-light: var(--orange-light);
   --color-charcoal: var(--charcoal);
   --color-light-grey: var(--light-grey);
   --color-mid-grey: var(--mid-grey);

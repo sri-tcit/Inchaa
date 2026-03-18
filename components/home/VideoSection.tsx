@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { Play, X } from "lucide-react";
+import { homeEn } from "@/content/home/en";
+
+const { video } = homeEn;
 
 const DEMO_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
 const POSTER = "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&h=900&fit=crop";
 
-export function HowItWorks() {
-  const [playing, setPlaying] = useState(false);
+export function VideoSection() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -22,22 +24,22 @@ export function HowItWorks() {
 
         <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
           <h2 className="text-white text-3xl md:text-[42px] font-bold leading-tight max-w-xl">
-            See Inchaa in Action
+            {video.heading}
           </h2>
           <p className="mt-3 text-white/70 text-sm md:text-base max-w-sm">
-            Watch how homeowners find and hire verified professionals across the UAE.
+            {video.subtext}
           </p>
           <button
             onClick={() => setModalOpen(true)}
             className="mt-8 flex items-center gap-2.5 bg-white text-charcoal text-sm font-semibold pl-4 pr-5 py-2.5 rounded-full hover:bg-yellow transition-colors duration-150"
+            aria-label="Watch demo"
           >
             <Play className="w-4 h-4 fill-charcoal" />
-            Watch the Video
+            {video.cta}
           </button>
         </div>
       </section>
 
-      {/* Lightbox modal */}
       {modalOpen && (
         <div
           className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4"

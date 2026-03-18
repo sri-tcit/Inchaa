@@ -1,44 +1,26 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { homeEn } from "@/content/home/en";
 
-const services = [
-  {
-    title: "Contractors",
-    href: "/contractors/",
-    src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop",
-    description: "General contractors, MEP, renovation, and 30+ specialist trades for every project type.",
-  },
-  {
-    title: "Consultants",
-    href: "/consultants/",
-    src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop",
-    description: "Project management, quantity surveyors, and design consultants across the UAE.",
-  },
-  {
-    title: "Engineers",
-    href: "/engineers/",
-    src: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop",
-    description: "Structural, civil, MEP, and specialist engineers for residential and commercial projects.",
-  },
-];
+const { services } = homeEn;
 
 export function ServicesGrid() {
   return (
     <section id="services" className="bg-light-grey py-16 md:py-20">
       <div className="max-w-[1320px] mx-auto px-4 md:px-6">
         <h2 className="text-charcoal text-2xl md:text-3xl font-bold text-center mb-10">
-          Find The Right Professional
+          {services.heading}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {services.map((s) => (
+          {services.items.map((s) => (
             <Link
               key={s.title}
               href={s.href}
-              className="group relative rounded-lg overflow-hidden border border-[#E5E7EB] bg-white"
+              className="group rounded-lg overflow-hidden border border-[#E5E7EB] bg-white"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
-                  src={s.src}
+                  src={s.img}
                   alt={s.title}
                   className="w-full h-full object-cover group-hover:opacity-90 transition-opacity duration-150"
                 />

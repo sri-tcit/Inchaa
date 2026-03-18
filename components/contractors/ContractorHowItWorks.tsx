@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PostProjectButton } from "@/components/PostProjectModal";
+import { PostProjectButton } from "@/components/shared/PostProjectModal";
 
 const steps = [
   {

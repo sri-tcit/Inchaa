@@ -2,9 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 const serviceLinks = [
-  { label: "Constructor", href: "#services" },
-  { label: "Consultation", href: "#services" },
-  { label: "Engineer", href: "#services" },
+  { label: "Contractors", href: "/contractors/" },
+  { label: "Engineers", href: "/engineers/" },
+  { label: "Consultants", href: "/consultants/" },
 ];
 
 const companyLinks = [

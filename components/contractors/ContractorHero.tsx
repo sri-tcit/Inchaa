@@ -1,4 +1,4 @@
-import { PostProjectButton } from "@/components/PostProjectModal";
+import { PostProjectButton } from "@/components/shared/PostProjectModal";
 
 export function ContractorHero() {
   return (
