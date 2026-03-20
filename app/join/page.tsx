@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/layout/Navbar";
+import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
 import { JoinHero } from "@/components/join/JoinHero";
 import { JoinWhatYouGet } from "@/components/join/JoinWhatYouGet";

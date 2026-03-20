@@ -81,6 +81,11 @@ export function Hero4() {
       </div>
 
       {/* ── Right: image panel ──────────────────────────── */}
+      {/* Top gradient so transparent navbar text is readable over the light panel */}
+      <div className="absolute top-0 left-0 right-0 h-28 pointer-events-none z-10"
+        style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.35), transparent)" }}
+      />
+
       <div
         className="hidden lg:block relative bg-[#F7F7F7]"
         style={{

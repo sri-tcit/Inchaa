@@ -1,17 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const serviceLinks = [
-  { label: "Contractors", href: "/contractors/" },
-  { label: "Engineers", href: "/engineers/" },
-  { label: "Consultants", href: "/consultants/" },
+const homeownerLinks = [
+  { label: "Find Contractors", href: "/contractors/" },
+  { label: "Find Engineers", href: "/engineers/" },
+  { label: "Find Consultants", href: "/consultants/" },
+  { label: "Post Your Project", href: "#" },
+];
+
+const professionalLinks = [
+  { label: "Sign Up as a Professional", href: "/join" },
+  { label: "Sign In to Portal", href: "https://portal.inchaa.com/login" },
+  { label: "How Professionals Get Leads", href: "/how-it-works" },
 ];
 
 const companyLinks = [
   { label: "About Inchaa", href: "/about" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "FAQs", href: "/faqs" },
-  { label: "Contact Us", href: "mailto:info@inchaa.com" },
+  { label: "Contact Us", href: "mailto:support@inchaa.com" },
 ];
 
 function AppleIcon() {
@@ -46,65 +53,110 @@ function InstagramIcon() {
   );
 }
 
-function FacebookIcon() {
+function ColHeading({ children }: { children: React.ReactNode }) {
   return (
-    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current" aria-hidden="true">
-      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-    </svg>
+    <div className="mb-5">
+      <h4 className="text-white/60 text-xs font-semibold uppercase tracking-widest">
+        {children}
+      </h4>
+      <div className="mt-2 w-8 h-[2px] bg-indigo-500/60" />
+    </div>
   );
 }
 
 export function Footer() {
   return (
     <footer className="bg-navy pt-14 pb-8">
-      <div className="max-w-[1100px] mx-auto px-4 md:px-6">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10">
 
         {/* Main grid */}
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1.5fr] gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1.4fr_1fr] gap-10 mb-12">
 
           {/* Brand col */}
           <div>
-            <Link href="/">
+            <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/assets/incha-logo.svg"
                 alt="Inchaa"
-                width={100}
-                height={20}
-                className="h-5 w-auto brightness-0 invert"
+                width={120}
+                height={24}
+                className="h-6 w-auto brightness-0 invert"
               />
             </Link>
-            <p className="mt-4 text-white/40 text-xs leading-relaxed max-w-[220px]">
-              The smarter way to find trusted contractors, engineers, and consultants in the UAE.
+
+            <p className="mt-4 text-white/50 text-sm leading-relaxed max-w-[260px]">
+              Connecting homeowners with trusted contractors, engineers, and consultants across the UAE.
             </p>
 
-            {/* App download buttons */}
-            <div className="mt-6 flex flex-col gap-2">
+            {/* Social icons */}
+            <div className="mt-6 flex items-center gap-3">
               <a
                 href="#"
-                className="inline-flex items-center gap-2.5 border border-white/20 text-white text-xs font-medium px-4 py-2.5 rounded-lg hover:border-white/40 transition-colors duration-150 w-fit"
+                aria-label="LinkedIn"
+                className="w-9 h-9 flex items-center justify-center rounded-md border border-white/15 text-white/50 hover:text-white hover:border-white/35 transition-colors duration-150"
               >
-                <AppleIcon />
-                <span>Download on the <span className="font-bold">App Store</span></span>
+                <LinkedInIcon />
               </a>
               <a
                 href="#"
-                className="inline-flex items-center gap-2.5 border border-white/20 text-white text-xs font-medium px-4 py-2.5 rounded-lg hover:border-white/40 transition-colors duration-150 w-fit"
+                aria-label="Instagram"
+                className="w-9 h-9 flex items-center justify-center rounded-md border border-white/15 text-white/50 hover:text-white hover:border-white/35 transition-colors duration-150"
+              >
+                <InstagramIcon />
+              </a>
+            </div>
+
+            {/* App download buttons */}
+            <div className="mt-5 flex flex-col sm:flex-row gap-2">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 border border-white/20 text-white text-xs font-medium px-4 py-2.5 rounded-lg hover:border-white/40 transition-colors duration-150"
+              >
+                <AppleIcon />
+                <span className="leading-tight">
+                  <span className="block text-white/40 text-[10px] uppercase tracking-wide">Download on the</span>
+                  <span className="font-bold text-sm">App Store</span>
+                </span>
+              </a>
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 border border-white/20 text-white text-xs font-medium px-4 py-2.5 rounded-lg hover:border-white/40 transition-colors duration-150"
               >
                 <PlayIcon />
-                <span>Get it on <span className="font-bold">Google Play</span></span>
+                <span className="leading-tight">
+                  <span className="block text-white/40 text-[10px] uppercase tracking-wide">Get it on</span>
+                  <span className="font-bold text-sm">Google Play</span>
+                </span>
               </a>
             </div>
           </div>
 
-          {/* Services */}
+          {/* For Homeowners */}
           <div>
-            <h4 className="text-white text-xs font-semibold uppercase tracking-widest mb-4">Services</h4>
-            <ul className="flex flex-col gap-2.5">
-              {serviceLinks.map((link) => (
+            <ColHeading>For Homeowners</ColHeading>
+            <ul className="flex flex-col gap-3">
+              {homeownerLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-white/50 text-sm hover:text-white transition-colors duration-150"
+                    className="text-white/60 text-sm hover:text-white transition-colors duration-150"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* For Professionals */}
+          <div>
+            <ColHeading>For Professionals</ColHeading>
+            <ul className="flex flex-col gap-3">
+              {professionalLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-white/60 text-sm hover:text-white transition-colors duration-150"
                   >
                     {link.label}
                   </Link>
@@ -115,13 +167,13 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="text-white text-xs font-semibold uppercase tracking-widest mb-4">Company</h4>
-            <ul className="flex flex-col gap-2.5">
+            <ColHeading>Company</ColHeading>
+            <ul className="flex flex-col gap-3">
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-white/50 text-sm hover:text-white transition-colors duration-150"
+                    className="text-white/60 text-sm hover:text-white transition-colors duration-150"
                   >
                     {link.label}
                   </Link>
@@ -129,52 +181,18 @@ export function Footer() {
               ))}
             </ul>
           </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-white text-xs font-semibold uppercase tracking-widest mb-4">Contact</h4>
-            <ul className="flex flex-col gap-2.5 text-white/50 text-sm">
-              <li>
-                <a href="mailto:info@inchaa.com" className="hover:text-white transition-colors duration-150">
-                  info@inchaa.com
-                </a>
-              </li>
-              <li>Dubai, UAE</li>
-            </ul>
-
-            {/* Social icons */}
-            <div className="mt-6 flex items-center gap-3">
-              <a
-                href="#"
-                aria-label="LinkedIn"
-                className="w-8 h-8 flex items-center justify-center rounded-md border border-white/15 text-white/50 hover:text-white hover:border-white/35 transition-colors duration-150"
-              >
-                <LinkedInIcon />
-              </a>
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="w-8 h-8 flex items-center justify-center rounded-md border border-white/15 text-white/50 hover:text-white hover:border-white/35 transition-colors duration-150"
-              >
-                <InstagramIcon />
-              </a>
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="w-8 h-8 flex items-center justify-center rounded-md border border-white/15 text-white/50 hover:text-white hover:border-white/35 transition-colors duration-150"
-              >
-                <FacebookIcon />
-              </a>
-            </div>
-          </div>
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/30 text-xs">
-            &copy; {new Date().getFullYear()} Inchaa Technologies. All rights reserved.
+            &copy; {new Date().getFullYear()} Menast Inchaa Service Broker. All rights reserved.
           </p>
-          <p className="text-white/20 text-xs">Built for construction. Trusted in the UAE.</p>
+          <div className="flex items-center gap-5 text-white/30 text-xs">
+            <Link href="#" className="hover:text-white/60 transition-colors duration-150">Terms of Use</Link>
+            <Link href="#" className="hover:text-white/60 transition-colors duration-150">Privacy Policy</Link>
+            <a href="mailto:support@inchaa.com" className="hover:text-white/60 transition-colors duration-150">support@inchaa.com</a>
+          </div>
         </div>
 
       </div>

@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Navbar } from "@/components/layout/Navbar";
+import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
 import { PostProjectButton } from "@/components/shared/PostProjectModal";
+import { JoinButton } from "@/components/join/JoinButton";
 import Link from "next/link";
 import { Plus, Minus } from "lucide-react";
 
@@ -126,7 +127,7 @@ export default function HowItWorksPage() {
       <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
-            Post a project. Hire with confidence.
+          For Homeowners, Main Contractors & Developers
           </h2>
 
           <div className="border-t border-[#E5E7EB]">
@@ -168,7 +169,7 @@ export default function HowItWorksPage() {
       <section className="bg-[#F8F8F8] py-16 md:py-24 border-t border-[#E5E7EB]">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
-            Join, get verified, and win work.
+          For Contractors, Engineers & Consultants
           </h2>
 
           <div className="border-t border-[#E5E7EB]">
@@ -191,12 +192,7 @@ export default function HowItWorksPage() {
           </div>
 
           <div className="mt-10">
-            <Link
-              href="http://inchaa-staging-fe.s3-website.me-central-1.amazonaws.com/service-provider"
-              className="inline-flex items-center bg-navy text-white text-sm font-bold px-7 py-3.5 rounded-lg hover:bg-[#252c42] transition-colors duration-150"
-            >
-              Join as a Professional
-            </Link>
+            <JoinButton>Join as a Professional</JoinButton>
           </div>
         </div>
       </section>
@@ -205,7 +201,7 @@ export default function HowItWorksPage() {
       <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
-            Same project. Completely different experience.
+          What Makes Inchaa Different?
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/layout/Navbar";
+import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
 import { PostProjectButton } from "@/components/shared/PostProjectModal";
 import Link from "next/link";
@@ -89,7 +89,7 @@ export default function AboutPage() {
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 items-start">
             <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight">
-              Construction in the UAE deserved a better way.
+            The Problem We Set Out to Solve
             </h2>
             <div className="space-y-5 text-mid-grey text-base leading-relaxed">
               <p>
@@ -123,7 +123,7 @@ export default function AboutPage() {
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 items-start">
             <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight">
-              The UAE's leading construction marketplace.
+            What Inchaa Is
             </h2>
             <div className="space-y-5 text-mid-grey text-base leading-relaxed">
               <p>
@@ -157,7 +157,7 @@ export default function AboutPage() {
       <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
-            Built for everyone in construction.
+          Who We Serve
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -197,7 +197,7 @@ export default function AboutPage() {
       <section className="bg-[#F8F8F8] py-16 md:py-24 border-t border-[#E5E7EB]">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
-            Not a directory. A marketplace.
+          What Makes Inchaa Different
           </h2>
 
           <div className="border-t border-[#E5E7EB]">

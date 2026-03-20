@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/layout/Navbar";
+import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
 import { ConsultantHero } from "@/components/consultants/ConsultantHero";
-import { ConsultantTypes } from "@/components/consultants/ConsultantTypes";
-import { ConsultantHowItWorks } from "@/components/consultants/ConsultantHowItWorks";
+import { ConsultantTypes_v5 } from "@/components/consultants/ConsultantTypes_v5";
+import { ConsultantHowItWorks_v3 as ConsultantHowItWorks } from "@/components/consultants/ConsultantHowItWorks_v3";
 import { ConsultantWhenToHire } from "@/components/consultants/ConsultantWhenToHire";
 import { ConsultantFAQ } from "@/components/consultants/ConsultantFAQ";
 import { ConsultantCrossLinks } from "@/components/consultants/ConsultantCrossLinks";
-import { PostProjectButton } from "@/components/shared/PostProjectModal";
-
 export const metadata: Metadata = {
   title: "Find Trusted Construction Consultants in the UAE | Inchaa",
   description:
@@ -22,38 +20,16 @@ export const metadata: Metadata = {
   },
 };
 
-function ConsultantCTA() {
-  return (
-    <section className="bg-navy py-16 md:py-20">
-      <div className="max-w-[1320px] mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-white text-2xl md:text-3xl font-bold">
-          Ready to find the right consultant?
-        </h2>
-        <p className="mt-3 text-mid-grey text-sm max-w-md mx-auto">
-          Post your project for free and start receiving proposals from verified consultants
-          in the UAE.
-        </p>
-        <PostProjectButton
-          campaign="consultants_lp"
-          size="sm"
-          className="mt-8"
-        />
-      </div>
-    </section>
-  );
-}
-
 export default function ConsultantsPage() {
   return (
     <main className="min-h-screen">
       <Navbar />
       <ConsultantHero />
-      <ConsultantTypes />
+      <ConsultantTypes_v5 />
       <ConsultantHowItWorks />
       <ConsultantWhenToHire />
       <ConsultantFAQ />
       <ConsultantCrossLinks />
-      <ConsultantCTA />
       <Footer />
     </main>
   );

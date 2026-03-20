@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Navbar } from "@/components/layout/Navbar";
+import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
 import { useIsEmbedded } from "@/lib/hooks";
 

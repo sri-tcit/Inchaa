@@ -57,7 +57,7 @@ export function EngineerHero() {
             Join as a Professional
           </JoinButton>
           <Link
-            href="/sign-in"
+            href="https://portal.inchaa.com/login"
             className="inline-flex items-center text-sm font-semibold px-8 py-3.5 rounded-full border border-white text-white hover:bg-white/10 transition-all duration-150"
           >
             Sign In

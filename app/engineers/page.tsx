@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/layout/Navbar";
+import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
 import { EngineerHero } from "@/components/engineers/EngineerHero";
-import { EngineerTypes } from "@/components/engineers/EngineerTypes";
-import { EngineerHowItWorks } from "@/components/engineers/EngineerHowItWorks";
+import { EngineerTypes_v5 } from "@/components/engineers/EngineerTypes_v5";
+import { EngineerHowItWorks_v3 as EngineerHowItWorks } from "@/components/engineers/EngineerHowItWorks_v3";
 import { EngineerWhyMatters } from "@/components/engineers/EngineerWhyMatters";
 import { EngineerFAQ } from "@/components/engineers/EngineerFAQ";
 import { EngineerCrossLinks } from "@/components/engineers/EngineerCrossLinks";
-import { PostProjectButton } from "@/components/shared/PostProjectModal";
-
 export const metadata: Metadata = {
   title: "Find Trusted Engineers in the UAE | Inchaa",
   description:
@@ -22,38 +20,16 @@ export const metadata: Metadata = {
   },
 };
 
-function EngineerCTA() {
-  return (
-    <section className="bg-navy py-16 md:py-20">
-      <div className="max-w-[1320px] mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-white text-2xl md:text-3xl font-bold">
-          Ready to find the right engineer?
-        </h2>
-        <p className="mt-3 text-mid-grey text-sm max-w-md mx-auto">
-          Post your project for free and start receiving proposals from verified engineering
-          professionals in the UAE.
-        </p>
-        <PostProjectButton
-          campaign="engineers_lp"
-          size="sm"
-          className="mt-8"
-        />
-      </div>
-    </section>
-  );
-}
-
 export default function EngineersPage() {
   return (
     <main className="min-h-screen">
       <Navbar />
       <EngineerHero />
-      <EngineerTypes />
+      <EngineerTypes_v5 />
       <EngineerHowItWorks />
       <EngineerWhyMatters />
       <EngineerFAQ />
       <EngineerCrossLinks />
-      <EngineerCTA />
       <Footer />
     </main>
   );

@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/layout/Navbar";
+import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Hero4 as Hero } from "@/components/home/Hero4";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { ServicesGrid } from "@/components/home/ServicesGrid";

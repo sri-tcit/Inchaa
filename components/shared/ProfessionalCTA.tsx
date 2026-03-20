@@ -21,7 +21,7 @@ export function ProfessionalCTA() {
           <div className="lg:text-right">
             <Link
               href="http://inchaa-staging-fe.s3-website.me-central-1.amazonaws.com/service-provider"
-              className="inline-flex items-center gap-2 bg-navy text-white text-sm font-bold px-7 py-4 rounded-lg hover:bg-[#252c42] transition-colors duration-150"
+              className="inline-flex items-center gap-2 bg-yellow text-white text-sm font-bold px-7 py-4 rounded-lg hover:brightness-95 transition-all duration-150"
             >
               {professionalCta.cta}
               <ArrowRight className="w-4 h-4" />

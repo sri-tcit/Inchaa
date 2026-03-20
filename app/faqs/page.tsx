@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Navbar } from "@/components/layout/Navbar";
+import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
 import { PostProjectButton } from "@/components/shared/PostProjectModal";
-import Link from "next/link";
+import { JoinButton } from "@/components/join/JoinButton";
 import { Plus, Minus } from "lucide-react";
 
 const HERO_BG =
@@ -283,12 +283,7 @@ export default function FAQsPage() {
                 Growing your business and receiving qualified project leads.
               </p>
               <div className="mt-6">
-                <Link
-                  href="/join/"
-                  className="inline-flex items-center bg-navy text-white text-sm font-bold px-5 py-3 rounded-lg hover:bg-[#252c42] transition-colors duration-150"
-                >
-                  Join as a Professional
-                </Link>
+                <JoinButton size="sm">Join as a Professional</JoinButton>
               </div>
             </div>
             <div className="border-t border-[#E5E7EB]">
