@@ -30,14 +30,6 @@ export function ConsultantTypes() {
     <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
 
-        {/* Overline */}
-        <div className="flex items-center gap-2.5 mb-5">
-          <span className="block w-5 h-[3px] bg-yellow" />
-          <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">
-            Consultant types
-          </span>
-        </div>
-
         <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
           What Types of Consultants<br className="hidden md:block" /> Can You Find on Inchaa?
         </h2>

@@ -82,7 +82,7 @@ export function Navbar() {
             </Link>
 
             <Link
-              href="http://inchaa-staging-fe.s3-website.me-central-1.amazonaws.com/service-provider"
+              href="/join/"
               className="hidden md:flex items-center bg-yellow text-white text-sm font-bold px-4 py-2 rounded-lg hover:brightness-95 transition-all duration-150"
             >
               Join as a Professional
@@ -151,7 +151,7 @@ export function Navbar() {
           </div>
 
           <Link
-            href="http://inchaa-staging-fe.s3-website.me-central-1.amazonaws.com/service-provider"
+            href="/join/"
             onClick={() => setMobileMenuOpen(false)}
             className="mt-6 flex items-center justify-center bg-yellow text-white text-sm font-bold px-4 py-3 rounded-lg"
           >

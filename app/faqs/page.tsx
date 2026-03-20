@@ -207,7 +207,6 @@ export default function FAQsPage() {
           style={{ background: "linear-gradient(to bottom, transparent, rgba(28,33,54,0.95))" }}
         />
         <div className="relative z-10 w-full max-w-[1100px] mx-auto px-4 md:px-6 pb-14 pt-40">
-          <p className="text-yellow text-[11px] font-bold uppercase tracking-[0.14em] mb-3">Help centre</p>
           <h1 className="text-white text-[40px] md:text-[58px] font-bold leading-[1.06] tracking-tight">
             Frequently Asked Questions
           </h1>
@@ -223,10 +222,6 @@ export default function FAQsPage() {
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
             <div>
-              <div className="flex items-center gap-2.5 mb-4">
-                <span className="block w-5 h-[3px] bg-yellow" />
-                <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">Homeowners</span>
-              </div>
               <h2 className="text-navy text-2xl md:text-[30px] font-bold leading-tight">
                 For Homeowners
               </h2>
@@ -236,7 +231,7 @@ export default function FAQsPage() {
               <div className="mt-6">
                 <PostProjectButton
                   campaign="faqs_homeowners"
-                  className="inline-flex items-center bg-yellow text-white text-sm font-bold px-5 py-3 rounded-lg hover:brightness-95 transition-all duration-150"
+                  size="sm"
                 >
                   Post Your Project Free
                 </PostProjectButton>
@@ -254,10 +249,6 @@ export default function FAQsPage() {
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
             <div>
-              <div className="flex items-center gap-2.5 mb-4">
-                <span className="block w-5 h-[3px] bg-yellow" />
-                <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">Developers</span>
-              </div>
               <h2 className="text-navy text-2xl md:text-[30px] font-bold leading-tight">
                 For Developers & Main Contractors
               </h2>
@@ -267,7 +258,7 @@ export default function FAQsPage() {
               <div className="mt-6">
                 <PostProjectButton
                   campaign="faqs_homeowners"
-                  className="inline-flex items-center bg-yellow text-white text-sm font-bold px-5 py-3 rounded-lg hover:brightness-95 transition-all duration-150"
+                  size="sm"
                 >
                   Post Your Project Free
                 </PostProjectButton>
@@ -285,10 +276,6 @@ export default function FAQsPage() {
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
             <div>
-              <div className="flex items-center gap-2.5 mb-4">
-                <span className="block w-5 h-[3px] bg-yellow" />
-                <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">Professionals</span>
-              </div>
               <h2 className="text-navy text-2xl md:text-[30px] font-bold leading-tight">
                 For Contractors, Engineers & Consultants
               </h2>
@@ -297,7 +284,7 @@ export default function FAQsPage() {
               </p>
               <div className="mt-6">
                 <Link
-                  href="http://inchaa-staging-fe.s3-website.me-central-1.amazonaws.com/service-provider"
+                  href="/join/"
                   className="inline-flex items-center bg-navy text-white text-sm font-bold px-5 py-3 rounded-lg hover:bg-[#252c42] transition-colors duration-150"
                 >
                   Join as a Professional

@@ -1,36 +1,74 @@
-import { PostProjectButton } from "@/components/shared/PostProjectModal";
+"use client";
+
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { JoinButton } from "@/components/join/JoinButton";
+
+const WORDS = ["Engineers", "Designers", "Planners", "Innovators"];
 
 export function EngineerHero() {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [animKey, setAnimKey] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((i) => (i + 1) % WORDS.length);
+      setAnimKey((k) => k + 1);
+    }, 3800);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative w-full min-h-[680px] md:min-h-[760px] overflow-hidden flex items-end">
-      <img
-        src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1800&h=1000&fit=crop&q=85"
-        alt="Engineer reviewing structural drawings on site"
-        className="absolute inset-0 w-full h-full object-cover object-center"
-      />
-      <div className="absolute inset-0 bg-navy/70" />
+    <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center">
 
-      <div
-        className="absolute bottom-0 left-0 right-0 h-64 pointer-events-none"
-        style={{ background: "linear-gradient(to bottom, transparent, rgba(28,33,54,0.95))" }}
-      />
+      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
+        <source src="/assets/videos/engineer/engineer_01.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-black/55" />
 
-      <div className="relative z-10 w-full max-w-[1320px] mx-auto px-4 md:px-6 pb-16 md:pb-24 pt-32">
-        <div className="max-w-[680px]">
-          <h1 className="text-white text-[36px] md:text-[52px] md:leading-[1.08] font-bold tracking-tight">
-            Find Trusted Engineers in the UAE
-          </h1>
-          <p className="mt-5 text-white/60 text-sm md:text-base leading-relaxed max-w-lg">
-            The right engineer can save your project. The wrong one can cost you everything.
-            Inchaa connects you with reliable structural, MEP, civil, and supervision engineers
-            across the UAE.
-          </p>
-          <PostProjectButton
-            campaign="engineers_lp"
-            className="mt-8 inline-flex items-center bg-yellow text-white text-sm font-bold px-7 py-3.5 rounded-lg hover:brightness-95 transition-all duration-150"
-          />
+      <div className="relative z-10 text-center max-w-3xl mx-auto px-6 pt-24">
+        <h1 className="text-white font-bold leading-[1.08] tracking-tight
+                       text-[28px] md:text-[40px] lg:text-[48px]">
+          Find Trusted{" "}
+          <span className="text-white" aria-label={WORDS[wordIndex]}>
+            {WORDS[wordIndex].split("").map((char, i) => (
+              <span
+                key={`${animKey}-${i}`}
+                className="inline-block"
+                style={{
+                  animation: "wordSlideIn 0.4s cubic-bezier(0.22,1,0.36,1) both",
+                  animationDelay: `${i * 55}ms`,
+                }}
+              >
+                {char}
+              </span>
+            ))}
+          </span>
+          <br className="hidden md:block" />
+          {" "}in the UAE
+        </h1>
+        <p className="mt-6 text-white/65 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+          The right engineer can save your project. The wrong one can cost you everything.
+          Inchaa connects you with reliable structural, MEP, civil, and supervision
+          engineers across the UAE.
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-3 flex-wrap">
+          <JoinButton size="md" className="rounded-full bg-white text-navy hover:bg-white/90 px-8 py-3.5">
+            Join as a Professional
+          </JoinButton>
+          <Link
+            href="/sign-in"
+            className="inline-flex items-center text-sm font-semibold px-8 py-3.5 rounded-full border border-white text-white hover:bg-white/10 transition-all duration-150"
+          >
+            Sign In
+          </Link>
         </div>
       </div>
+
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{ background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.4))" }}
+      />
     </section>
   );
 }

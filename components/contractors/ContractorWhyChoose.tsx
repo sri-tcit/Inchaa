@@ -32,10 +32,6 @@ export function ContractorWhyChoose() {
   return (
     <section className="bg-white py-16 md:py-20 border-t border-[#E5E7EB]">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
-        <div className="flex items-center gap-2.5 mb-5">
-          <span className="block w-5 h-[3px] bg-yellow" />
-          <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">Why Inchaa</span>
-        </div>
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12">
           <div>
             <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight">
@@ -58,7 +54,7 @@ export function ContractorWhyChoose() {
         <div className="mt-12 text-center">
           <PostProjectButton
             campaign="contractors_lp"
-            className="inline-flex items-center bg-yellow text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:brightness-95 transition-all duration-150"
+            size="sm"
           />
         </div>
       </div>

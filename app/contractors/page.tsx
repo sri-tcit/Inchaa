@@ -34,7 +34,8 @@ function ContractorCTA() {
         </p>
         <PostProjectButton
           campaign="contractors_lp"
-          className="mt-8 inline-flex items-center bg-yellow text-white text-sm font-semibold px-6 py-2.5 rounded-lg hover:brightness-95 transition-all duration-150"
+          size="sm"
+          className="mt-8"
         />
       </div>
     </section>

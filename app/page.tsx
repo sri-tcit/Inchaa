@@ -1,5 +1,5 @@
 import { Navbar } from "@/components/layout/Navbar";
-import { Hero3 as Hero } from "@/components/home/Hero3";
+import { Hero4 as Hero } from "@/components/home/Hero4";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { WhyInchaa } from "@/components/home/WhyInchaa";
@@ -13,8 +13,8 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
-      {/* <ServicesGrid /> */}
       <HowItWorks />
+      <ServicesGrid />
       <WhyInchaa />
       <VideoSection />
       <ProfessionalCTA />

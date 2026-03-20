@@ -78,7 +78,6 @@ export default function AboutPage() {
           style={{ background: "linear-gradient(to bottom, transparent, rgba(28,33,54,0.95))" }}
         />
         <div className="relative z-10 w-full max-w-[1100px] mx-auto px-4 md:px-6 pb-14 pt-40">
-          <p className="text-yellow text-[11px] font-bold uppercase tracking-[0.14em] mb-3">About</p>
           <h1 className="text-white text-[40px] md:text-[58px] font-bold leading-[1.06] tracking-tight max-w-2xl">
             About Inchaa
           </h1>
@@ -88,13 +87,6 @@ export default function AboutPage() {
       {/* ── Section 1: The Problem ─────────────────────────────── */}
       <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
-          <div className="flex items-center gap-2.5 mb-5">
-            <span className="block w-5 h-[3px] bg-yellow" />
-            <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">
-              The problem we set out to solve
-            </span>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 items-start">
             <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight">
               Construction in the UAE deserved a better way.
@@ -129,13 +121,6 @@ export default function AboutPage() {
       {/* ── Section 2: What Inchaa Is ──────────────────────────── */}
       <section className="bg-[#F8F8F8] py-16 md:py-24 border-t border-[#E5E7EB]">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
-          <div className="flex items-center gap-2.5 mb-5">
-            <span className="block w-5 h-[3px] bg-yellow" />
-            <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">
-              What Inchaa is
-            </span>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 items-start">
             <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight">
               The UAE's leading construction marketplace.
@@ -158,7 +143,7 @@ export default function AboutPage() {
               <div className="pt-2">
                 <PostProjectButton
                   campaign="about_homeowners"
-                  className="inline-flex items-center bg-yellow text-white text-sm font-bold px-7 py-3.5 rounded-lg hover:brightness-95 transition-all duration-150"
+                  className=""
                 >
                   Post Your Project Free
                 </PostProjectButton>
@@ -171,12 +156,6 @@ export default function AboutPage() {
       {/* ── Section 3: Who We Serve ────────────────────────────── */}
       <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
-          <div className="flex items-center gap-2.5 mb-5">
-            <span className="block w-5 h-[3px] bg-yellow" />
-            <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">
-              Who we serve
-            </span>
-          </div>
           <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
             Built for everyone in construction.
           </h2>
@@ -217,12 +196,6 @@ export default function AboutPage() {
       {/* ── Section 4: What Makes Inchaa Different ─────────────── */}
       <section className="bg-[#F8F8F8] py-16 md:py-24 border-t border-[#E5E7EB]">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
-          <div className="flex items-center gap-2.5 mb-5">
-            <span className="block w-5 h-[3px] bg-yellow" />
-            <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">
-              What makes us different
-            </span>
-          </div>
           <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
             Not a directory. A marketplace.
           </h2>

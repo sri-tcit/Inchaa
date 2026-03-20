@@ -9,13 +9,26 @@ function getUtmUrl(medium: string, campaign: string) {
   return `${APP_URL}?utm_source=website&utm_medium=${medium}&utm_campaign=${campaign}`;
 }
 
+const BASE_CLASSES =
+  "inline-flex items-center bg-yellow text-white rounded-lg hover:brightness-95 transition-all duration-150";
+
+const SIZE_CLASSES = {
+  sm: "text-sm font-semibold px-5 py-2.5",
+  md: "text-sm font-bold px-7 py-3.5",
+  lg: "text-base font-bold px-10 py-4",
+};
+
 export function PostProjectButton({
   campaign = "contractors_lp",
   className = "",
+  size = "md",
+  variant = "button",
   children = "Post Your Project Free",
 }: {
   campaign?: string;
   className?: string;
+  size?: "sm" | "md" | "lg";
+  variant?: "button" | "unstyled";
   children?: React.ReactNode;
 }) {
   const [showModal, setShowModal] = useState(false);
@@ -33,9 +46,14 @@ export function PostProjectButton({
     }
   }, [isMobile, campaign]);
 
+  const buttonClass =
+    variant === "unstyled"
+      ? className
+      : `${BASE_CLASSES} ${SIZE_CLASSES[size]} ${className}`.trim();
+
   return (
     <>
-      <button onClick={handleClick} className={className}>
+      <button onClick={handleClick} className={buttonClass}>
         {children}
       </button>
 

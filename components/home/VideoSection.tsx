@@ -11,12 +11,17 @@ export function VideoSection() {
   return (
     <>
       <section className="relative w-full min-h-[560px] md:min-h-[640px] overflow-hidden flex items-center justify-center">
-        {/* Background image */}
-        <img
-          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1800&h=900&fit=crop&q=85"
-          alt="Inchaa in action"
+        {/* Background video — falls back to poster image while loading */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1800&h=900&fit=crop&q=85"
           className="absolute inset-0 w-full h-full object-cover object-center"
-        />
+        >
+          <source src="/assets/videos/constructor/constructor_02.mp4" type="video/mp4" />
+        </video>
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/60" />
 

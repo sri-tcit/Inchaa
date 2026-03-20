@@ -23,14 +23,6 @@ export function Hero2() {
                       px-6 md:px-12 lg:px-16 xl:px-24
                       pt-28 pb-12 lg:pt-20 lg:pb-0">
 
-        {/* Overline badge */}
-        <div className="flex items-center gap-2.5 mb-7">
-          <span className="block w-5 h-[3px] bg-yellow" />
-          <span className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em]">
-            Construction Marketplace · UAE
-          </span>
-        </div>
-
         {/* Headline */}
         <h1 className="text-navy text-[40px] md:text-[52px] xl:text-[62px]
                        font-bold leading-[1.07] tracking-tight max-w-[580px]">
@@ -46,7 +38,7 @@ export function Hero2() {
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <PostProjectButton
             campaign="homepage_hero"
-            className="inline-flex items-center bg-yellow text-white text-sm font-bold px-7 py-3.5 rounded-lg hover:brightness-95 transition-all duration-150"
+            className=""
           >
             {hero.cta}
           </PostProjectButton>
