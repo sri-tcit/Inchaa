@@ -5,13 +5,13 @@ const { finalCta } = homeEn;
 
 export function FinalCTA() {
   return (
-    <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
+    <section className="bg-bg-base py-16 md:py-24 border-t border-ui-border">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6 text-center">
 
-        <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight max-w-xl mx-auto">
+        <h2 className="text-text-heading text-3xl md:text-[40px] font-bold leading-tight max-w-xl mx-auto">
           {finalCta.heading}
         </h2>
-        <p className="mt-4 text-mid-grey text-base max-w-md mx-auto leading-relaxed">
+        <p className="mt-4 text-text-muted text-base max-w-md mx-auto leading-relaxed">
           {finalCta.subtext}
         </p>
 

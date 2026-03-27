@@ -63,26 +63,26 @@ export function PostProjectButton({
           onClick={() => setShowModal(false)}
         >
           <div
-            className="relative bg-white rounded-lg p-8 max-w-sm w-full mx-4 text-center"
+            className="relative bg-bg-card border border-ui-border rounded-lg p-8 max-w-sm w-full mx-4 text-center"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setShowModal(false)}
-              className="absolute top-3 right-3 text-mid-grey hover:text-charcoal transition-colors duration-150"
+              className="absolute top-3 right-3 text-text-muted hover:text-text-body transition-colors duration-150"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <h3 className="text-charcoal text-lg font-semibold">
+            <h3 className="text-text-body text-lg font-semibold">
               Post Your Project on the Inchaa App
             </h3>
 
-            <div className="mt-6 mx-auto w-[180px] h-[180px] rounded-lg bg-light-grey flex items-center justify-center border border-[#E5E7EB]">
-              <span className="text-mid-grey text-xs">QR Code</span>
+            <div className="mt-6 mx-auto w-[180px] h-[180px] rounded-lg bg-bg-interactive flex items-center justify-center border border-ui-border">
+              <span className="text-text-muted text-xs">QR Code</span>
             </div>
 
-            <p className="mt-4 text-mid-grey text-sm leading-relaxed">
+            <p className="mt-4 text-text-muted text-sm leading-relaxed">
               Scan the QR code using your phone camera to download the app and receive quotes.
             </p>
           </div>

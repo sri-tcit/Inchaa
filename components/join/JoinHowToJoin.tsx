@@ -43,10 +43,10 @@ export function JoinHowToJoin() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="bg-white py-16 md:py-20 border-t border-[#E5E7EB]">
+    <section className="bg-bg-base py-16 md:py-20 border-t border-ui-border">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
 
-        <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
+        <h2 className="text-text-heading text-3xl md:text-[40px] font-bold leading-tight mb-12">
           How to Join
         </h2>
 
@@ -67,7 +67,7 @@ export function JoinHowToJoin() {
                       viewport={{ once: true, margin: "-40px" }}
                       transition={{ duration: 0.35, delay: i * 0.15 }}
                       className={`w-9 h-9 rounded-full text-sm font-bold flex items-center justify-center shrink-0 transition-colors duration-200 ${
-                        isActive ? "bg-yellow text-white" : "bg-[#E5E7EB] text-mid-grey"
+                        isActive ? "bg-yellow text-white" : "bg-bg-interactive text-text-muted"
                       }`}
                     >
                       {step.num}
@@ -79,7 +79,7 @@ export function JoinHowToJoin() {
                         viewport={{ once: true, margin: "-40px" }}
                         transition={{ duration: 0.4, delay: i * 0.15 + 0.2 }}
                         className={`w-px flex-1 my-1 origin-top transition-colors duration-200 ${
-                          isActive ? "bg-yellow/40" : "bg-[#E5E7EB]"
+                          isActive ? "bg-yellow/40" : "bg-ui-border"
                         }`}
                       />
                     )}
@@ -94,8 +94,8 @@ export function JoinHowToJoin() {
                       isActive ? "opacity-100" : "opacity-50"
                     }`}
                   >
-                    <h3 className="text-charcoal text-base font-semibold">{step.title}</h3>
-                    <p className="mt-1.5 text-mid-grey text-sm leading-relaxed">
+                    <h3 className="text-text-body text-base font-semibold">{step.title}</h3>
+                    <p className="mt-1.5 text-text-muted text-sm leading-relaxed">
                       {step.description}
                     </p>
                   </motion.div>
@@ -105,7 +105,7 @@ export function JoinHowToJoin() {
           </div>
 
           <div className="hidden lg:block sticky top-[80px]">
-            <div className="relative aspect-[3/2] rounded-lg overflow-hidden bg-white border border-[#E5E7EB]">
+            <div className="relative aspect-[3/2] rounded-lg overflow-hidden bg-bg-card border border-ui-border">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeStep}
@@ -124,7 +124,7 @@ export function JoinHowToJoin() {
 
         {/* Mobile image */}
         <div className="mt-8 lg:hidden">
-          <div className="relative aspect-[3/2] rounded-lg overflow-hidden border border-[#E5E7EB]">
+          <div className="relative aspect-[3/2] rounded-lg overflow-hidden border border-ui-border">
             <AnimatePresence mode="wait">
               <motion.img
                 key={activeStep}

@@ -85,13 +85,13 @@ export default function AboutPage() {
       </section>
 
       {/* ── Section 1: The Problem ─────────────────────────────── */}
-      <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
+      <section className="bg-bg-base py-16 md:py-24 border-t border-ui-border">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 items-start">
-            <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight">
+            <h2 className="text-text-heading text-3xl md:text-[40px] font-bold leading-tight">
             The Problem We Set Out to Solve
             </h2>
-            <div className="space-y-5 text-mid-grey text-base leading-relaxed">
+            <div className="space-y-5 text-text-muted text-base leading-relaxed">
               <p>
                 Construction in the UAE is an AED 189 billion industry growing at over 6% annually.
                 Roads, towers, villas, and communities are being built at a pace that few countries
@@ -112,20 +112,20 @@ export default function AboutPage() {
                 In a country that builds world-class infrastructure, the way people hire construction
                 professionals has not kept up.
               </p>
-              <p className="text-navy font-semibold">Inchaa was built to change that.</p>
+              <p className="text-text-heading font-semibold">Inchaa was built to change that.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── Section 2: What Inchaa Is ──────────────────────────── */}
-      <section className="bg-[#F8F8F8] py-16 md:py-24 border-t border-[#E5E7EB]">
+      <section className="bg-bg-section py-16 md:py-24 border-t border-ui-border">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 items-start">
-            <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight">
+            <h2 className="text-text-heading text-3xl md:text-[40px] font-bold leading-tight">
             What Inchaa Is
             </h2>
-            <div className="space-y-5 text-mid-grey text-base leading-relaxed">
+            <div className="space-y-5 text-text-muted text-base leading-relaxed">
               <p>
                 Inchaa is the UAE's leading construction marketplace. We connect homeowners with
                 trusted contractors, engineers, and consultants across all emirates.
@@ -154,9 +154,9 @@ export default function AboutPage() {
       </section>
 
       {/* ── Section 3: Who We Serve ────────────────────────────── */}
-      <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
+      <section className="bg-bg-base py-16 md:py-24 border-t border-ui-border">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
-          <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
+          <h2 className="text-text-heading text-3xl md:text-[40px] font-bold leading-tight mb-12">
           Who We Serve
           </h2>
 
@@ -164,24 +164,24 @@ export default function AboutPage() {
             {whoWeServe.map((item) => (
               <div
                 key={item.audience}
-                className="border border-[#E5E7EB] rounded-lg p-7 flex flex-col"
+                className="bg-bg-card border border-ui-border rounded-lg p-7 flex flex-col"
               >
-                <h3 className="text-navy text-lg font-bold leading-snug">{item.audience}</h3>
-                <p className="mt-3 text-mid-grey text-sm leading-relaxed flex-1">
+                <h3 className="text-text-heading text-lg font-bold leading-snug">{item.audience}</h3>
+                <p className="mt-3 text-text-muted text-sm leading-relaxed flex-1">
                   {item.description}
                 </p>
                 <div className="mt-6">
                   {item.ctaType === "post" ? (
                     <PostProjectButton
                       campaign="about_homeowners"
-                      className="inline-flex items-center gap-1.5 text-navy text-sm font-semibold hover:underline transition-all duration-150"
+                      className="inline-flex items-center gap-1.5 text-text-heading text-sm font-semibold hover:underline transition-all duration-150"
                     >
                       {item.cta} <ArrowRight className="w-3.5 h-3.5" />
                     </PostProjectButton>
                   ) : (
                     <Link
                       href="http://inchaa-staging-fe.s3-website.me-central-1.amazonaws.com/service-provider"
-                      className="inline-flex items-center gap-1.5 text-navy text-sm font-semibold hover:underline transition-all duration-150"
+                      className="inline-flex items-center gap-1.5 text-text-heading text-sm font-semibold hover:underline transition-all duration-150"
                     >
                       {item.cta} <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
@@ -194,24 +194,24 @@ export default function AboutPage() {
       </section>
 
       {/* ── Section 4: What Makes Inchaa Different ─────────────── */}
-      <section className="bg-[#F8F8F8] py-16 md:py-24 border-t border-[#E5E7EB]">
+      <section className="bg-bg-section py-16 md:py-24 border-t border-ui-border">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
-          <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
+          <h2 className="text-text-heading text-3xl md:text-[40px] font-bold leading-tight mb-12">
           What Makes Inchaa Different
           </h2>
 
-          <div className="border-t border-[#E5E7EB]">
+          <div className="border-t border-ui-border">
             {differentiators.map((item, i) => (
               <div
                 key={item.title}
-                className="grid grid-cols-[48px_1fr] gap-6 py-6 border-b border-[#E5E7EB]"
+                className="grid grid-cols-[48px_1fr] gap-6 py-6 border-b border-ui-border"
               >
                 <span className="text-[28px] font-bold text-yellow leading-none pt-0.5">
                   0{i + 1}
                 </span>
                 <div>
-                  <h3 className="text-navy text-base font-bold">{item.title}</h3>
-                  <p className="mt-1.5 text-mid-grey text-sm leading-relaxed">{item.description}</p>
+                  <h3 className="text-text-heading text-base font-bold">{item.title}</h3>
+                  <p className="mt-1.5 text-text-muted text-sm leading-relaxed">{item.description}</p>
                 </div>
               </div>
             ))}

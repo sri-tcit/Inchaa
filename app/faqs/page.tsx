@@ -163,23 +163,23 @@ function FAQSection({ faqs, label }: { faqs: { q: string; a: string }[]; label: 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
     <div>
-      <p className="text-[11px] font-bold text-mid-grey uppercase tracking-[0.14em] mb-1">{label}</p>
+      <p className="text-[11px] font-bold text-text-muted uppercase tracking-[0.14em] mb-1">{label}</p>
       <div>
         {faqs.map((faq, i) => (
-          <div key={i} className="border-b border-[#E5E7EB]">
+          <div key={i} className="border-b border-ui-border">
             <button
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
               className="w-full flex items-start justify-between py-4 text-left gap-4"
             >
-              <span className="text-navy text-sm font-medium">{faq.q}</span>
+              <span className="text-text-body text-sm font-medium">{faq.q}</span>
               {openIndex === i ? (
-                <Minus className="w-4 h-4 text-mid-grey shrink-0 mt-0.5" />
+                <Minus className="w-4 h-4 text-text-muted shrink-0 mt-0.5" />
               ) : (
-                <Plus className="w-4 h-4 text-mid-grey shrink-0 mt-0.5" />
+                <Plus className="w-4 h-4 text-text-muted shrink-0 mt-0.5" />
               )}
             </button>
             {openIndex === i && (
-              <p className="pb-4 text-mid-grey text-sm leading-relaxed">{faq.a}</p>
+              <p className="pb-4 text-text-muted text-sm leading-relaxed">{faq.a}</p>
             )}
           </div>
         ))}
@@ -218,14 +218,14 @@ export default function FAQsPage() {
       </section>
 
       {/* ── For Homeowners ─────────────────────────────────────── */}
-      <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
+      <section className="bg-bg-base py-16 md:py-24 border-t border-ui-border">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
             <div>
-              <h2 className="text-navy text-2xl md:text-[30px] font-bold leading-tight">
+              <h2 className="text-text-heading text-2xl md:text-[30px] font-bold leading-tight">
                 For Homeowners
               </h2>
-              <p className="mt-3 text-mid-grey text-sm leading-relaxed">
+              <p className="mt-3 text-text-muted text-sm leading-relaxed">
                 Building, renovating, or maintaining a property in the UAE.
               </p>
               <div className="mt-6">
@@ -237,7 +237,7 @@ export default function FAQsPage() {
                 </PostProjectButton>
               </div>
             </div>
-            <div className="border-t border-[#E5E7EB]">
+            <div className="border-t border-ui-border">
               <FAQSection faqs={homeownerFaqs} label="" />
             </div>
           </div>
@@ -245,14 +245,14 @@ export default function FAQsPage() {
       </section>
 
       {/* ── For Developers ─────────────────────────────────────── */}
-      <section className="bg-[#F8F8F8] py-16 md:py-24 border-t border-[#E5E7EB]">
+      <section className="bg-bg-section py-16 md:py-24 border-t border-ui-border">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
             <div>
-              <h2 className="text-navy text-2xl md:text-[30px] font-bold leading-tight">
+              <h2 className="text-text-heading text-2xl md:text-[30px] font-bold leading-tight">
                 For Developers & Main Contractors
               </h2>
-              <p className="mt-3 text-mid-grey text-sm leading-relaxed">
+              <p className="mt-3 text-text-muted text-sm leading-relaxed">
                 Sourcing subcontractors and managing procurement across multiple trades.
               </p>
               <div className="mt-6">
@@ -264,7 +264,7 @@ export default function FAQsPage() {
                 </PostProjectButton>
               </div>
             </div>
-            <div className="border-t border-[#E5E7EB]">
+            <div className="border-t border-ui-border">
               <FAQSection faqs={developerFaqs} label="" />
             </div>
           </div>
@@ -272,21 +272,21 @@ export default function FAQsPage() {
       </section>
 
       {/* ── For Professionals ──────────────────────────────────── */}
-      <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
+      <section className="bg-bg-base py-16 md:py-24 border-t border-ui-border">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
             <div>
-              <h2 className="text-navy text-2xl md:text-[30px] font-bold leading-tight">
+              <h2 className="text-text-heading text-2xl md:text-[30px] font-bold leading-tight">
                 For Contractors, Engineers & Consultants
               </h2>
-              <p className="mt-3 text-mid-grey text-sm leading-relaxed">
+              <p className="mt-3 text-text-muted text-sm leading-relaxed">
                 Growing your business and receiving qualified project leads.
               </p>
               <div className="mt-6">
                 <JoinButton size="sm">Join as a Professional</JoinButton>
               </div>
             </div>
-            <div className="border-t border-[#E5E7EB]">
+            <div className="border-t border-ui-border">
               <FAQSection faqs={professionalFaqs} label="" />
             </div>
           </div>

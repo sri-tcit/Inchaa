@@ -3,22 +3,22 @@ import { Package, Home } from "lucide-react";
 
 export function ContractorCrossLinks() {
   return (
-    <section className="bg-[#F4F4F2] py-16 md:py-20 border-t border-[#E5E7EB]">
+    <section className="bg-bg-section-2 py-16 md:py-20 border-t border-ui-border">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
-        <div className="bg-white rounded-2xl border border-[#E5E7EB] overflow-hidden">
+        <div className="bg-bg-card rounded-2xl border border-ui-border overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2">
 
             {/* Left */}
-            <div className="p-8 md:p-10 md:border-r border-[#E5E7EB]">
-              <h2 className="text-navy text-xl md:text-2xl font-bold leading-snug">
+            <div className="p-8 md:p-10 md:border-r border-ui-border">
+              <h2 className="text-text-heading text-xl md:text-2xl font-bold leading-snug">
                 Looking for engineers or consultants?
               </h2>
-              <p className="mt-3 text-mid-grey text-sm leading-relaxed">
+              <p className="mt-3 text-text-muted text-sm leading-relaxed">
                 Inchaa connects you with structural, MEP, civil engineers, quantity surveyors, and design consultants across the UAE.
               </p>
               <Link
                 href="/how-it-works"
-                className="inline-flex items-center gap-1 mt-5 text-sm font-semibold text-blue-600 hover:underline"
+                className="inline-flex items-center gap-1 mt-5 text-sm font-semibold text-blue-400 hover:underline"
               >
                 How Inchaa works →
               </Link>
@@ -35,7 +35,7 @@ export function ContractorCrossLinks() {
               </Link>
               <Link
                 href="/consultants/"
-                className="flex items-center justify-center gap-2.5 w-full px-6 py-4 rounded-xl border border-[#E5E7EB] text-navy text-sm font-semibold hover:bg-[#F4F4F2] transition-all duration-150"
+                className="flex items-center justify-center gap-2.5 w-full px-6 py-4 rounded-xl border border-ui-border text-text-heading text-sm font-semibold hover:bg-bg-section transition-all duration-150"
               >
                 <Home className="w-4 h-4" />
                 Find consultants

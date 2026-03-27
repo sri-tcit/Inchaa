@@ -31,14 +31,14 @@ export function JoinFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#F8F8F8] py-16 md:py-20 border-t border-[#E5E7EB]">
+    <section className="bg-bg-section py-16 md:py-20 border-t border-ui-border">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
           <div>
-            <h2 className="text-navy text-2xl md:text-[30px] font-bold leading-tight">
+            <h2 className="text-text-heading text-2xl md:text-[30px] font-bold leading-tight">
               Common Questions
             </h2>
-            <p className="mt-3 text-mid-grey text-sm leading-relaxed">
+            <p className="mt-3 text-text-muted text-sm leading-relaxed">
               Everything you need to know about joining Inchaa as a professional.
             </p>
             <div className="mt-6">
@@ -46,22 +46,22 @@ export function JoinFAQ() {
             </div>
           </div>
 
-          <div className="border-t border-[#E5E7EB]">
+          <div className="border-t border-ui-border">
             {faqs.map((faq, i) => (
-              <div key={i} className="border-b border-[#E5E7EB]">
+              <div key={i} className="border-b border-ui-border">
                 <button
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   className="w-full flex items-start justify-between py-4 text-left gap-4"
                 >
-                  <span className="text-navy text-sm font-medium">{faq.q}</span>
+                  <span className="text-text-body text-sm font-medium">{faq.q}</span>
                   {openIndex === i ? (
-                    <Minus className="w-4 h-4 text-mid-grey shrink-0 mt-0.5" />
+                    <Minus className="w-4 h-4 text-text-muted shrink-0 mt-0.5" />
                   ) : (
-                    <Plus className="w-4 h-4 text-mid-grey shrink-0 mt-0.5" />
+                    <Plus className="w-4 h-4 text-text-muted shrink-0 mt-0.5" />
                   )}
                 </button>
                 {openIndex === i && (
-                  <p className="pb-4 text-mid-grey text-sm leading-relaxed">{faq.a}</p>
+                  <p className="pb-4 text-text-muted text-sm leading-relaxed">{faq.a}</p>
                 )}
               </div>
             ))}

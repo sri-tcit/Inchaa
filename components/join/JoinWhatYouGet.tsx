@@ -30,10 +30,10 @@ const benefits = [
 
 export function JoinWhatYouGet() {
   return (
-    <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
+    <section className="bg-bg-base py-16 md:py-24 border-t border-ui-border">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
 
-        <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight mb-12">
+        <h2 className="text-text-heading text-3xl md:text-[40px] font-bold leading-tight mb-12">
           What You Get on Inchaa
         </h2>
 
@@ -41,13 +41,13 @@ export function JoinWhatYouGet() {
           {benefits.map((benefit, i) => (
             <div
               key={i}
-              className="bg-[#F8F8F8] border border-[#E5E7EB] rounded-xl p-6 flex flex-col gap-3"
+              className="bg-bg-section border border-ui-border rounded-xl p-6 flex flex-col gap-3"
             >
               <div className="w-8 h-8 rounded-full bg-yellow/10 flex items-center justify-center shrink-0">
                 <span className="text-yellow text-sm font-bold">{i + 1}</span>
               </div>
-              <h3 className="text-navy text-base font-semibold">{benefit.title}</h3>
-              <p className="text-mid-grey text-sm leading-relaxed">{benefit.description}</p>
+              <h3 className="text-text-heading text-base font-semibold">{benefit.title}</h3>
+              <p className="text-text-muted text-sm leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>

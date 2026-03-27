@@ -23,13 +23,13 @@ const STEPS = [
 
 export function HowItWorks() {
   return (
-    <section className="bg-[#F8F8F8] py-20 md:py-28 border-t border-[#E5E7EB]" id="how-it-works">
+    <section className="bg-bg-section py-20 md:py-28 border-t border-ui-border" id="how-it-works">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6 text-center">
 
-        <h2 className="text-navy text-3xl md:text-[42px] font-bold leading-tight">
+        <h2 className="text-text-heading text-3xl md:text-[42px] font-bold leading-tight">
         Hire Professionals in 4 Simple Steps
         </h2>
-        <p className="mt-4 text-mid-grey text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+        <p className="mt-4 text-text-muted text-base md:text-lg max-w-xl mx-auto leading-relaxed">
           Post your project free and let verified professionals come to you.
         </p>
 
@@ -47,13 +47,13 @@ export function HowItWorks() {
             >
               <defs>
                 <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                  <path d="M0,0 L0,6 L8,3 z" fill="#D1D5DB" />
+                  <path d="M0,0 L0,6 L8,3 z" fill="rgba(255,255,255,0.15)" />
                 </marker>
               </defs>
               {/* Arrow 1→2 */}
               <path
                 d="M 0 38 Q 50 4 100 38"
-                stroke="#D1D5DB"
+                stroke="rgba(255,255,255,0.12)"
                 strokeWidth="1.5"
                 strokeDasharray="5 4"
                 markerEnd="url(#arrow)"
@@ -61,7 +61,7 @@ export function HowItWorks() {
               {/* Arrow 2→3 */}
               <path
                 d="M 100 38 Q 150 4 200 38"
-                stroke="#D1D5DB"
+                stroke="rgba(255,255,255,0.12)"
                 strokeWidth="1.5"
                 strokeDasharray="5 4"
                 markerEnd="url(#arrow)"
@@ -69,7 +69,7 @@ export function HowItWorks() {
               {/* Arrow 3→4 */}
               <path
                 d="M 200 38 Q 250 4 300 38"
-                stroke="#D1D5DB"
+                stroke="rgba(255,255,255,0.12)"
                 strokeWidth="1.5"
                 strokeDasharray="5 4"
                 markerEnd="url(#arrow)"
@@ -90,8 +90,8 @@ export function HowItWorks() {
                 >
                   {num}
                 </span>
-                <h3 className="text-navy text-base font-bold leading-snug">{title}</h3>
-                <p className="mt-2 text-mid-grey text-sm leading-relaxed">{description}</p>
+                <h3 className="text-text-heading text-base font-bold leading-snug">{title}</h3>
+                <p className="mt-2 text-text-muted text-sm leading-relaxed">{description}</p>
               </div>
             ))}
           </div>
@@ -113,8 +113,8 @@ export function HowItWorks() {
                 {num}
               </span>
               <div className="pt-2">
-                <h3 className="text-navy text-base font-bold leading-snug">{title}</h3>
-                <p className="mt-1 text-mid-grey text-sm leading-relaxed">{description}</p>
+                <h3 className="text-text-heading text-base font-bold leading-snug">{title}</h3>
+                <p className="mt-1 text-text-muted text-sm leading-relaxed">{description}</p>
               </div>
             </div>
           ))}

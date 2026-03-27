@@ -26,30 +26,30 @@ export function ConsultantFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#F8F8F8] py-16 md:py-20 border-t border-[#E5E7EB]">
+    <section className="bg-bg-section py-16 md:py-20 border-t border-ui-border">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12">
           <div>
-            <h2 className="text-navy text-3xl md:text-[42px] font-bold leading-tight">
+            <h2 className="text-text-heading text-3xl md:text-[42px] font-bold leading-tight">
               Frequently Asked Questions
             </h2>
           </div>
           <div>
             {faqs.map((faq, i) => (
-              <div key={i} className="border-b border-[#E5E7EB]">
+              <div key={i} className="border-b border-ui-border">
                 <button
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   className="w-full flex items-start justify-between py-4 text-left gap-4"
                 >
-                  <span className="text-charcoal text-sm font-medium">{faq.q}</span>
+                  <span className="text-text-body text-sm font-medium">{faq.q}</span>
                   {openIndex === i ? (
-                    <Minus className="w-4 h-4 text-mid-grey shrink-0 mt-0.5" />
+                    <Minus className="w-4 h-4 text-text-muted shrink-0 mt-0.5" />
                   ) : (
-                    <Plus className="w-4 h-4 text-mid-grey shrink-0 mt-0.5" />
+                    <Plus className="w-4 h-4 text-text-muted shrink-0 mt-0.5" />
                   )}
                 </button>
                 {openIndex === i && (
-                  <p className="pb-4 text-mid-grey text-sm leading-relaxed">{faq.a}</p>
+                  <p className="pb-4 text-text-muted text-sm leading-relaxed">{faq.a}</p>
                 )}
               </div>
             ))}

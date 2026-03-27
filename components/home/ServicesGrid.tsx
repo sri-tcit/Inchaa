@@ -59,13 +59,13 @@ const PROFESSIONALS = [
 
 export function ServicesGrid() {
   return (
-      <section className="bg-white py-16 md:py-24 border-t border-[#E5E7EB]">
+      <section className="bg-bg-base py-16 md:py-24 border-t border-ui-border">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6 text-center">
 
-        <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight">
+        <h2 className="text-text-heading text-3xl md:text-[40px] font-bold leading-tight">
           Find the Right Professional
         </h2>
-        <p className="mt-4 text-mid-grey text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+        <p className="mt-4 text-text-muted text-base md:text-lg max-w-xl mx-auto leading-relaxed">
           Connect with verified professionals across every construction discipline in the UAE.
         </p>
 
@@ -79,8 +79,8 @@ export function ServicesGrid() {
               <div className={`w-full aspect-[4/3] rounded-2xl ${bg} flex items-center justify-center p-8 mb-5`}>
                 <div className="w-28 h-28">{svg}</div>
               </div>
-              <h3 className="text-navy text-lg font-bold">{label}</h3>
-              <p className="mt-2 text-mid-grey text-sm leading-relaxed">{description}</p>
+              <h3 className="text-text-heading text-lg font-bold">{label}</h3>
+              <p className="mt-2 text-text-muted text-sm leading-relaxed">{description}</p>
             </Link>
           ))}
         </div>

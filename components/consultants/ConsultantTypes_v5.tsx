@@ -23,10 +23,10 @@ const mainTypes = [
 
 export function ConsultantTypes_v5() {
   return (
-    <section className="bg-white py-14 md:py-20 border-t border-[#E5E7EB]">
+    <section className="bg-bg-base py-14 md:py-20 border-t border-ui-border">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
 
-        <h2 className="text-navy text-3xl md:text-[42px] font-bold leading-tight mb-8">
+        <h2 className="text-text-heading text-3xl md:text-[42px] font-bold leading-tight mb-8">
           Types of Consultants
         </h2>
 
