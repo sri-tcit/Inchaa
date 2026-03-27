@@ -1,62 +1,77 @@
+import { Activity, CheckCircle, AlignLeft, Home, Crosshair } from "lucide-react";
 import { PostProjectButton } from "@/components/shared/PostProjectModal";
 
-const benefits = [
+const features = [
   {
-    title: "Multiple competing quotes",
-    description:
-      "Word of mouth gives you one option. Inchaa gives you several. Receive 3–5 detailed proposals for the same project and choose based on facts — pricing, scope, credentials, past work — not hope.",
+    icon: Activity,
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-500",
+    title: "Competing quotes",
+    description: "Get 3–5 detailed proposals per project. Compare pricing, scope, and credentials side by side.",
   },
   {
+    icon: CheckCircle,
+    iconBg: "bg-green-100",
+    iconColor: "text-green-500",
     title: "Verified contractors",
-    description:
-      "Every contractor on Inchaa is reviewed for a valid UAE trade license, business credentials, and past project experience before they can receive a single inquiry.",
+    description: "Trade licence, credentials, and past work reviewed before they can receive any inquiry.",
   },
   {
+    icon: AlignLeft,
+    iconBg: "bg-[#F5EFE0]",
+    iconColor: "text-[#A0845C]",
     title: "One dashboard",
-    description:
-      "Quotations, documents, communication, and project tracking in one place. No more lost paperwork, forgotten follow-ups, or trying to remember which contractor said what three weeks ago.",
+    description: "Quotes, documents, messages, and project tracking — all in one place.",
   },
   {
+    icon: Home,
+    iconBg: "bg-red-100",
+    iconColor: "text-red-400",
     title: "Built for construction",
-    description:
-      "Inchaa is purpose-built for the construction industry — villa builds, MEP works, renovation, and 30+ specialist trades. Our platform understands the difference between a general contractor and a sub-contractor.",
+    description: "Purpose-built for villas, MEP, renovation, fit-outs, and 30+ specialist trades.",
   },
   {
+    icon: Crosshair,
+    iconBg: "bg-purple-100",
+    iconColor: "text-purple-400",
     title: "Free for homeowners",
-    description:
-      "Posting projects, receiving quotes, and comparing contractors costs you nothing.",
+    description: "Post projects, receive quotes, and compare contractors at zero cost.",
   },
 ];
 
 export function ContractorWhyChoose() {
   return (
-    <section className="bg-white py-16 md:py-20 border-t border-[#E5E7EB]">
+    <section className="bg-[#F4F4F2] py-16 md:py-20 border-t border-[#E5E7EB]">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12">
-          <div>
-            <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight">
-              Why Homeowners Choose Inchaa
-            </h2>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {benefits.map((b) => (
-              <div key={b.title} className="border-l-2 border-yellow pl-4">
-                <h3 className="text-charcoal text-sm font-semibold">{b.title}</h3>
-                <p className="mt-1.5 text-mid-grey text-sm leading-relaxed">
-                  {b.description}
-                </p>
+        <h2 className="text-navy text-3xl md:text-[42px] font-bold leading-tight">
+          Why homeowners choose Inchaa
+        </h2>
+        <p className="mt-3 text-mid-grey text-base leading-relaxed">
+          Everything you need to hire the right contractor — without the guesswork.
+        </p>
+
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {features.map((f) => (
+            <div key={f.title} className="bg-white rounded-2xl p-6 border border-[#E5E7EB]">
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${f.iconBg}`}>
+                <f.icon className={`w-5 h-5 ${f.iconColor}`} />
               </div>
-            ))}
-          </div>
+              <h3 className="mt-5 text-navy text-lg font-bold leading-snug">{f.title}</h3>
+              <p className="mt-2 text-mid-grey text-sm leading-relaxed">{f.description}</p>
+            </div>
+          ))}
+
+          {/* CTA cell */}
+          <PostProjectButton
+            campaign="contractors_lp_why"
+            variant="unstyled"
+            className="bg-white rounded-2xl p-6 border border-[#E5E7EB] flex items-center justify-center text-yellow font-semibold text-base hover:bg-[#F4F4F2] transition-colors duration-150 cursor-pointer"
+          >
+            Post your project →
+          </PostProjectButton>
         </div>
 
-        <div className="mt-12 text-center">
-          <PostProjectButton
-            campaign="contractors_lp"
-            size="sm"
-          />
-        </div>
       </div>
     </section>
   );

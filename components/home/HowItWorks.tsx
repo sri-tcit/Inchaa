@@ -27,7 +27,7 @@ export function HowItWorks() {
       <div className="max-w-[1100px] mx-auto px-4 md:px-6 text-center">
 
         <h2 className="text-navy text-3xl md:text-[42px] font-bold leading-tight">
-          From post to hire in 4 simple steps
+        Hire Professionals in 4 Simple Steps
         </h2>
         <p className="mt-4 text-mid-grey text-base md:text-lg max-w-xl mx-auto leading-relaxed">
           Post your project free and let verified professionals come to you.

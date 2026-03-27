@@ -46,7 +46,7 @@ export function ContractorFAQ() {
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12">
           <div>
-            <h2 className="text-navy text-3xl md:text-[40px] font-bold leading-tight">
+            <h2 className="text-navy text-3xl md:text-[42px] font-bold leading-tight">
               Frequently Asked Questions
             </h2>
           </div>
