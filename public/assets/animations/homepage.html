@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inchaa - UAE's Construction Marketplace</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#060a14;--accent:#4f46e5;--accent-light:#6366f1;--accent-bright:#818cf8;--white:#fff;--gray-300:#cbd5e1;--gray-400:#94a3b8}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--ink);color:var(--white);overflow:hidden}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,10,20,.5);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.04)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Outfit',sans-serif;font-weight:800;font-size:24px;letter-spacing:-.5px;color:var(--white);text-decoration:none}
+.nav-logo svg{width:32px;height:32px}
+.nav-center{display:flex;align-items:center;gap:8px}
+.nav-center a{color:var(--gray-300);text-decoration:none;font-size:14px;font-weight:500;padding:8px 16px;border-radius:8px;transition:all .2s}
+.nav-center a:hover{color:var(--white);background:rgba(255,255,255,.06)}
+.nav-center a.cta-nav{background:var(--accent);color:var(--white);font-weight:600}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-right a{color:var(--gray-400);text-decoration:none;font-size:13px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s}
+.nav-right a.join-btn{background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.4);color:var(--accent-bright);font-weight:700;padding:9px 20px;border-radius:10px}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:flex-start;overflow:hidden}
+#cv{position:absolute;inset:0;z-index:1}
+.hero-content{position:relative;z-index:10;text-align:left;max-width:520px;padding:0 24px 0 60px;pointer-events:none}
+.hero-content *{pointer-events:auto}
+.hero-title{font-family:'Outfit',sans-serif;font-size:68px;font-weight:800;line-height:1.06;letter-spacing:-2.5px;margin-bottom:24px;animation:fu .8s ease-out .1s both;text-shadow:0 2px 24px rgba(6,10,20,0.9),0 0 50px rgba(6,10,20,0.7)}
+.hero-title .hl{color:var(--accent-bright)}
+.hero-sub{font-size:17px;line-height:1.75;color:var(--gray-400);max-width:460px;margin:0 0 40px;animation:fu .8s ease-out .25s both;text-shadow:0 1px 18px rgba(6,10,20,0.95),0 0 35px rgba(6,10,20,0.8)}
+.hero-actions{display:flex;align-items:center;justify-content:flex-start;animation:fu .8s ease-out .4s both}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--white);font-size:16px;font-weight:700;padding:16px 36px;border-radius:14px;border:none;cursor:pointer;transition:all .3s;text-decoration:none;box-shadow:0 4px 24px rgba(79,70,229,.3)}
+.btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 40px rgba(79,70,229,.45)}
+@keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1200px){.hero-title{font-size:56px;letter-spacing:-2px}.hero-content{padding-left:48px;max-width:480px}}
+@media(max-width:900px){
+  .navbar{padding:0 20px}.nav-center,.nav-right{display:none}
+  .hero{justify-content:center}
+  .hero-content{text-align:center;padding:0 24px;max-width:600px}
+  .hero-title{font-size:42px;letter-spacing:-1.5px}
+  .hero-sub{font-size:15px;max-width:420px;margin:0 auto 32px}
+  .hero-actions{justify-content:center}
+  .btn-primary{font-size:14px;padding:14px 28px}
+}
+@media(max-width:600px){.hero-title{font-size:32px;letter-spacing:-1px}.hero-sub{font-size:13px;line-height:1.6;max-width:300px}.btn-primary{font-size:13px;padding:12px 24px}}
+</style>
+</head>
+<body>
+<nav class="navbar"><a href="#" class="nav-logo"><svg viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="8" height="20" rx="1" fill="#6366f1"/><rect x="12" y="4" width="8" height="24" rx="1" fill="#818cf8"/><rect x="22" y="12" width="8" height="16" rx="1" fill="#6366f1"/></svg>inchaa</a><div class="nav-center"><a href="#">Contractors</a><a href="#">Consultants</a><a href="#">Engineers</a><a href="#" class="cta-nav">Post Your Project</a></div><div class="nav-right"><a href="#">Sign in</a><a href="#" class="join-btn">Join as a Professional</a></div></nav>
+<section class="hero" id="hero">
+<canvas id="cv"></canvas>
+<div class="hero-content">
+<h1 class="hero-title">Your Construction<br>Project, <span class="hl">Simplified.</span></h1>
+<p class="hero-sub">Post your project on Inchaa and receive competing quotes from verified contractors, engineers, and consultants across the UAE. Compare, hire, and build with confidence.</p>
+<div class="hero-actions"><a href="#" class="btn-primary">Post Your Project Free <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+</div>
+</section>
+<script>
+var cv=document.getElementById('cv'),c=cv.getContext('2d');
+var W=0,H=0,mx=-1e4,my=-1e4,smx=0,smy=0;
+
+// Project types that cycle
+var projects=[
+  {type:'Villa Construction',loc:'Saadiyat Island, Abu Dhabi',icon:'🏠',cat:'residential'},
+  {type:'Villa Renovation',loc:'Al Raha Beach, Abu Dhabi',icon:'🔨',cat:'residential'},
+  {type:'Solar Panels',loc:'Dubai Hills Estate, Dubai',icon:'☀️',cat:'residential'},
+  {type:'Landscaping',loc:'Masaar, Sharjah',icon:'🌿',cat:'residential'},
+  {type:'Interior Fit-Out',loc:'DIFC, Dubai',icon:'🎨',cat:'interior'},
+  {type:'Villa Extension',loc:'Nakheel Villas, Dubai',icon:'🏗',cat:'residential'},
+  {type:'Swimming Pool',loc:'Khalifa City, Abu Dhabi',icon:'🏊',cat:'residential'},
+  {type:'Smart Home Systems',loc:'JBR, Dubai',icon:'📱',cat:'residential'},
+];
+
+// Professional profiles by category
+var pros={
+  gc:[
+    {name:'Al Masdar Contracting',type:'General Contractor',rating:4.8,icon:'🏗',col:'99,102,241'},
+    {name:'Al Reef Builders',type:'General Contractor',rating:4.5,icon:'🏗',col:'251,146,60'},
+    {name:'Horizon Contracting',type:'Building Contractor',rating:4.7,icon:'🏗',col:'59,130,246'},
+  ],
+  eng:[
+    {name:'Gulf Structures Eng.',type:'Structural Engineer',rating:4.9,icon:'📐',col:'245,158,11'},
+    {name:'Falcon Engineering',type:'Civil Engineer',rating:4.9,icon:'🔧',col:'6,182,212'},
+  ],
+  pm:[
+    {name:'ProBuild Consultants',type:'Project Consultant',rating:4.7,icon:'📋',col:'16,185,129'},
+    {name:'Pinnacle PM',type:'Project Manager',rating:4.6,icon:'📋',col:'5,150,105'},
+  ],
+  qs:[
+    {name:'Precision QS',type:'Quantity Surveyor',rating:4.7,icon:'📊',col:'34,197,94'},
+    {name:'CostWise Consulting',type:'Cost Consultant',rating:4.6,icon:'📊',col:'21,128,61'},
+  ],
+  mep:[
+    {name:'Emirates MEP Co.',type:'MEP Engineer',rating:4.6,icon:'⚡',col:'236,72,153'},
+    {name:'PowerLink Systems',type:'MEP Contractor',rating:4.7,icon:'⚡',col:'244,63,94'},
+  ],
+  int:[
+    {name:'Desert Rose Interiors',type:'Interior Designer',rating:4.8,icon:'🎨',col:'139,92,246'},
+    {name:'Noor Design Studio',type:'Fit-Out Contractor',rating:4.6,icon:'🎨',col:'168,85,247'},
+    {name:'Lusso Interiors',type:'Interior Specialist',rating:4.7,icon:'🎨',col:'124,58,237'},
+  ],
+  land:[
+    {name:'Green Oasis LLC',type:'Landscape Contractor',rating:4.7,icon:'🌿',col:'34,197,94'},
+    {name:'Al Hadeeqa Gardens',type:'Landscape Designer',rating:4.8,icon:'🌿',col:'22,163,74'},
+    {name:'AquaScape UAE',type:'Irrigation Specialist',rating:4.5,icon:'💧',col:'6,182,212'},
+  ],
+  reno:[
+    {name:'RenoPro Emirates',type:'Renovation Contractor',rating:4.7,icon:'🔨',col:'251,146,60'},
+    {name:'Al Tajdeed Contracting',type:'Renovation Specialist',rating:4.5,icon:'🔨',col:'249,115,22'},
+    {name:'Refresh Contracting',type:'Refurb Contractor',rating:4.6,icon:'🔨',col:'234,88,12'},
+  ],
+  solar:[
+    {name:'SunPower Gulf',type:'Solar Installer',rating:4.8,icon:'☀️',col:'245,158,11'},
+    {name:'CleanTech Energy',type:'Solar Engineer',rating:4.6,icon:'☀️',col:'234,179,8'},
+    {name:'Shams Solar UAE',type:'PV Contractor',rating:4.7,icon:'☀️',col:'202,138,4'},
+  ],
+  smart:[
+    {name:'SmartLiving UAE',type:'Smart Home Integrator',rating:4.7,icon:'📱',col:'99,102,241'},
+    {name:'iHome Systems',type:'Automation Specialist',rating:4.8,icon:'📡',col:'129,140,248'},
+    {name:'ConnectHub Tech',type:'Home Automation',rating:4.6,icon:'🔌',col:'79,70,229'},
+  ],
+  pool:[
+    {name:'Blue Lagoon Pools',type:'Pool Contractor',rating:4.8,icon:'🏊',col:'6,182,212'},
+    {name:'AquaBuild UAE',type:'Pool Builder',rating:4.6,icon:'💧',col:'14,165,233'},
+    {name:'Crystal Pools LLC',type:'Pool Specialist',rating:4.7,icon:'🏊',col:'2,132,199'},
+  ],
+};
+
+var projects=[
+  {type:'Villa Construction',loc:'Saadiyat Island, Abu Dhabi',icon:'🏠',pool:['gc','eng','pm','mep','qs']},
+  {type:'Villa Renovation',loc:'Al Raha Beach, Abu Dhabi',icon:'🔨',pool:['reno','int','mep','pm']},
+  {type:'Solar Panels',loc:'Dubai Hills Estate, Dubai',icon:'☀️',pool:['solar','mep']},
+  {type:'Landscaping',loc:'Masaar, Sharjah',icon:'🌿',pool:['land']},
+  {type:'Interior Fit-Out',loc:'DIFC, Dubai',icon:'🎨',pool:['int','mep']},
+  {type:'Villa Extension',loc:'Nakheel Villas, Dubai',icon:'🏗',pool:['gc','eng','pm','mep']},
+  {type:'Swimming Pool',loc:'Khalifa City, Abu Dhabi',icon:'🏊',pool:['pool','land']},
+  {type:'Smart Home Systems',loc:'JBR, Dubai',icon:'📱',pool:['smart','mep']},
+];
+
+function buildQuotePool(projIdx){
+  var p=projects[projIdx];
+  var pool=[];
+  for(var ci=0;ci<p.pool.length;ci++){
+    var cat=pros[p.pool[ci]];
+    for(var qi2=0;qi2<cat.length;qi2++){pool.push(cat[qi2])}
+  }
+  for(var si=pool.length-1;si>0;si--){
+    var ri=Math.floor(Math.random()*(si+1));
+    var tmp=pool[si];pool[si]=pool[ri];pool[ri]=tmp;
+  }
+  return pool;
+}
+
+var currentProjectIdx=0;
+var cycleTimer=0;
+var cycleDuration=7;
+var activeQuotes=[];
+var quoteCount=0;
+var particles=[];
+var currentPool=buildQuotePool(0);
+
+document.getElementById('hero').addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY});
+document.getElementById('hero').addEventListener('mouseleave',function(){mx=-1e4;my=-1e4});
+document.getElementById('hero').addEventListener('touchmove',function(e){mx=e.touches[0].clientX;my=e.touches[0].clientY},{passive:true});
+document.getElementById('hero').addEventListener('touchstart',function(e){mx=e.touches[0].clientX;my=e.touches[0].clientY},{passive:true});
+document.getElementById('hero').addEventListener('touchend',function(){mx=-1e4;my=-1e4});
+
+function resize(){
+  var dpr=window.devicePixelRatio||1;
+  cv.width=Math.round(innerWidth*dpr);cv.height=Math.round(innerHeight*dpr);
+  cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';
+  c.setTransform(dpr,0,0,dpr,0,0);
+  W=innerWidth;H=innerHeight;smx=W/2;smy=H/2;
+}
+
+function roundRect(x,y,w,h,r){
+  c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.quadraticCurveTo(x+w,y,x+w,y+r);
+  c.lineTo(x+w,y+h-r);c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);c.lineTo(x+r,y+h);
+  c.quadraticCurveTo(x,y+h,x,y+h-r);c.lineTo(x,y+r);c.quadraticCurveTo(x,y,x+r,y);c.closePath();
+}
+
+function spawnParticles(x,y,col,n){
+  for(var i=0;i<n;i++){
+    var a=Math.random()*Math.PI*2;
+    particles.push({x:x,y:y,vx:Math.cos(a)*(1.5+Math.random()*3),vy:Math.sin(a)*(1.5+Math.random()*3),life:1,decay:0.02+Math.random()*0.02,size:1.5+Math.random()*2,col:col});
+  }
+}
+
+function draw(t){
+  requestAnimationFrame(draw);t*=0.001;
+  if(W===0)return;
+  if(mx>0){smx+=(mx-smx)*0.05;smy+=(my-smy)*0.05}else{smx+=(W/2-smx)*0.01;smy+=(H/2-smy)*0.01}
+
+  var isS=W<600;
+  var isM=W<900;
+
+  // Cycle timer
+  cycleTimer+=0.016;
+  var cyclePhase=cycleTimer/cycleDuration; // 0-1 within current cycle
+  if(cycleTimer>=cycleDuration){
+    cycleTimer=0;
+    currentProjectIdx=(currentProjectIdx+1)%projects.length;
+    activeQuotes=[];
+    quoteCount=0;
+    currentPool=buildQuotePool(currentProjectIdx);
+  }
+
+  // Spawn quotes at intervals during the cycle
+  var maxQuotes=Math.min(isS?3:isM?4:5,currentPool.length);
+  var quoteIntervals=[0.15,0.28,0.4,0.52,0.64];
+  for(var qi=0;qi<Math.min(quoteIntervals.length,maxQuotes);qi++){
+    if(cyclePhase>=quoteIntervals[qi]&&activeQuotes.length===qi){
+      var prof=currentPool[qi];
+      // Spawn from edges
+      var side=qi%4;
+      var sx,sy;
+      if(isS){
+        if(side===0){sx=W+80;sy=H*0.2+qi*H*0.12}
+        else if(side===1){sx=W+80;sy=H*0.6+qi*H*0.05}
+        else if(side===2){sx=-80;sy=H*0.15+qi*H*0.13}
+        else{sx=-80;sy=H*0.55+qi*H*0.08}
+      } else {
+        // Desktop/tablet — all from right side
+        sx=W+80;
+        sy=H*0.15+qi*H*0.14;
+      }
+
+      // Target positions — arranged around the project card
+      var projCX=isS?W*0.5:isM?W*0.45:W*0.56;
+      var projCY=H*0.5;
+      var targetAngle=-Math.PI*0.35+qi*Math.PI*0.22;
+      var targetDist=isS?H*0.22:isM?Math.min(W*0.22,240):Math.min(W*0.2,260);
+      var tx=projCX+Math.cos(targetAngle)*targetDist;
+      var ty=projCY+Math.sin(targetAngle)*targetDist;
+
+      activeQuotes.push({
+        prof:prof,x:sx,y:sy,tx:tx,ty:ty,
+        progress:0,arrived:false,arriveTime:0
+      });
+      quoteCount++;
+    }
+  }
+
+  c.clearRect(0,0,W,H);
+
+  // Background
+  var bg=c.createRadialGradient(W/2,H/2,0,W/2,H/2,Math.max(W,H)*0.55);
+  bg.addColorStop(0,'#0c1020');bg.addColorStop(0.4,'#080c18');bg.addColorStop(1,'#060a14');
+  c.fillStyle=bg;c.fillRect(0,0,W,H);
+
+  // Grid
+  c.strokeStyle='rgba(99,102,241,0.012)';c.lineWidth=0.5;
+  for(var gx=0;gx<W;gx+=80){c.beginPath();c.moveTo(gx,0);c.lineTo(gx,H);c.stroke()}
+  for(var gy=0;gy<H;gy+=80){c.beginPath();c.moveTo(0,gy);c.lineTo(W,gy);c.stroke()}
+
+  // ═══ PROJECT CARD ═══
+  var proj=projects[currentProjectIdx];
+  var projFade=cyclePhase<0.1?cyclePhase*10:cyclePhase>0.88?Math.max(0,(1-cyclePhase)*8):1;
+  var projX=isS?Math.round(W*0.1):isM?Math.round(W*0.35):Math.round(W*0.48);
+  var projY=Math.round(H*0.38);
+  var projW=isS?Math.round(W*0.35):isM?Math.round(W*0.2):Math.min(210,Math.round(W*0.16));
+  var projH=isS?65:isM?75:85;
+
+  // Project card glow
+  var pg=c.createRadialGradient(projX+projW/2,projY+projH/2,0,projX+projW/2,projY+projH/2,projW);
+  pg.addColorStop(0,'rgba(99,102,241,'+(0.04*projFade)+')');pg.addColorStop(1,'transparent');
+  c.fillStyle=pg;c.fillRect(projX-projW/2,projY-projH/2,projW*2,projH*2);
+
+  // Card bg
+  c.globalAlpha=projFade;
+  c.fillStyle='rgba(15,20,35,0.75)';
+  roundRect(projX,projY,projW,projH,10);c.fill();
+  c.strokeStyle='rgba(99,102,241,0.25)';c.lineWidth=1.5;
+  roundRect(projX,projY,projW,projH,10);c.stroke();
+
+  // Accent bar
+  c.fillStyle='rgba(99,102,241,0.4)';
+  roundRect(projX,projY,4,projH,2);c.fill();
+
+  // Icon
+  c.font=(isS?14:18)+'px sans-serif';c.textAlign='left';
+  c.fillText(proj.icon,projX+(isS?10:14),projY+(isS?24:28));
+
+  // Type
+  c.font='bold '+(isS?9:11)+'px "Plus Jakarta Sans",sans-serif';
+  c.fillStyle='rgba(255,255,255,0.75)';
+  c.fillText(proj.type,projX+(isS?28:38),projY+(isS?20:24));
+
+  // Location
+  c.font=(isS?7:9)+'px "JetBrains Mono",monospace';
+  c.fillStyle='rgba(200,210,240,0.35)';
+  c.fillText(proj.loc,projX+(isS?28:38),projY+(isS?32:38));
+
+  // "NEW PROJECT" badge
+  c.font='bold '+(isS?6:7)+'px "JetBrains Mono",monospace';
+  c.fillStyle='rgba(99,102,241,0.5)';
+  c.fillText('● NEW PROJECT',projX+(isS?10:14),projY+projH-(isS?14:18));
+
+  // Quote count
+  if(quoteCount>0){
+    c.font='bold '+(isS?8:9)+'px "JetBrains Mono",monospace';
+    c.fillStyle='rgba(34,197,94,0.55)';
+    c.textAlign='right';
+    c.fillText(quoteCount+' quote'+(quoteCount>1?'s':'')+' received',projX+projW-(isS?8:12),projY+projH-(isS?14:18));
+    c.textAlign='left';
+  }
+  c.globalAlpha=1;
+
+  // ═══ PROFESSIONAL QUOTE CARDS ═══
+  var projCenterX=projX+projW/2;
+  var projCenterY=projY+projH/2;
+
+  for(var ai=0;ai<activeQuotes.length;ai++){
+    var aq=activeQuotes[ai];
+
+    // Animate toward target
+    aq.progress=Math.min(1,aq.progress+0.012);
+    var ease=1-Math.pow(1-aq.progress,3); // ease-out cubic
+    aq.x+=(aq.tx-aq.x)*0.04;
+    aq.y+=(aq.ty-aq.y)*0.04;
+
+    if(aq.progress>=0.95&&!aq.arrived){
+      aq.arrived=true;aq.arriveTime=t;
+      spawnParticles(projCenterX,projCenterY,'34,197,94',6);
+    }
+
+    var qFade=Math.min(1,aq.progress*3)*projFade;
+    var qx=Math.round(aq.x),qy=Math.round(aq.y);
+    var qw=isS?Math.round(W*0.3):isM?Math.round(W*0.18):Math.min(170,Math.round(W*0.14));
+    var qh=isS?48:isM?55:62;
+    var prof2=aq.prof;
+
+    // Connection beam to project
+    if(qFade>0.2){
+      var beamA=aq.arrived?0.15:qFade*0.08;
+      c.beginPath();c.moveTo(qx+qw/2,qy+qh/2);c.lineTo(projCenterX,projCenterY);
+      c.strokeStyle='rgba('+prof2.col+','+beamA+')';c.lineWidth=1+qFade;c.stroke();
+
+      // Pulse along beam
+      var pt=((t*0.5+ai*0.2)%1);
+      var px=qx+qw/2+(projCenterX-qx-qw/2)*pt;
+      var py=qy+qh/2+(projCenterY-qy-qh/2)*pt;
+      c.beginPath();c.arc(px,py,2+qFade*2,0,Math.PI*2);
+      c.fillStyle='rgba('+prof2.col+','+(0.2*qFade*(1-Math.abs(pt-0.5)*2))+')';c.fill();
+    }
+
+    // Quote card
+    c.globalAlpha=qFade;
+    c.fillStyle='rgba(12,16,28,0.7)';
+    roundRect(qx,qy,qw,qh,8);c.fill();
+    c.strokeStyle='rgba('+prof2.col+','+(aq.arrived?0.25:0.1)+')';c.lineWidth=1;
+    roundRect(qx,qy,qw,qh,8);c.stroke();
+
+    // Color bar
+    c.fillStyle='rgba('+prof2.col+',0.35)';
+    roundRect(qx,qy,3,qh,1);c.fill();
+
+    // Icon
+    c.font=(isS?10:13)+'px sans-serif';c.textAlign='left';
+    c.fillText(prof2.icon,qx+(isS?8:12),qy+(isS?18:22));
+
+    // Name
+    c.font='bold '+(isS?7:9)+'px "Plus Jakarta Sans",sans-serif';
+    c.fillStyle='rgba(255,255,255,0.6)';
+    c.fillText(prof2.name,qx+(isS?22:28),qy+(isS?16:20));
+
+    // Type
+    c.font=(isS?6:7.5)+'px "JetBrains Mono",monospace';
+    c.fillStyle='rgba(200,210,240,0.3)';
+    c.fillText(prof2.type,qx+(isS?22:28),qy+(isS?27:32));
+
+    // Rating
+    c.font='bold '+(isS?7:8)+'px "JetBrains Mono",monospace';
+    c.fillStyle='rgba(245,200,60,0.4)';
+    c.fillText('★ '+prof2.rating,qx+(isS?22:28),qy+qh-(isS?10:14));
+
+    // "Quote Sent" badge when arrived
+    if(aq.arrived){
+      c.font='bold '+(isS?6:7)+'px "JetBrains Mono",monospace';
+      c.fillStyle='rgba(34,197,94,0.5)';c.textAlign='right';
+      c.fillText('✓ QUOTE SENT',qx+qw-(isS?6:10),qy+qh-(isS?10:14));
+      c.textAlign='left';
+    }
+
+    c.globalAlpha=1;
+  }
+
+  // ═══ PARTICLES ═══
+  for(var pi=particles.length-1;pi>=0;pi--){
+    var p=particles[pi];
+    p.x+=p.vx;p.y+=p.vy;p.vx*=0.95;p.vy*=0.95;p.life-=p.decay;
+    if(p.life<=0){particles.splice(pi,1);continue}
+    c.beginPath();c.arc(Math.round(p.x),Math.round(p.y),p.size*p.life,0,Math.PI*2);
+    c.fillStyle='rgba('+p.col+','+(p.life*0.4)+')';c.fill();
+  }
+
+  // ═══ FLOW ARROWS — subtle directional hint ═══
+  if(!isS&&!isM){
+    var arrowY=H*0.5;
+    for(var ari=0;ari<3;ari++){
+      var arX=W*0.7+ari*40;
+      var arA=0.03+Math.sin(t*2+ari)*0.015;
+      c.strokeStyle='rgba(99,102,241,'+arA+')';c.lineWidth=1;
+      c.beginPath();c.moveTo(arX,arrowY-6);c.lineTo(arX+8,arrowY);c.lineTo(arX,arrowY+6);c.stroke();
+    }
+  }
+
+  // ═══ CYCLE PROGRESS — tiny dots at bottom center ═══
+  var dotY=H-25;
+  var dotStartX=W/2-(projects.length*8)/2;
+  for(var di=0;di<projects.length;di++){
+    c.beginPath();c.arc(Math.round(dotStartX+di*12),dotY,2.5,0,Math.PI*2);
+    c.fillStyle=di===currentProjectIdx?'rgba(99,102,241,0.4)':'rgba(99,102,241,0.08)';
+    c.fill();
+  }
+}
+
+window.addEventListener('resize',resize);resize();
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
