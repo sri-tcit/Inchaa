@@ -300,12 +300,12 @@ export function ContractorHero() {
     <section ref={sectionRef} className="relative w-full min-h-screen overflow-hidden flex items-center justify-center" style={{ cursor: 'col-resize' }}>
       <canvas ref={canvasRef} className="absolute inset-0" style={{ width: '100%', height: '100%' }} />
       <div className="relative z-10 text-center max-w-3xl mx-auto px-6 pt-24">
-        <h1 className="text-white font-bold leading-[1.08] tracking-tight text-[28px] md:text-[40px] lg:text-[48px]">
+        <h1 className="font-bold leading-[1.08] tracking-tight text-[28px] md:text-[40px] lg:text-[48px]" style={{ color: 'rgba(255,255,255,0.92)', textShadow: '0 1px 8px rgba(0,0,0,0.35)' }}>
           Find Trusted Contractors
           <br className="hidden md:block" />
           {" "}in the UAE
         </h1>
-        <p className="mt-6 text-white/65 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+        <p className="mt-6 text-base md:text-lg leading-relaxed max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.72)', textShadow: '0 1px 4px rgba(0,0,0,0.25)' }}>
           A great contractor builds trust. A poor one builds problems. Inchaa connects
           you with reliable contractors across the UAE — whether you're renovating a villa
           or building from the ground up.

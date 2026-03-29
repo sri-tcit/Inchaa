@@ -111,20 +111,20 @@ export function JoinHero() {
           ctx.fillStyle = pg; ctx.fill();
         }
       }
-      if (h > 0.1) { ctx.fillStyle = 'rgba(0,0,0,' + (h * 0.2) + ')'; ctx.fillRect(sx + 4, sy + 4, sw, sh); }
-      var cardBg = isConn ? 'rgba(12,30,20,' + (0.75 + h * 0.2) + ')' : 'rgba(12,16,28,' + (0.7 + h * 0.25) + ')';
+      if (h > 0.1) { ctx.fillStyle = 'rgba(0,0,0,' + (h * 0.06) + ')'; ctx.fillRect(sx + 3, sy + 3, sw, sh); }
+      var cardBg = isConn ? 'rgba(240,253,244,' + (0.92 + h * 0.07) + ')' : 'rgba(255,255,255,' + (0.85 + h * 0.12) + ')';
       ctx.fillStyle = cardBg; roundRect(ctx, sx, sy, sw, sh, 8); ctx.fill();
-      var borderCol = isConn ? 'rgba(34,197,94,' + (0.3 + h * 0.35) + ')' : 'rgba(' + col + ',' + (0.12 + h * 0.25) + ')';
+      var borderCol = isConn ? 'rgba(34,197,94,' + (0.35 + h * 0.35) + ')' : 'rgba(' + col + ',' + (0.2 + h * 0.3) + ')';
       ctx.strokeStyle = borderCol; ctx.lineWidth = 1 + h; roundRect(ctx, sx, sy, sw, sh, 8); ctx.stroke();
-      ctx.fillStyle = 'rgba(' + col + ',' + (0.35 + h * 0.4) + ')'; roundRect(ctx, sx, sy, 4, sh, 2); ctx.fill();
+      ctx.fillStyle = 'rgba(' + col + ',' + (0.5 + h * 0.4) + ')'; roundRect(ctx, sx, sy, 4, sh, 2); ctx.fill();
       var isS = W < 700;
       ctx.font = (isS ? 10 : 12 + h * 3) + 'px sans-serif'; ctx.textAlign = 'left';
       ctx.fillText(d.icon, sx + (isS ? 10 : 12), sy + (isS ? 18 : 22) + h * 2);
       ctx.font = 'bold ' + (isS ? 9 : 10 + h * 1.5) + 'px "Plus Jakarta Sans",sans-serif';
-      ctx.fillStyle = 'rgba(255,255,255,' + (0.6 + h * 0.35) + ')';
+      ctx.fillStyle = 'rgba(30,41,59,' + (0.75 + h * 0.25) + ')';
       ctx.fillText(d.type, sx + (isS ? 26 : 30), sy + (isS ? 16 : 20) + h * 1);
       ctx.font = (isS ? 7 : 8.5 + h) + 'px "JetBrains Mono",monospace';
-      ctx.fillStyle = 'rgba(200,210,240,' + (0.3 + h * 0.3) + ')';
+      ctx.fillStyle = 'rgba(100,116,139,' + (0.7 + h * 0.3) + ')';
       ctx.fillText(d.loc, sx + (isS ? 26 : 30), sy + (isS ? 28 : 34) + h * 1.5);
       if (isConn) {
         ctx.font = 'bold 8px "JetBrains Mono",monospace';
@@ -151,7 +151,7 @@ export function JoinHero() {
       ctx.fillStyle = mg; ctx.fillRect(cx - 65, cy - 65, 130, 130);
       ctx.beginPath(); ctx.arc(cx, cy, 22 * pulse, 0, Math.PI * 2);
       var hg = ctx.createRadialGradient(cx, cy, 0, cx, cy, 22 * pulse);
-      hg.addColorStop(0, 'rgba(20,25,45,0.9)'); hg.addColorStop(1, 'rgba(15,20,35,0.7)');
+      hg.addColorStop(0, 'rgba(255,255,255,0.95)'); hg.addColorStop(1, 'rgba(240,242,248,0.9)');
       ctx.fillStyle = hg; ctx.fill();
       ctx.strokeStyle = 'rgba(99,102,241,0.35)'; ctx.lineWidth = 2; ctx.stroke();
       ctx.fillStyle = 'rgba(129,140,248,0.45)';
@@ -160,7 +160,7 @@ export function JoinHero() {
     }
 
     function drawGrid() {
-      ctx.strokeStyle = 'rgba(99,102,241,0.012)'; ctx.lineWidth = 0.5;
+      ctx.strokeStyle = 'rgba(79,70,229,0.03)'; ctx.lineWidth = 0.5;
       for (var gx = 0; gx < W; gx += 90) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, H); ctx.stroke(); }
       for (var gy = 0; gy < H; gy += 90) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke(); }
     }
@@ -169,15 +169,15 @@ export function JoinHero() {
       connectDisplay += (connectCount - connectDisplay) * 0.05;
       if (W < 600) return;
       ctx.font = '7px "JetBrains Mono",monospace'; ctx.textAlign = 'left';
-      ctx.fillStyle = 'rgba(34,197,94,0.2)'; ctx.fillText('QUOTES SENT', 36, H - 42);
+      ctx.fillStyle = 'rgba(34,197,94,0.5)'; ctx.fillText('QUOTES SENT', 36, H - 42);
       ctx.font = 'bold 18px "Outfit",sans-serif';
-      ctx.fillStyle = 'rgba(34,197,94,0.3)'; ctx.fillText(String(Math.round(connectDisplay)), 36, H - 24);
+      ctx.fillStyle = 'rgba(34,197,94,0.65)'; ctx.fillText(String(Math.round(connectDisplay)), 36, H - 24);
       ctx.beginPath(); ctx.arc(28, H - 39, 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(34,197,94,' + (0.2 + Math.sin(t * 3) * 0.12) + ')'; ctx.fill();
+      ctx.fillStyle = 'rgba(34,197,94,' + (0.5 + Math.sin(t * 3) * 0.15) + ')'; ctx.fill();
       ctx.textAlign = 'right'; ctx.font = '7px "JetBrains Mono",monospace';
-      ctx.fillStyle = 'rgba(99,102,241,0.15)'; ctx.fillText('AVAILABLE PROJECTS', W - 36, H - 42);
+      ctx.fillStyle = 'rgba(79,70,229,0.4)'; ctx.fillText('AVAILABLE PROJECTS', W - 36, H - 42);
       ctx.font = 'bold 18px "Outfit",sans-serif';
-      ctx.fillStyle = 'rgba(99,102,241,0.22)'; ctx.fillText(String(cards.length), W - 36, H - 24);
+      ctx.fillStyle = 'rgba(79,70,229,0.55)'; ctx.fillText(String(cards.length), W - 36, H - 24);
     }
 
     let rafId: number;
@@ -186,7 +186,7 @@ export function JoinHero() {
       smx += (mx - smx) * 0.06; smy += (my - smy) * 0.06;
       ctx.clearRect(0, 0, W, H);
       var bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.55);
-      bg.addColorStop(0, '#0c1020'); bg.addColorStop(0.4, '#080c18'); bg.addColorStop(1, '#060a12');
+      bg.addColorStop(0, '#f0f2f8'); bg.addColorStop(0.4, '#f5f6fa'); bg.addColorStop(1, '#eef0f5');
       ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
       drawGrid();
       for (var i = 0; i < cards.length; i++) {
@@ -206,10 +206,10 @@ export function JoinHero() {
         } else { card.hovered = false; if (!card.connected) card.connectAnim = Math.max(0, card.connectAnim - 0.03); }
         if (card.connectAnim > 0 && !card.connected) {
           var barW2 = card.w * 0.8, barX2 = card.x + card.w * 0.1, barY2 = card.y + card.h + 4;
-          ctx.fillStyle = 'rgba(255,255,255,0.04)'; roundRect(ctx, barX2, barY2, barW2, 3, 2); ctx.fill();
-          ctx.fillStyle = 'rgba(34,197,94,0.35)'; roundRect(ctx, barX2, barY2, barW2 * card.connectAnim, 3, 2); ctx.fill();
+          ctx.fillStyle = 'rgba(0,0,0,0.06)'; roundRect(ctx, barX2, barY2, barW2, 3, 2); ctx.fill();
+          ctx.fillStyle = 'rgba(34,197,94,0.5)'; roundRect(ctx, barX2, barY2, barW2 * card.connectAnim, 3, 2); ctx.fill();
           ctx.font = 'bold 7px "JetBrains Mono",monospace'; ctx.textAlign = 'center';
-          ctx.fillStyle = 'rgba(34,197,94,0.35)'; ctx.fillText('SENDING QUOTE...', card.x + card.w / 2, barY2 + 14);
+          ctx.fillStyle = 'rgba(34,197,94,0.55)'; ctx.fillText('SENDING QUOTE...', card.x + card.w / 2, barY2 + 14);
         }
         drawCard(card, t);
       }
@@ -254,15 +254,15 @@ export function JoinHero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen overflow-hidden flex items-center justify-center" style={{ background: '#060a12' }}>
+    <section ref={sectionRef} className="relative w-full min-h-screen overflow-hidden flex items-center justify-center" style={{ background: '#f8f9fb' }}>
       <canvas ref={canvasRef} className="absolute inset-0" style={{ width: '100%', height: '100%' }} />
       <div className="relative z-10 text-center max-w-3xl mx-auto px-6 pt-24">
-        <h1 className="text-white font-bold leading-[1.08] tracking-tight text-[28px] md:text-[40px] lg:text-[48px]">
+        <h1 className="text-[#1e293b] font-bold leading-[1.08] tracking-tight text-[28px] md:text-[40px] lg:text-[48px]">
           Grow Your Business
           <br className="hidden md:block" />
           {" "}with Inchaa
         </h1>
-        <p className="mt-6 text-white/60 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+        <p className="mt-6 text-[#64748b] text-base md:text-lg leading-relaxed max-w-xl mx-auto">
           Create your professional profile on Inchaa as a contractor, engineer, or consultant
           and connect with homeowners, developers and main contractors actively looking to hire
           construction professionals across the UAE.
@@ -271,7 +271,7 @@ export function JoinHero() {
           <JoinButton />
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, rgba(6,10,18,0.6))" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, rgba(248,249,251,0.8))" }} />
     </section>
   );
 }

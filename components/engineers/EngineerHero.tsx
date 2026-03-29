@@ -89,10 +89,10 @@ export function EngineerHero() {
       var mastW = isSmall ? 5 : 8;
       if (hovering) { s.targetCraneAngle = Math.atan2(smx - craneBaseX, 400) * 0.3; }
       s.craneAngle += (s.targetCraneAngle - s.craneAngle) * 0.015;
-      c.strokeStyle = 'rgba(220,180,40,0.3)'; c.lineWidth = 2.5;
+      c.strokeStyle = 'rgba(200,155,20,0.6)'; c.lineWidth = 2.5;
       c.beginPath(); c.moveTo(craneBaseX - mastW / 2, ground); c.lineTo(craneBaseX - mastW / 2, craneTopY); c.stroke();
       c.beginPath(); c.moveTo(craneBaseX + mastW / 2, ground); c.lineTo(craneBaseX + mastW / 2, craneTopY); c.stroke();
-      c.strokeStyle = 'rgba(220,180,40,0.12)'; c.lineWidth = 0.8;
+      c.strokeStyle = 'rgba(200,155,20,0.3)'; c.lineWidth = 0.8;
       for (var ly = ground; ly > craneTopY; ly -= 12) {
         c.beginPath(); c.moveTo(craneBaseX - mastW / 2, ly); c.lineTo(craneBaseX + mastW / 2, ly); c.stroke();
         var nextY = ly - 12;
@@ -142,21 +142,21 @@ export function EngineerHero() {
     }
 
     function drawBuilding(s: any, t: number) {
-      c.fillStyle = 'rgba(30,40,58,0.8)'; c.fillRect(s.x - 15, ground - 8, s.w + 30, 12);
-      c.fillStyle = 'rgba(0,0,0,0.1)'; c.fillRect(s.x - 15, ground + 4, s.w + 30, 4);
-      c.strokeStyle = 'rgba(255,255,255,0.02)'; c.lineWidth = 0.5;
+      c.fillStyle = 'rgba(120,115,105,0.7)'; c.fillRect(s.x - 15, ground - 8, s.w + 30, 12);
+      c.fillStyle = 'rgba(0,0,0,0.06)'; c.fillRect(s.x - 15, ground + 4, s.w + 30, 4);
+      c.strokeStyle = 'rgba(0,0,0,0.03)'; c.lineWidth = 0.5;
       for (var fi = s.x - 12; fi < s.x + s.w + 12; fi += 8) { c.beginPath(); c.moveTo(fi, ground - 8); c.lineTo(fi, ground + 4); c.stroke(); }
       for (var f = 0; f < s.builtFloors; f++) {
         var fy = ground - (f + 1) * s.floorH;
         var isRecent = f >= s.builtFloors - 2, isTop = f === s.builtFloors - 1;
-        c.fillStyle = isRecent ? 'rgba(18,26,42,0.85)' : 'rgba(14,20,34,0.92)'; c.fillRect(s.x, fy, s.w, s.floorH - 1);
-        var fSh = c.createLinearGradient(s.x, fy, s.x, fy + 4); fSh.addColorStop(0, 'rgba(0,0,0,0.12)'); fSh.addColorStop(1, 'transparent'); c.fillStyle = fSh; c.fillRect(s.x, fy, s.w, 4);
-        c.fillStyle = 'rgba(40,52,70,0.4)'; c.fillRect(s.x, fy + s.floorH - 2, s.w, 2);
+        c.fillStyle = isRecent ? 'rgba(190,185,175,0.85)' : 'rgba(200,195,185,0.9)'; c.fillRect(s.x, fy, s.w, s.floorH - 1);
+        var fSh = c.createLinearGradient(s.x, fy, s.x, fy + 4); fSh.addColorStop(0, 'rgba(0,0,0,0.08)'); fSh.addColorStop(1, 'transparent'); c.fillStyle = fSh; c.fillRect(s.x, fy, s.w, 4);
+        c.fillStyle = 'rgba(0,0,0,0.08)'; c.fillRect(s.x, fy + s.floorH - 2, s.w, 2);
         var colPositions = [s.x + 5, s.x + s.w / 3, s.x + s.w * 2 / 3, s.x + s.w - 5];
         for (var ci = 0; ci < colPositions.length; ci++) {
           var cx2 = colPositions[ci];
-          c.fillStyle = 'rgba(100,115,140,0.1)'; c.fillRect(Math.round(cx2 - 2), fy, 4, s.floorH);
-          c.fillStyle = 'rgba(100,115,140,0.06)'; c.fillRect(Math.round(cx2 - 4), fy, 2, s.floorH); c.fillRect(Math.round(cx2 + 2), fy, 2, s.floorH);
+          c.fillStyle = 'rgba(80,85,95,0.12)'; c.fillRect(Math.round(cx2 - 2), fy, 4, s.floorH);
+          c.fillStyle = 'rgba(80,85,95,0.07)'; c.fillRect(Math.round(cx2 - 4), fy, 2, s.floorH); c.fillRect(Math.round(cx2 + 2), fy, 2, s.floorH);
         }
         if (!isRecent) {
           var winCols = Math.floor(s.w / 17);
@@ -165,26 +165,24 @@ export function EngineerHero() {
             var nearCol = false;
             for (var ck = 0; ck < colPositions.length; ck++) { if (Math.abs(wx + 5 - colPositions[ck]) < 6) nearCol = true; }
             if (nearCol) continue;
-            c.strokeStyle = 'rgba(80,100,130,0.06)'; c.lineWidth = 0.5; c.strokeRect(wx, fy + 3, 10, s.floorH - 8);
+            c.strokeStyle = 'rgba(0,0,0,0.06)'; c.lineWidth = 0.5; c.strokeRect(wx, fy + 3, 10, s.floorH - 8);
             var lit = Math.sin(t * 0.15 + wc * 1.3 + f * 2.7) > 0.2;
             if (lit) {
-              var warm = Math.sin(t * 0.1 + wc + f * 3) > 0;
               var wg = c.createLinearGradient(wx, fy + 3, wx, fy + s.floorH - 5);
-              if (warm) { wg.addColorStop(0, 'rgba(245,205,110,0.07)'); wg.addColorStop(1, 'rgba(245,185,85,0.03)'); }
-              else { wg.addColorStop(0, 'rgba(140,180,240,0.04)'); wg.addColorStop(1, 'rgba(100,140,200,0.02)'); }
+              wg.addColorStop(0, 'rgba(160,195,230,0.25)'); wg.addColorStop(1, 'rgba(140,175,210,0.15)');
               c.fillStyle = wg;
-            } else { c.fillStyle = 'rgba(8,14,25,0.4)'; }
+            } else { c.fillStyle = 'rgba(50,65,85,0.35)'; }
             c.fillRect(wx + 1, fy + 4, 8, s.floorH - 10);
-            if (!lit) { c.fillStyle = 'rgba(120,150,200,0.02)'; c.fillRect(wx + 2, fy + 5, 2, s.floorH - 14); }
+            if (lit) { c.fillStyle = 'rgba(255,255,255,0.08)'; c.fillRect(wx + 2, fy + 5, 2, s.floorH - 14); }
           }
         }
-        if (isRecent && !isTop) { c.fillStyle = 'rgba(80,65,35,0.12)'; c.fillRect(s.x - 3, fy, 3, s.floorH); c.fillRect(s.x + s.w, fy, 3, s.floorH); }
+        if (isRecent && !isTop) { c.fillStyle = 'rgba(140,115,65,0.15)'; c.fillRect(s.x - 3, fy, 3, s.floorH); c.fillRect(s.x + s.w, fy, 3, s.floorH); }
       }
       if (s.builtFloors < s.maxFloors) {
         var cfY = ground - (s.builtFloors + 1) * s.floorH;
         var prog = s.buildProgress;
-        c.fillStyle = 'rgba(22,32,50,0.5)'; c.fillRect(s.x, cfY, Math.round(s.w * prog), s.floorH - 1);
-        c.strokeStyle = 'rgba(165,105,55,' + (0.08 + prog * 0.06) + ')'; c.lineWidth = 0.8;
+        c.fillStyle = 'rgba(180,175,165,0.55)'; c.fillRect(s.x, cfY, Math.round(s.w * prog), s.floorH - 1);
+        c.strokeStyle = 'rgba(165,100,45,' + (0.15 + prog * 0.1) + ')'; c.lineWidth = 0.8;
         for (var rb = 0; rb < s.w; rb += 10) { if (rb / s.w < prog + 0.08) { c.beginPath(); c.moveTo(s.x + rb, cfY + 1); c.lineTo(s.x + rb, cfY + s.floorH - 1); c.stroke(); } }
         c.strokeStyle = 'rgba(165,105,55,0.05)'; c.lineWidth = 0.5;
         for (var hrb = cfY + 4; hrb < cfY + s.floorH; hrb += 5) { c.beginPath(); c.moveTo(s.x, hrb); c.lineTo(s.x + Math.round(s.w * prog), hrb); c.stroke(); }
@@ -202,10 +200,10 @@ export function EngineerHero() {
       var scaffW2 = W < 600 ? 8 : 14;
       var scaffX = scaffSide === -1 ? s.x - scaffOff : s.x + s.w + 4;
       for (var sly = ground; sly > ground - scaffH; sly -= s.floorH * 0.8) {
-        c.strokeStyle = 'rgba(220,180,40,0.15)'; c.lineWidth = W < 600 ? 1 : 1.5;
+        c.strokeStyle = 'rgba(200,160,30,0.35)'; c.lineWidth = W < 600 ? 1 : 1.5;
         c.beginPath(); c.moveTo(scaffX, sly); c.lineTo(scaffX, sly - s.floorH * 0.8); c.stroke();
         c.beginPath(); c.moveTo(scaffX + scaffW2 * scaffSide, sly); c.lineTo(scaffX + scaffW2 * scaffSide, sly - s.floorH * 0.8); c.stroke();
-        c.strokeStyle = 'rgba(220,180,40,0.1)'; c.lineWidth = W < 600 ? 0.5 : 1;
+        c.strokeStyle = 'rgba(200,160,30,0.25)'; c.lineWidth = W < 600 ? 0.5 : 1;
         c.beginPath(); c.moveTo(scaffX, sly); c.lineTo(scaffX + scaffW2 * scaffSide, sly); c.stroke();
         c.fillStyle = 'rgba(100,80,40,0.06)'; c.fillRect(Math.min(scaffX, scaffX + scaffW2 * scaffSide), sly - 1, Math.abs(scaffW2), 2);
         if (Math.round(sly) % Math.round(s.floorH * 1.6) < s.floorH) { c.strokeStyle = 'rgba(220,180,40,0.06)'; c.lineWidth = 0.5; c.beginPath(); c.moveTo(scaffX, sly); c.lineTo(scaffX + scaffW2 * scaffSide, sly - s.floorH * 0.8); c.stroke(); }
@@ -222,18 +220,18 @@ export function EngineerHero() {
       var totalProg = (s.builtFloors + s.buildProgress) / s.maxFloors;
       var isS = W < 600;
       var barX = s.x, barY = ground + (isS ? 14 : 20), barW = s.w, barH = isS ? 3 : 5;
-      c.fillStyle = 'rgba(22,32,50,0.5)'; c.fillRect(barX, barY, barW, barH);
-      c.fillStyle = totalProg >= 1 ? 'rgba(34,197,94,0.5)' : 'rgba(99,102,241,' + (0.3 + Math.sin(t * 2) * 0.06) + ')';
+      c.fillStyle = 'rgba(0,0,0,0.06)'; c.fillRect(barX, barY, barW, barH);
+      c.fillStyle = totalProg >= 1 ? 'rgba(34,197,94,0.6)' : 'rgba(79,70,229,' + (0.4 + Math.sin(t * 2) * 0.08) + ')';
       c.fillRect(barX, barY, Math.round(barW * totalProg), barH);
-      c.strokeStyle = 'rgba(99,102,241,0.08)'; c.lineWidth = 0.5; c.strokeRect(barX, barY, barW, barH);
+      c.strokeStyle = 'rgba(0,0,0,0.06)'; c.lineWidth = 0.5; c.strokeRect(barX, barY, barW, barH);
       c.font = 'bold ' + (isS ? 7 : 9) + 'px "JetBrains Mono",monospace'; c.textAlign = 'center';
-      c.fillStyle = 'rgba(200,210,240,0.35)'; c.fillText(Math.round(totalProg * 100) + '%', s.x + s.w / 2, barY + (isS ? 12 : 16));
-      c.font = (isS ? 5 : 7) + 'px "JetBrains Mono",monospace'; c.fillStyle = 'rgba(200,210,240,0.18)';
+      c.fillStyle = 'rgba(30,41,59,0.45)'; c.fillText(Math.round(totalProg * 100) + '%', s.x + s.w / 2, barY + (isS ? 12 : 16));
+      c.font = (isS ? 5 : 7) + 'px "JetBrains Mono",monospace'; c.fillStyle = 'rgba(30,41,59,0.3)';
       c.fillText(s.label + ' — ' + s.sub, s.x + s.w / 2, barY + (isS ? 20 : 27));
       if (totalProg >= 1) {
         var flagX = s.x + s.w / 2, flagY = ground - s.maxFloors * s.floorH - 8;
         var fw = isS ? 20 : 28, fh = isS ? 4 : 6;
-        c.strokeStyle = 'rgba(200,210,240,0.22)'; c.lineWidth = 1.5; c.beginPath(); c.moveTo(flagX, flagY); c.lineTo(flagX, flagY - (isS ? 28 : 40)); c.stroke();
+        c.strokeStyle = 'rgba(30,41,59,0.3)'; c.lineWidth = 1.5; c.beginPath(); c.moveTo(flagX, flagY); c.lineTo(flagX, flagY - (isS ? 28 : 40)); c.stroke();
         c.fillStyle = 'rgba(0,150,57,0.5)'; c.fillRect(flagX + 2, flagY - (isS ? 28 : 40), fw, fh);
         c.fillStyle = 'rgba(255,255,255,0.35)'; c.fillRect(flagX + 2, flagY - (isS ? 28 : 40) + fh, fw, fh);
         c.fillStyle = 'rgba(0,0,0,0.3)'; c.fillRect(flagX + 2, flagY - (isS ? 28 : 40) + fh * 2, fw, fh);
@@ -247,23 +245,16 @@ export function EngineerHero() {
       smx += (mx - smx) * 0.06; smy += (my - smy) * 0.06;
       hovering = mx > 0;
       c.clearRect(0, 0, W, H);
-      var sg = c.createLinearGradient(0, 0, 0, ground);
-      sg.addColorStop(0, '#050a15'); sg.addColorStop(0.35, '#0c1628'); sg.addColorStop(0.65, '#111d38'); sg.addColorStop(0.85, '#162442'); sg.addColorStop(1, '#1c2a48');
+      var sg = c.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * 0.55);
+      sg.addColorStop(0, '#f0f2f8'); sg.addColorStop(0.4, '#f5f6fa'); sg.addColorStop(1, '#eef0f5');
       c.fillStyle = sg; c.fillRect(0, 0, W, H);
-      for (var si = 0; si < 80; si++) {
-        var sx = ((si * 191.7 + 7) % W), sy = ((si * 83.3 + 13) % (ground * 0.5));
-        var sb = 0.1 + Math.sin(t * 0.35 + si * 0.7) * 0.15;
-        var ss = si % 8 === 0 ? 1 : si % 3 === 0 ? 0.6 : 0.3;
-        c.beginPath(); c.arc(Math.round(sx), Math.round(sy), ss, 0, Math.PI * 2); c.fillStyle = 'rgba(200,210,240,' + sb + ')'; c.fill();
-      }
-      var hg = c.createLinearGradient(0, ground - 30, 0, ground); hg.addColorStop(0, 'transparent'); hg.addColorStop(1, 'rgba(245,180,80,0.025)');
-      c.fillStyle = hg; c.fillRect(0, ground - 30, W, 30);
-      if (hovering) { var cg = c.createRadialGradient(Math.round(smx), Math.round(smy), 0, Math.round(smx), Math.round(smy), 280); cg.addColorStop(0, 'rgba(99,102,241,0.04)'); cg.addColorStop(1, 'transparent'); c.fillStyle = cg; c.fillRect(0, 0, W, H); }
-      var gg = c.createLinearGradient(0, ground, 0, H); gg.addColorStop(0, 'rgba(20,30,48,0.9)'); gg.addColorStop(0.1, 'rgba(18,26,42,0.85)'); gg.addColorStop(1, 'rgba(10,16,28,0.9)');
+      c.strokeStyle = 'rgba(79,70,229,0.03)'; c.lineWidth = 0.5;
+      for (var gxi = 0; gxi < W; gxi += 80) { c.beginPath(); c.moveTo(gxi, 0); c.lineTo(gxi, H); c.stroke(); }
+      for (var gyi = 0; gyi < H; gyi += 80) { c.beginPath(); c.moveTo(0, gyi); c.lineTo(W, gyi); c.stroke(); }
+      if (hovering) { var cg = c.createRadialGradient(Math.round(smx), Math.round(smy), 0, Math.round(smx), Math.round(smy), 280); cg.addColorStop(0, 'rgba(79,70,229,0.04)'); cg.addColorStop(1, 'transparent'); c.fillStyle = cg; c.fillRect(0, 0, W, H); }
+      var gg = c.createLinearGradient(0, ground, 0, H); gg.addColorStop(0, 'rgba(220,218,212,0.6)'); gg.addColorStop(0.15, 'rgba(210,208,200,0.5)'); gg.addColorStop(1, 'rgba(200,198,190,0.4)');
       c.fillStyle = gg; c.fillRect(0, ground, W, H - ground);
-      c.strokeStyle = 'rgba(99,102,241,0.06)'; c.lineWidth = 1; c.beginPath(); c.moveTo(0, ground); c.lineTo(W, ground); c.stroke();
-      c.fillStyle = 'rgba(15,22,35,0.5)'; c.fillRect(0, ground + 2, W, H * 0.05);
-      for (var gti = 0; gti < W; gti += 60) { c.strokeStyle = 'rgba(99,102,241,0.015)'; c.lineWidth = 0.3; c.beginPath(); c.moveTo(gti, ground + 4); c.lineTo(gti, H); c.stroke(); }
+      c.strokeStyle = 'rgba(0,0,0,0.06)'; c.lineWidth = 1; c.beginPath(); c.moveTo(0, ground); c.lineTo(W, ground); c.stroke();
       for (var si2 = 0; si2 < sites.length; si2++) {
         var s = sites[si2];
         if (hovering) {
@@ -344,15 +335,15 @@ export function EngineerHero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen overflow-hidden flex items-center justify-center" style={{ background: '#080c16' }}>
+    <section ref={sectionRef} className="relative w-full min-h-screen overflow-hidden flex items-center justify-center" style={{ background: '#f8f9fb' }}>
       <canvas ref={canvasRef} className="absolute inset-0" style={{ width: '100%', height: '100%' }} />
       <div className="relative z-10 text-center max-w-3xl mx-auto px-6 pt-24">
-        <h1 className="text-white font-bold leading-[1.08] tracking-tight text-[28px] md:text-[40px] lg:text-[48px]">
+        <h1 className="text-[#1e293b] font-bold leading-[1.08] tracking-tight text-[28px] md:text-[40px] lg:text-[48px]">
           Find Trusted Engineers
           <br className="hidden md:block" />
           {" "}in the UAE
         </h1>
-        <p className="mt-6 text-white/65 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+        <p className="mt-6 text-[#64748b] text-base md:text-lg leading-relaxed max-w-xl mx-auto">
           The right engineer can save your project. The wrong one can cost you everything.
           Inchaa connects you with reliable structural, MEP, civil, and supervision
           engineers across the UAE.
@@ -361,7 +352,7 @@ export function EngineerHero() {
           <PostProjectButton campaign="engineers_hero" size="md" />
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, rgba(5,10,21,0.6))" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, rgba(248,249,251,0.8))" }} />
     </section>
   );
 }

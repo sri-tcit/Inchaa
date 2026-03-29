@@ -7,278 +7,311 @@ export function ConsultantHero() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
+    const cv = canvasRef.current;
     const section = sectionRef.current;
-    if (!canvas || !section) return;
-    const ctx = canvas.getContext("2d")!;
+    if (!cv || !section) return;
+    const c = cv.getContext("2d")!;
 
-    let mx = -1000, my = -1000, smx = -1000, smy = -1000;
-    let elements: any[] = [];
+    let W = 0, H = 0, cx2 = 0, cy2 = 0;
+    let mx = -1e4, my = -1e4, smx = 0, smy = 0;
+    let threats: any[] = [];
+    let impacts: any[] = [];
+    let shieldR = 0;
+    let spawnTimer = 0;
+
+    const riskLabels = ['Cost Overrun','Delay','Defects','Disputes','Permit Issue','Rework','Penalty','Scope Creep','Poor Quality','Safety Risk','Contractor Default','Design Error'];
+    const riskIcons = ['💸','⏰','🔨','⚖️','📋','🔄','⚠️','📐','❌','🚧','🏚','✏️'];
 
     function resize() {
-      canvas!.width = window.innerWidth;
-      canvas!.height = window.innerHeight;
-      generateBlueprint();
+      const dpr = window.devicePixelRatio || 1;
+      cv!.width = Math.round(innerWidth * dpr);
+      cv!.height = Math.round(innerHeight * dpr);
+      cv!.style.width = innerWidth + 'px';
+      cv!.style.height = innerHeight + 'px';
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      W = innerWidth; H = innerHeight;
+      cx2 = Math.round(W / 2); cy2 = Math.round(H / 2);
+      smx = cx2; smy = cy2;
+      shieldR = W < 600 ? Math.min(W, H) * 0.28 : W < 900 ? Math.min(W, H) * 0.3 : Math.min(W, H) * 0.32;
     }
 
-    function generateBlueprint() {
-      elements = [];
-      const w = canvas!.width, h = canvas!.height;
-      const gs = 36;
-      for (let x = 0; x < w; x += gs) elements.push({type:'vline',x,y1:0,y2:h,w:0.3,major:false});
-      for (let y = 0; y < h; y += gs) elements.push({type:'hline',y,x1:0,x2:w,w:0.3,major:false});
-      const mg = 180;
-      for (let x = 0; x < w; x += mg) elements.push({type:'vline',x,y1:0,y2:h,w:1,major:true});
-      for (let y = 0; y < h; y += mg) elements.push({type:'hline',y,x1:0,x2:w,w:1,major:true});
-      const plans = [
-        {x:w*0.03,y:h*0.08,w:320,h:220,label:'TOWER A - TYPICAL FLOOR'},
-        {x:w*0.72,y:h*0.06,w:250,h:200,label:'TOWER B - PODIUM'},
-        {x:w*0.04,y:h*0.58,w:260,h:190,label:'VILLA TYPE C'},
-        {x:w*0.68,y:h*0.52,w:340,h:260,label:'COMMERCIAL BLOCK'},
-        {x:w*0.35,y:h*0.15,w:130,h:100,label:'CORE'},
-        {x:w*0.55,y:h*0.7,w:140,h:110,label:'SUBSTATION'},
-        {x:w*0.2,y:h*0.75,w:180,h:130,label:'PARKING STRUCT.'},
-        {x:w*0.82,y:h*0.4,w:160,h:200,label:'SERVICE BLOCK'},
-      ] as any[];
-      for (const p of plans) {
-        elements.push({type:'rect',x:p.x,y:p.y,w:p.w,h:p.h,lw:2,color:'wall'});
-        const numV = 1 + Math.floor(Math.random()*3);
-        const numH = 1 + Math.floor(Math.random()*3);
-        for (let i = 0; i < numV; i++) {
-          const rx = p.x + p.w * (0.15 + (i+1)/(numV+1)*0.7);
-          const gapY = p.y + p.h * (0.3 + Math.random()*0.4);
-          elements.push({type:'seg',x1:rx,y1:p.y,x2:rx,y2:gapY-12,lw:1.2,color:'wall'});
-          elements.push({type:'seg',x1:rx,y1:gapY+12,x2:rx,y2:p.y+p.h,lw:1.2,color:'wall'});
-          elements.push({type:'arc',cx:rx,cy:gapY-12,r:12,sa:0,ea:Math.PI*0.5,lw:0.7,color:'detail'});
-        }
-        for (let i = 0; i < numH; i++) {
-          const ry = p.y + p.h * (0.15 + (i+1)/(numH+1)*0.7);
-          const gapX = p.x + p.w * (0.3 + Math.random()*0.4);
-          elements.push({type:'seg',x1:p.x,y1:ry,x2:gapX-12,y2:ry,lw:1.2,color:'wall'});
-          elements.push({type:'seg',x1:gapX+12,y1:ry,x2:p.x+p.w,y2:ry,lw:1.2,color:'wall'});
-          elements.push({type:'arc',cx:gapX-12,cy:ry,r:12,sa:-Math.PI*0.5,ea:0,lw:0.7,color:'detail'});
-        }
-        const cs = 40;
-        for (let cx2 = p.x+cs; cx2 < p.x+p.w-5; cx2 += cs) {
-          for (let cy2 = p.y+cs; cy2 < p.y+p.h-5; cy2 += cs) {
-            if (Math.random()>0.35) elements.push({type:'col',cx:cx2,cy:cy2,r:3});
-          }
-        }
-        if (p.w > 150) {
-          const sx = p.x + p.w*0.7 + Math.random()*p.w*0.15;
-          const sy = p.y + p.h*0.1 + Math.random()*p.h*0.3;
-          for (let s = 0; s < 7; s++) {
-            elements.push({type:'seg',x1:sx,y1:sy+s*5,x2:sx+25,y2:sy+s*5,lw:0.6,color:'detail'});
-          }
-          elements.push({type:'rect',x:sx-1,y:sy-1,w:27,h:33,lw:0.6,color:'detail'});
-        }
-        elements.push({type:'dim',x1:p.x,y1:p.y-22,x2:p.x+p.w,y2:p.y-22,label:(p.w/10).toFixed(1)+'m'});
-        elements.push({type:'dim',x1:p.x-22,y1:p.y,x2:p.x-22,y2:p.y+p.h,label:(p.h/10).toFixed(1)+'m'});
-        elements.push({type:'label',x:p.x+8,y:p.y+p.h+16,text:p.label,size:9});
-        [[p.x,p.y],[p.x+p.w,p.y],[p.x,p.y+p.h],[p.x+p.w,p.y+p.h]].forEach(([cx2,cy2])=>{
-          elements.push({type:'cross',cx:cx2,cy:cy2,s:7});
+    function spawnThreat() {
+      const angle = Math.random() * Math.PI * 2;
+      const dist = Math.max(W, H) * 0.7;
+      const rIdx = Math.floor(Math.random() * riskLabels.length);
+      const speed = 0.3 + Math.random() * 0.5;
+      threats.push({
+        x: cx2 + Math.cos(angle) * dist,
+        y: cy2 + Math.sin(angle) * dist,
+        angle: angle + Math.PI,
+        speed,
+        label: riskLabels[rIdx],
+        icon: riskIcons[rIdx],
+        life: 1,
+        size: 6 + Math.random() * 4,
+        col: Math.random() > 0.5 ? '239,68,68' : '245,158,11',
+        hit: false,
+        hitTime: 0,
+        phase: Math.random() * Math.PI * 2,
+      });
+    }
+
+    function spawnImpact(x: number, y: number, col: string) {
+      for (let i = 0; i < 8; i++) {
+        const a = Math.random() * Math.PI * 2;
+        impacts.push({
+          x, y,
+          vx: Math.cos(a) * (2 + Math.random() * 3),
+          vy: Math.sin(a) * (2 + Math.random() * 3),
+          life: 1,
+          decay: 0.025 + Math.random() * 0.02,
+          size: 1.5 + Math.random() * 2,
+          col,
         });
-        if (Math.random() > 0.5) {
-          const hx = p.x + 6, hy = p.y + 6;
-          const hw = Math.min(p.w * 0.25, 60), hh = Math.min(p.h * 0.3, 50);
-          for (let d = 0; d < hw + hh; d += 6) {
-            const sx1 = hx + Math.min(d, hw);
-            const sy1 = hy + Math.max(0, d - hw);
-            const sx2 = hx + Math.max(0, d - hh);
-            const sy2 = hy + Math.min(d, hh);
-            elements.push({type:'seg',x1:sx1,y1:sy1,x2:sx2,y2:sy2,lw:0.3,color:'hatch'});
+      }
+    }
+
+    function drawShield(t: number): number {
+      const pulse = 1 + Math.sin(t * 1.5) * 0.012;
+      const isS = W < 600;
+      const R = shieldR * pulse;
+
+      const cursorDist = Math.sqrt((smx - cx2) ** 2 + (smy - cy2) ** 2);
+      const cursorOnShield = Math.max(0, 1 - Math.abs(cursorDist - R) / 100);
+      const ss = 0.6 + cursorOnShield * 0.4;
+
+      // Outer atmospheric glow
+      const g0 = c.createRadialGradient(cx2, cy2, R * 0.6, cx2, cy2, R * 1.5);
+      g0.addColorStop(0, 'transparent');
+      g0.addColorStop(0.5, `rgba(79,70,229,${0.05 * ss})`);
+      g0.addColorStop(1, 'transparent');
+      c.fillStyle = g0; c.fillRect(0, 0, W, H);
+
+      // Shield fill
+      const gf = c.createRadialGradient(cx2, cy2, 0, cx2, cy2, R);
+      gf.addColorStop(0, 'rgba(79,70,229,0.02)');
+      gf.addColorStop(0.6, `rgba(79,70,229,${0.05 * ss})`);
+      gf.addColorStop(0.9, `rgba(79,70,229,${0.08 * ss})`);
+      gf.addColorStop(1, 'transparent');
+      c.fillStyle = gf; c.beginPath(); c.arc(cx2, cy2, R, 0, Math.PI * 2); c.fill();
+
+      // Shield dome rings
+      for (let ri = 0; ri < 3; ri++) {
+        const ringR = R - ri * 8;
+        c.beginPath(); c.arc(cx2, cy2, ringR, 0, Math.PI * 2);
+        c.strokeStyle = `rgba(79,70,229,${(0.1 + ri * 0.04 + ss * 0.1) * pulse})`;
+        c.lineWidth = 2 - ri * 0.5; c.stroke();
+      }
+
+      // Inner ring
+      c.beginPath(); c.arc(cx2, cy2, R * 0.5, 0, Math.PI * 2);
+      c.strokeStyle = `rgba(79,70,229,${0.05 * ss})`; c.lineWidth = 0.5; c.stroke();
+
+      // Hexagonal mesh
+      if (!isS) {
+        const hexR = 28;
+        c.strokeStyle = `rgba(79,70,229,${0.04 + ss * 0.04})`; c.lineWidth = 0.4;
+        for (let hx = -R; hx < R; hx += hexR * 1.5) {
+          for (let hy = -R; hy < R; hy += hexR * 1.73) {
+            const px = cx2 + hx + (Math.abs(Math.floor(hy / (hexR * 1.73))) % 2 === 1 ? hexR * 0.75 : 0);
+            const py = cy2 + hy;
+            const d = Math.sqrt((px - cx2) ** 2 + (py - cy2) ** 2);
+            if (d > R - 15 || d < R * 0.35) continue;
+            const hDist = Math.sqrt((px - smx) ** 2 + (py - smy) ** 2);
+            const hBright = Math.max(0, 1 - hDist / 150) * 0.04;
+            if (hBright > 0.005) { c.strokeStyle = `rgba(79,70,229,${0.04 + ss * 0.04 + hBright})`; }
+            c.beginPath();
+            for (let hi = 0; hi < 6; hi++) {
+              const ha = hi * Math.PI / 3;
+              const hpx = px + Math.cos(ha) * hexR * 0.4;
+              const hpy = py + Math.sin(ha) * hexR * 0.4;
+              if (hi === 0) c.moveTo(hpx, hpy); else c.lineTo(hpx, hpy);
+            }
+            c.closePath(); c.stroke();
+            c.strokeStyle = `rgba(79,70,229,${0.04 + ss * 0.04})`;
           }
         }
       }
-      elements.push({type:'seccut',x1:w*0.08,y1:h*0.48,x2:w*0.92,y2:h*0.48,label:'A'});
-      elements.push({type:'seccut',x1:w*0.42,y1:h*0.03,x2:w*0.42,y2:h*0.97,label:'B'});
-      elements.push({type:'compass',cx:w-90,cy:110});
-      elements.push({type:'scale',x:60,y:h-55,len:220});
-      elements.push({type:'tblock',x:w-340,y:h-95,w:300,h:70});
-      elements.push({type:'revcloud',x:w*0.5,y:h*0.35,w:80,h:50});
-    }
 
-    function alpha(ex: number, ey: number) {
-      const dx = smx - ex, dy = smy - ey;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      const ambient = 0.10;
-      const boost = Math.max(0, 1 - dist / 300);
-      return Math.min(1, ambient + boost * 0.8);
-    }
+      // Rotating scan arcs
+      const scanA = t * 0.4;
+      c.beginPath(); c.arc(cx2, cy2, R, scanA, scanA + 0.7);
+      c.strokeStyle = `rgba(79,70,229,${0.22 + ss * 0.15})`; c.lineWidth = 3; c.stroke();
+      c.beginPath(); c.arc(cx2, cy2, R, scanA - 0.3, scanA);
+      c.strokeStyle = `rgba(79,70,229,${0.1 + ss * 0.06})`; c.lineWidth = 1.5; c.stroke();
+      c.beginPath(); c.arc(cx2, cy2, R, scanA + Math.PI, scanA + Math.PI + 0.5);
+      c.strokeStyle = `rgba(79,70,229,${0.16 + ss * 0.1})`; c.lineWidth = 2; c.stroke();
 
-    function segAlphaLine(x1: number, y1: number, x2: number, y2: number, callback: Function) {
-      const len = Math.sqrt((x2-x1)**2+(y2-y1)**2);
-      const steps = Math.max(1, Math.ceil(len / 25));
-      for (let s = 0; s < steps; s++) {
-        const t1 = s/steps, t2 = (s+1)/steps;
-        const sx1 = x1+(x2-x1)*t1, sy1 = y1+(y2-y1)*t1;
-        const sx2 = x1+(x2-x1)*t2, sy2 = y1+(y2-y1)*t2;
-        const a = alpha((sx1+sx2)/2,(sy1+sy2)/2);
-        if (a > 0.04) callback(sx1,sy1,sx2,sy2,a);
+      // Service labels around shield
+      if (W >= 800) {
+        const labels = ['COST CONTROL','QUALITY ASSURANCE','SCHEDULE MANAGEMENT','RISK MITIGATION','COMPLIANCE','SUPERVISION','PROJECT MANAGEMENT'];
+        c.font = 'bold 9px "JetBrains Mono",monospace';
+        for (let li = 0; li < labels.length; li++) {
+          const la = (li / (labels.length - 1)) * Math.PI * 1.5 + Math.PI * 0.4 + t * 0.012;
+          const lx = cx2 + Math.cos(la) * (R + 25);
+          const ly = cy2 + Math.sin(la) * (R + 25);
+          c.textAlign = lx > cx2 ? 'left' : 'right';
+          c.fillStyle = `rgba(67,56,202,${0.25 + ss * 0.12})`;
+          c.fillText(labels[li], Math.round(lx), Math.round(ly));
+        }
+      } else if (W >= 600) {
+        const labelsShort = ['COST','QUALITY','SCHEDULE','RISK','COMPLIANCE','SUPERVISION','PM'];
+        c.font = 'bold 7px "JetBrains Mono",monospace';
+        for (let li2 = 0; li2 < labelsShort.length; li2++) {
+          const la2 = (li2 / (labelsShort.length - 1)) * Math.PI * 1.5 + Math.PI * 0.4 + t * 0.012;
+          const lx2 = cx2 + Math.cos(la2) * (R + 18);
+          const ly2 = cy2 + Math.sin(la2) * (R + 18);
+          c.textAlign = lx2 > cx2 ? 'left' : 'right';
+          c.fillStyle = `rgba(67,56,202,${0.22 + ss * 0.1})`;
+          c.fillText(labelsShort[li2], Math.round(lx2), Math.round(ly2));
+        }
       }
+
+      return ss;
     }
 
-    function colorFor(type: string, a: number) {
-      if (type==='wall') return `rgba(129,140,248,${a*0.75})`;
-      if (type==='detail') return `rgba(99,102,241,${a*0.55})`;
-      if (type==='hatch') return `rgba(99,102,241,${a*0.25})`;
-      if (type==='dim') return `rgba(248,113,113,${a*0.5})`;
-      return `rgba(99,102,241,${a*0.5})`;
+    function drawVillaIcon(_t: number) {
+      const vx = cx2, vy = cy2 + 22;
+      const vs = W < 600 ? 0.7 : W < 900 ? 0.85 : 1;
+
+      const vg = c.createRadialGradient(vx, vy, 0, vx, vy, 35 * vs);
+      vg.addColorStop(0, 'rgba(79,70,229,0.05)'); vg.addColorStop(1, 'transparent');
+      c.fillStyle = vg; c.fillRect(vx - 35 * vs, vy - 35 * vs, 70 * vs, 70 * vs);
+
+      c.fillStyle = 'rgba(79,70,229,0.12)';
+      c.fillRect(Math.round(vx - 20 * vs), Math.round(vy - 10 * vs), Math.round(40 * vs), Math.round(24 * vs));
+      c.strokeStyle = 'rgba(79,70,229,0.08)'; c.lineWidth = 0.5;
+      c.strokeRect(Math.round(vx - 20 * vs), Math.round(vy - 10 * vs), Math.round(40 * vs), Math.round(24 * vs));
+
+      c.beginPath();
+      c.moveTo(vx - 25 * vs, vy - 10 * vs);
+      c.lineTo(vx, vy - 28 * vs);
+      c.lineTo(vx + 25 * vs, vy - 10 * vs);
+      c.closePath();
+      c.fillStyle = 'rgba(79,70,229,0.14)'; c.fill();
+      c.strokeStyle = 'rgba(79,70,229,0.08)'; c.lineWidth = 0.5; c.stroke();
+
+      c.fillStyle = 'rgba(79,70,229,0.08)';
+      c.fillRect(Math.round(vx - 5 * vs), Math.round(vy + 2 * vs), Math.round(10 * vs), Math.round(12 * vs));
+
+      c.fillStyle = 'rgba(245,200,100,0.12)';
+      c.fillRect(Math.round(vx - 16 * vs), Math.round(vy - 5 * vs), Math.round(9 * vs), Math.round(7 * vs));
+      c.fillRect(Math.round(vx + 7 * vs), Math.round(vy - 5 * vs), Math.round(9 * vs), Math.round(7 * vs));
     }
 
     let rafId: number;
-    function draw() {
-      smx += (mx-smx)*0.1;
-      smy += (my-smy)*0.1;
-      ctx.clearRect(0,0,canvas!.width,canvas!.height);
-      if (smx > 0) {
-        const g = ctx.createRadialGradient(smx,smy,0,smx,smy,340);
-        g.addColorStop(0,'rgba(99,102,241,0.07)');
-        g.addColorStop(0.6,'rgba(99,102,241,0.02)');
-        g.addColorStop(1,'transparent');
-        ctx.fillStyle = g;
-        ctx.fillRect(0,0,canvas!.width,canvas!.height);
-      }
-      for (const el of elements) {
-        if (el.type==='vline') {
-          segAlphaLine(el.x,el.y1,el.x,el.y2,(sx1:number,sy1:number,sx2:number,sy2:number,a:number)=>{
-            ctx.beginPath();ctx.moveTo(sx1,sy1);ctx.lineTo(sx2,sy2);
-            ctx.strokeStyle = el.major ? `rgba(99,102,241,${a*0.3})` : `rgba(99,102,241,${a*0.1})`;
-            ctx.lineWidth=el.w;ctx.stroke();
-          });
-        } else if (el.type==='hline') {
-          segAlphaLine(el.x1,el.y,el.x2,el.y,(sx1:number,sy1:number,sx2:number,sy2:number,a:number)=>{
-            ctx.beginPath();ctx.moveTo(sx1,sy1);ctx.lineTo(sx2,sy2);
-            ctx.strokeStyle = el.major ? `rgba(99,102,241,${a*0.3})` : `rgba(99,102,241,${a*0.1})`;
-            ctx.lineWidth=el.w;ctx.stroke();
-          });
-        } else if (el.type==='rect') {
-          [[el.x,el.y,el.x+el.w,el.y],[el.x+el.w,el.y,el.x+el.w,el.y+el.h],[el.x+el.w,el.y+el.h,el.x,el.y+el.h],[el.x,el.y+el.h,el.x,el.y]].forEach(([x1,y1,x2,y2])=>{
-            segAlphaLine(x1,y1,x2,y2,(sx1:number,sy1:number,sx2:number,sy2:number,a:number)=>{
-              ctx.beginPath();ctx.moveTo(sx1,sy1);ctx.lineTo(sx2,sy2);
-              ctx.strokeStyle=colorFor(el.color,a);ctx.lineWidth=el.lw;ctx.stroke();
-            });
-          });
-        } else if (el.type==='seg') {
-          segAlphaLine(el.x1,el.y1,el.x2,el.y2,(sx1:number,sy1:number,sx2:number,sy2:number,a:number)=>{
-            ctx.beginPath();ctx.moveTo(sx1,sy1);ctx.lineTo(sx2,sy2);
-            ctx.strokeStyle=colorFor(el.color,a);ctx.lineWidth=el.lw;ctx.stroke();
-          });
-        } else if (el.type==='arc') {
-          const a = alpha(el.cx,el.cy);
-          if(a>0.05){ctx.beginPath();ctx.arc(el.cx,el.cy,el.r,el.sa,el.ea);ctx.strokeStyle=colorFor(el.color,a);ctx.lineWidth=el.lw;ctx.stroke();}
-        } else if (el.type==='col') {
-          const a = alpha(el.cx,el.cy);
-          if(a>0.05){
-            ctx.beginPath();ctx.arc(el.cx,el.cy,el.r,0,Math.PI*2);
-            ctx.fillStyle=`rgba(99,102,241,${a*0.3})`;ctx.fill();
-            ctx.strokeStyle=`rgba(129,140,248,${a*0.45})`;ctx.lineWidth=0.6;ctx.stroke();
-          }
-        } else if (el.type==='cross') {
-          const a = alpha(el.cx,el.cy);
-          if(a>0.06){
-            ctx.beginPath();ctx.moveTo(el.cx-el.s,el.cy);ctx.lineTo(el.cx+el.s,el.cy);
-            ctx.moveTo(el.cx,el.cy-el.s);ctx.lineTo(el.cx,el.cy+el.s);
-            ctx.strokeStyle=`rgba(248,113,113,${a*0.5})`;ctx.lineWidth=0.8;ctx.stroke();
-          }
-        } else if (el.type==='dim') {
-          const mx2=(el.x1+el.x2)/2, my2=(el.y1+el.y2)/2;
-          const a = alpha(mx2,my2);
-          if(a>0.08){
-            ctx.setLineDash([4,4]);
-            ctx.beginPath();ctx.moveTo(el.x1,el.y1);ctx.lineTo(el.x2,el.y2);
-            ctx.strokeStyle=`rgba(248,113,113,${a*0.4})`;ctx.lineWidth=0.6;ctx.stroke();
-            ctx.setLineDash([]);
-            const vert=el.x1===el.x2;
-            ctx.beginPath();
-            if(vert){ctx.moveTo(el.x1-4,el.y1);ctx.lineTo(el.x1+4,el.y1);ctx.moveTo(el.x2-4,el.y2);ctx.lineTo(el.x2+4,el.y2);}
-            else{ctx.moveTo(el.x1,el.y1-4);ctx.lineTo(el.x1,el.y1+4);ctx.moveTo(el.x2,el.y2-4);ctx.lineTo(el.x2,el.y2+4);}
-            ctx.stroke();
-            ctx.font='bold 8px monospace';ctx.fillStyle=`rgba(248,113,113,${a*0.55})`;ctx.textAlign='center';
-            ctx.fillText(el.label,mx2+(vert?12:0),my2+(vert?0:-6));
-          }
-        } else if (el.type==='label') {
-          const a = alpha(el.x+40,el.y);
-          if(a>0.1){
-            ctx.font=`bold ${el.size}px monospace`;
-            ctx.fillStyle=`rgba(129,140,248,${a*0.55})`;
-            ctx.textAlign='left';ctx.fillText(el.text,el.x,el.y);
-          }
-        } else if (el.type==='seccut') {
-          segAlphaLine(el.x1,el.y1,el.x2,el.y2,(sx1:number,sy1:number,sx2:number,sy2:number,a:number)=>{
-            ctx.setLineDash([14,6,3,6]);ctx.beginPath();ctx.moveTo(sx1,sy1);ctx.lineTo(sx2,sy2);
-            ctx.strokeStyle=`rgba(248,113,113,${a*0.2})`;ctx.lineWidth=0.8;ctx.stroke();ctx.setLineDash([]);
-          });
-          for(const[ex,ey] of [[el.x1,el.y1],[el.x2,el.y2]]){
-            const a=alpha(ex,ey);
-            if(a>0.08){
-              ctx.beginPath();ctx.arc(ex,ey,13,0,Math.PI*2);ctx.strokeStyle=`rgba(248,113,113,${a*0.35})`;ctx.lineWidth=1;ctx.stroke();
-              ctx.font='bold 10px monospace';ctx.fillStyle=`rgba(248,113,113,${a*0.55})`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(el.label,ex,ey);ctx.textBaseline='alphabetic';
-            }
-          }
-        } else if (el.type==='compass') {
-          const a=alpha(el.cx,el.cy);
-          if(a>0.06){
-            ctx.strokeStyle=`rgba(129,140,248,${a*0.5})`;ctx.lineWidth=1;
-            ctx.beginPath();ctx.arc(el.cx,el.cy,25,0,Math.PI*2);ctx.stroke();
-            ctx.beginPath();ctx.moveTo(el.cx,el.cy-30);ctx.lineTo(el.cx,el.cy+20);ctx.stroke();
-            ctx.beginPath();ctx.moveTo(el.cx-6,el.cy-20);ctx.lineTo(el.cx,el.cy-30);ctx.lineTo(el.cx+6,el.cy-20);
-            ctx.fillStyle=`rgba(129,140,248,${a*0.5})`;ctx.fill();
-            ctx.font='bold 11px monospace';ctx.textAlign='center';ctx.fillStyle=`rgba(129,140,248,${a*0.5})`;ctx.fillText('N',el.cx,el.cy-37);
-          }
-        } else if (el.type==='scale') {
-          const a=alpha(el.x+el.len/2,el.y);
-          if(a>0.06){
-            ctx.strokeStyle=`rgba(129,140,248,${a*0.4})`;ctx.lineWidth=1.5;ctx.beginPath();
-            ctx.moveTo(el.x,el.y);ctx.lineTo(el.x+el.len,el.y);
-            ctx.moveTo(el.x,el.y-6);ctx.lineTo(el.x,el.y+6);
-            ctx.moveTo(el.x+el.len,el.y-6);ctx.lineTo(el.x+el.len,el.y+6);
-            ctx.moveTo(el.x+el.len/2,el.y-4);ctx.lineTo(el.x+el.len/2,el.y+4);ctx.stroke();
-            ctx.font='8px monospace';ctx.fillStyle=`rgba(129,140,248,${a*0.5})`;ctx.textAlign='center';
-            ctx.fillText('0',el.x,el.y+16);ctx.fillText('10m',el.x+el.len/2,el.y+16);ctx.fillText('20m',el.x+el.len,el.y+16);
-            ctx.fillText('SCALE 1:100',el.x+el.len/2,el.y-10);
-          }
-        } else if (el.type==='tblock') {
-          const a=alpha(el.x+el.w/2,el.y+el.h/2);
-          if(a>0.06){
-            ctx.strokeStyle=`rgba(129,140,248,${a*0.5})`;ctx.lineWidth=1.2;ctx.strokeRect(el.x,el.y,el.w,el.h);
-            ctx.beginPath();ctx.moveTo(el.x,el.y+el.h*0.5);ctx.lineTo(el.x+el.w,el.y+el.h*0.5);ctx.stroke();
-            ctx.font='bold 10px monospace';ctx.fillStyle=`rgba(129,140,248,${a*0.5})`;ctx.textAlign='left';
-            ctx.fillText('INCHAA DEVELOPMENTS LLC',el.x+10,el.y+22);
-            ctx.font='8px monospace';ctx.fillText('GENERAL ARRANGEMENT PLAN',el.x+10,el.y+36);
-            ctx.fillText('DWG: INC-GA-001  REV: A',el.x+10,el.y+58);
-            ctx.fillText('DATE: 2026.03',el.x+200,el.y+58);
-          }
-        } else if (el.type==='revcloud') {
-          const a=alpha(el.x+el.w/2,el.y+el.h/2);
-          if(a>0.08){
-            ctx.strokeStyle=`rgba(248,113,113,${a*0.35})`;ctx.lineWidth=1;
-            const bumps=16;ctx.beginPath();
-            for(let i=0;i<bumps;i++){
-              const angle=(i/bumps)*Math.PI*2;
-              const na=((i+1)/bumps)*Math.PI*2;
-              const r1x=el.x+el.w/2+Math.cos(angle)*(el.w/2);
-              const r1y=el.y+el.h/2+Math.sin(angle)*(el.h/2);
-              const r2x=el.x+el.w/2+Math.cos(na)*(el.w/2);
-              const r2y=el.y+el.h/2+Math.sin(na)*(el.h/2);
-              const cpx=(r1x+r2x)/2+Math.cos((angle+na)/2)*12;
-              const cpy=(r1y+r2y)/2+Math.sin((angle+na)/2)*12;
-              if(i===0)ctx.moveTo(r1x,r1y);
-              ctx.quadraticCurveTo(cpx,cpy,r2x,r2y);
-            }
-            ctx.stroke();
-            ctx.font='7px monospace';ctx.fillStyle=`rgba(248,113,113,${a*0.4})`;ctx.textAlign='center';
-            ctx.fillText('REV.A',el.x+el.w/2,el.y-6);
-          }
-        }
-      }
+    function draw(t: number) {
       rafId = requestAnimationFrame(draw);
+      t *= 0.001;
+      if (W === 0) return;
+
+      if (mx > 0) { smx += (mx - smx) * 0.06; smy += (my - smy) * 0.06; }
+      else { smx += (cx2 - smx) * 0.02; smy += (cy2 - smy) * 0.02; }
+
+      c.clearRect(0, 0, W, H);
+
+      // Background
+      const bg = c.createRadialGradient(cx2, cy2, 0, cx2, cy2, Math.max(W, H) * 0.55);
+      bg.addColorStop(0, '#f0f2f8'); bg.addColorStop(0.4, '#f5f6fa'); bg.addColorStop(1, '#eef0f5');
+      c.fillStyle = bg; c.fillRect(0, 0, W, H);
+
+      // Subtle grid
+      c.strokeStyle = 'rgba(79,70,229,0.03)'; c.lineWidth = 0.5;
+      for (let gx = 0; gx < W; gx += 80) { c.beginPath(); c.moveTo(gx, 0); c.lineTo(gx, H); c.stroke(); }
+      for (let gy = 0; gy < H; gy += 80) { c.beginPath(); c.moveTo(0, gy); c.lineTo(W, gy); c.stroke(); }
+
+      // Spawn threats periodically
+      spawnTimer += 0.016;
+      if (spawnTimer > 1.5 && threats.length < 12) { spawnThreat(); spawnTimer = 0; }
+
+      // Draw shield
+      const ss = drawShield(t);
+
+      // Update and draw threats
+      for (let i = threats.length - 1; i >= 0; i--) {
+        const th = threats[i];
+        if (th.hit) {
+          th.hitTime += 0.016;
+          th.life -= 0.06;
+          if (th.life <= 0) { threats.splice(i, 1); continue; }
+          c.globalAlpha = th.life;
+          c.font = `bold ${th.size}px sans-serif`;
+          c.textAlign = 'center';
+          c.fillText(th.icon, Math.round(th.x), Math.round(th.y - th.hitTime * 20));
+          c.globalAlpha = 1;
+          continue;
+        }
+
+        const dx = cx2 - th.x, dy = cy2 - th.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        th.x += Math.cos(th.angle) * th.speed * (mx > 0 ? 1.5 : 0.6);
+        th.y += Math.sin(th.angle) * th.speed * (mx > 0 ? 1.5 : 0.6);
+
+        // Check shield collision
+        if (dist < shieldR + 5 && !th.hit) {
+          th.hit = true;
+          spawnImpact(th.x, th.y, th.col);
+          continue;
+        }
+
+        // Draw threat particle
+        const alpha = Math.min(1, (dist - shieldR) / 80);
+        if (alpha <= 0) continue;
+
+        c.globalAlpha = alpha * th.life;
+        c.beginPath();
+        c.arc(Math.round(th.x), Math.round(th.y), th.size, 0, Math.PI * 2);
+        c.fillStyle = `rgba(${th.col},0.7)`; c.fill();
+
+        // Threat trail
+        c.beginPath();
+        c.moveTo(Math.round(th.x), Math.round(th.y));
+        c.lineTo(Math.round(th.x - Math.cos(th.angle) * 18), Math.round(th.y - Math.sin(th.angle) * 18));
+        c.strokeStyle = `rgba(${th.col},0.25)`; c.lineWidth = th.size * 0.5; c.stroke();
+
+        // Label
+        if (W >= 600 && th.size > 7) {
+          c.font = `bold 8px "JetBrains Mono",monospace`;
+          c.fillStyle = `rgba(${th.col},0.6)`;
+          c.textAlign = 'center';
+          c.fillText(th.label, Math.round(th.x), Math.round(th.y - th.size - 4));
+        }
+        c.globalAlpha = 1;
+      }
+
+      // Update and draw impacts
+      for (let i = impacts.length - 1; i >= 0; i--) {
+        const im = impacts[i];
+        im.x += im.vx; im.y += im.vy;
+        im.vx *= 0.92; im.vy *= 0.92;
+        im.life -= im.decay;
+        if (im.life <= 0) { impacts.splice(i, 1); continue; }
+        c.beginPath();
+        c.arc(Math.round(im.x), Math.round(im.y), im.size * im.life, 0, Math.PI * 2);
+        c.fillStyle = `rgba(${im.col},${im.life * 0.8})`; c.fill();
+      }
+
+      // Draw villa
+      drawVillaIcon(t);
+
+      // Shield blocked count label
+      if (ss > 0.8 && W >= 600) {
+        c.font = 'bold 10px "JetBrains Mono",monospace';
+        c.textAlign = 'center';
+        c.fillStyle = `rgba(67,56,202,${0.3 * ss})`;
+        c.fillText(`${threats.filter(t2 => t2.hit).length + Math.floor(t * 0.2)} risks blocked`, cx2, cy2 + shieldR + 50);
+      }
     }
 
     const onMouseMove = (e: MouseEvent) => { mx = e.clientX; my = e.clientY; };
-    const onMouseLeave = () => { mx = -1000; my = -1000; };
+    const onMouseLeave = () => { mx = -1e4; my = -1e4; };
+    const onTouchMove = (e: TouchEvent) => { mx = e.touches[0].clientX; my = e.touches[0].clientY; };
+    const onTouchEnd = () => { mx = -1e4; my = -1e4; };
+
     section.addEventListener('mousemove', onMouseMove);
     section.addEventListener('mouseleave', onMouseLeave);
+    section.addEventListener('touchmove', onTouchMove, { passive: true });
+    section.addEventListener('touchend', onTouchEnd);
     window.addEventListener('resize', resize);
     resize();
     rafId = requestAnimationFrame(draw);
@@ -288,19 +321,21 @@ export function ConsultantHero() {
       window.removeEventListener('resize', resize);
       section.removeEventListener('mousemove', onMouseMove);
       section.removeEventListener('mouseleave', onMouseLeave);
+      section.removeEventListener('touchmove', onTouchMove);
+      section.removeEventListener('touchend', onTouchEnd);
     };
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen overflow-hidden flex items-center justify-center" style={{ background: '#0a0e1a' }}>
+    <section ref={sectionRef} className="relative w-full min-h-screen overflow-hidden flex items-center justify-center" style={{ background: '#f8f9fb' }}>
       <canvas ref={canvasRef} className="absolute inset-0" style={{ width: '100%', height: '100%' }} />
       <div className="relative z-10 text-center max-w-3xl mx-auto px-6 pt-24">
-        <h1 className="text-white font-bold leading-[1.08] tracking-tight text-[28px] md:text-[40px] lg:text-[48px]">
+        <h1 className="text-[#1e293b] font-bold leading-[1.08] tracking-tight text-[28px] md:text-[40px] lg:text-[48px]">
           Find Trusted Consultants
           <br className="hidden md:block" />
           {" "}in the UAE
         </h1>
-        <p className="mt-6 text-white/65 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+        <p className="mt-6 text-[#64748b] text-base md:text-lg leading-relaxed max-w-xl mx-auto">
           Your project is only as good as the people advising it. Inchaa connects you
           with quantity surveyors, project management consultants, design consultants,
           and supervision consultants across the UAE.
@@ -309,7 +344,7 @@ export function ConsultantHero() {
           <PostProjectButton campaign="consultants_hero" size="md" />
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, rgba(10,14,26,0.6))" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, rgba(248,249,251,0.8))" }} />
     </section>
   );
 }

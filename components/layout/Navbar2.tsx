@@ -34,8 +34,8 @@ export function Navbar2() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-black/40 backdrop-blur-md shadow-[0_1px_0_rgba(255,255,255,0.06)]"
-            : "bg-transparent"
+            ? "bg-white/85 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.07)]"
+            : "bg-white/60 backdrop-blur-sm"
         )}
       >
         <div className="max-w-[1280px] mx-auto px-6 h-[72px] flex items-center justify-between gap-8">
@@ -47,7 +47,7 @@ export function Navbar2() {
               alt="Inchaa"
               width={100}
               height={20}
-              className="h-[20px] w-auto brightness-0 invert"
+              className="h-[20px] w-auto brightness-0"
             />
           </Link>
 
@@ -57,7 +57,7 @@ export function Navbar2() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-[13.5px] font-medium text-white/65 hover:text-white px-4 py-2 rounded-lg hover:bg-white/08 transition-all duration-150"
+                className="text-[13.5px] font-medium text-[#475569] hover:text-[#1e293b] px-4 py-2 rounded-lg hover:bg-black/05 transition-all duration-150"
               >
                 {link.label}
               </Link>
@@ -72,28 +72,28 @@ export function Navbar2() {
                 onClick={() => setLang("en")}
                 className={cn(
                   "text-[12px] font-bold px-2 py-1 rounded transition-colors duration-150",
-                  lang === "en" ? "text-white" : "text-white/30 hover:text-white/60"
+                  lang === "en" ? "text-[#1e293b]" : "text-[#94a3b8] hover:text-[#475569]"
                 )}
               >
                 EN
               </button>
-              <span className="text-white/20 text-xs">/</span>
+              <span className="text-[#cbd5e1] text-xs">/</span>
               <button
                 onClick={() => setLang("ar")}
                 className={cn(
                   "text-[12px] font-bold px-2 py-1 rounded transition-colors duration-150",
-                  lang === "ar" ? "text-white" : "text-white/30 hover:text-white/60"
+                  lang === "ar" ? "text-[#1e293b]" : "text-[#94a3b8] hover:text-[#475569]"
                 )}
               >
                 AR
               </button>
             </div>
 
-            <div className="w-px h-4 bg-white/15" />
+            <div className="w-px h-4 bg-[#e2e8f0]" />
 
             <Link
               href="https://portal.inchaa.com/login"
-              className="text-[13.5px] font-medium text-white/65 hover:text-white transition-colors duration-150"
+              className="text-[13.5px] font-medium text-[#475569] hover:text-[#1e293b] transition-colors duration-150"
             >
               Sign In
             </Link>
@@ -109,7 +109,7 @@ export function Navbar2() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-white relative z-50"
+            className="lg:hidden p-2 text-[#1e293b] relative z-50"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

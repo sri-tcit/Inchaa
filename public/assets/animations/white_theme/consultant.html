@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inchaa - Find Trusted Consultants in the UAE</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#f8f9fb;--accent:#4f46e5;--accent-light:#6366f1;--accent-bright:#4338ca;--white:#fff;--gray-300:#64748b;--gray-400:#475569;--text:#1e293b}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--ink);color:var(--text);overflow:hidden}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.75);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Outfit',sans-serif;font-weight:800;font-size:24px;letter-spacing:-.5px;color:var(--text);text-decoration:none}
+.nav-logo svg{width:32px;height:32px}
+.nav-center{display:flex;align-items:center;gap:8px}
+.nav-center a{color:var(--gray-300);text-decoration:none;font-size:14px;font-weight:500;padding:8px 16px;border-radius:8px;transition:all .2s}
+.nav-center a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.nav-center a.cta-nav{background:var(--accent);color:var(--white);font-weight:600}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-right a{color:var(--gray-400);text-decoration:none;font-size:13px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s}
+.nav-right a.join-btn{background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.25);color:var(--accent);font-weight:700;padding:9px 20px;border-radius:10px}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#cv{position:absolute;inset:0;z-index:1}
+.hero-content{position:relative;z-index:10;text-align:center;max-width:860px;padding:0 24px;pointer-events:none}
+.hero-content *{pointer-events:auto}
+.hero-title{font-family:'Outfit',sans-serif;font-size:72px;font-weight:800;line-height:1.06;letter-spacing:-2.5px;color:var(--text);margin-bottom:28px;animation:fu .8s ease-out .1s both}
+.hero-title .hl{color:var(--accent)}
+.hero-sub{font-size:18px;line-height:1.7;color:var(--gray-300);max-width:540px;margin:0 auto 44px;animation:fu .8s ease-out .25s both}
+.hero-actions{display:flex;align-items:center;justify-content:center;animation:fu .8s ease-out .4s both}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--white);font-size:16px;font-weight:700;padding:16px 36px;border-radius:14px;border:none;cursor:pointer;transition:all .3s;text-decoration:none;box-shadow:0 4px 24px rgba(79,70,229,.2)}
+.btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 40px rgba(79,70,229,.3)}
+@keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1200px){.hero-title{font-size:58px;letter-spacing:-2px}}
+@media(max-width:900px){.navbar{padding:0 20px}.nav-center,.nav-right{display:none}.hero-title{font-size:42px;letter-spacing:-1.5px}.hero-sub{font-size:15px;max-width:400px;margin-bottom:32px}.btn-primary{font-size:14px;padding:14px 28px}}
+@media(max-width:600px){.hero-title{font-size:32px;letter-spacing:-1px}.hero-sub{font-size:13px;line-height:1.6;max-width:300px}.btn-primary{font-size:13px;padding:12px 24px}}
+</style>
+</head>
+<body>
+<nav class="navbar"><a href="#" class="nav-logo"><svg viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="8" height="20" rx="1" fill="#6366f1"/><rect x="12" y="4" width="8" height="24" rx="1" fill="#818cf8"/><rect x="22" y="12" width="8" height="16" rx="1" fill="#6366f1"/></svg>inchaa</a><div class="nav-center"><a href="#">Contractors</a><a href="#">Consultants</a><a href="#">Engineers</a><a href="#" class="cta-nav">Post Your Project</a></div><div class="nav-right"><a href="#">Sign in</a><a href="#" class="join-btn">Join as a Professional</a></div></nav>
+<section class="hero" id="hero">
+<canvas id="cv"></canvas>
+<div class="hero-content">
+<h1 class="hero-title">Find Trusted<br><span class="hl">Consultants</span><br>in the UAE</h1>
+<p class="hero-sub">Post your project free. Receive competing quotes from verified professionals. Compare and hire with confidence.</p>
+<div class="hero-actions"><a href="#" class="btn-primary">Post Your Project Free <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+</div>
+</section>
+<script>
+var cv=document.getElementById('cv'),c=cv.getContext('2d');
+var W=0,H=0,cx,cy,mx=-1e4,my=-1e4,smx=0,smy=0;
+var threats=[];
+var impacts=[];
+var shieldR=0;
+var totalBlocked=0;
+
+var riskLabels=['Cost Overrun','Delay','Defects','Disputes','Permit Issue','Rework','Penalty','Scope Creep','Poor Quality','Safety Risk','Contractor Default','Design Error'];
+var riskIcons=['💸','⏰','🔨','⚖️','📋','🔄','⚠️','📐','❌','🚧','🏚','✏️'];
+
+document.getElementById('hero').addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY});
+document.getElementById('hero').addEventListener('mouseleave',function(){mx=-1e4;my=-1e4});
+document.getElementById('hero').addEventListener('touchmove',function(e){mx=e.touches[0].clientX;my=e.touches[0].clientY},{passive:true});
+document.getElementById('hero').addEventListener('touchstart',function(e){mx=e.touches[0].clientX;my=e.touches[0].clientY},{passive:true});
+document.getElementById('hero').addEventListener('touchend',function(){mx=-1e4;my=-1e4});
+
+function resize(){
+  var dpr=window.devicePixelRatio||1;
+  cv.width=Math.round(innerWidth*dpr);cv.height=Math.round(innerHeight*dpr);
+  cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';
+  c.setTransform(dpr,0,0,dpr,0,0);
+  W=innerWidth;H=innerHeight;cx=Math.round(W/2);cy=Math.round(H/2);
+  smx=cx;smy=cy;
+  shieldR=W<600?Math.min(W,H)*0.28:W<900?Math.min(W,H)*0.3:Math.min(W,H)*0.32;
+}
+
+function spawnThreat(){
+  var angle=Math.random()*Math.PI*2;
+  var dist=Math.max(W,H)*0.7;
+  var rIdx=Math.floor(Math.random()*riskLabels.length);
+  var speed=0.3+Math.random()*0.5;
+  threats.push({
+    x:cx+Math.cos(angle)*dist,
+    y:cy+Math.sin(angle)*dist,
+    angle:angle+Math.PI, // heading toward center
+    speed:speed,
+    label:riskLabels[rIdx],
+    icon:riskIcons[rIdx],
+    life:1,
+    size:6+Math.random()*4,
+    col:Math.random()>0.5?'239,68,68':'245,158,11',
+    hit:false,
+    hitTime:0,
+    phase:Math.random()*Math.PI*2
+  });
+}
+
+function spawnImpact(x,y,col){
+  for(var i=0;i<8;i++){
+    var a=Math.random()*Math.PI*2;
+    impacts.push({
+      x:x,y:y,vx:Math.cos(a)*(2+Math.random()*3),vy:Math.sin(a)*(2+Math.random()*3),
+      life:1,decay:0.025+Math.random()*0.02,size:1.5+Math.random()*2,col:col
+    });
+  }
+}
+
+function drawShield(t){
+  var pulse=1+Math.sin(t*1.5)*0.012;
+  var isS=W<600;
+  var R=shieldR*pulse;
+
+  // Cursor proximity strengthens shield
+  var cursorDist=Math.sqrt((smx-cx)**2+(smy-cy)**2);
+  var cursorOnShield=Math.max(0,1-Math.abs(cursorDist-R)/100);
+  var ss=0.6+cursorOnShield*0.4; // shield strength
+
+  // Outer atmospheric glow — more visible
+  var g0=c.createRadialGradient(cx,cy,R*0.6,cx,cy,R*1.5);
+  g0.addColorStop(0,'transparent');
+  g0.addColorStop(0.5,'rgba(79,70,229,'+(0.05*ss)+')');
+  g0.addColorStop(1,'transparent');
+  c.fillStyle=g0;c.fillRect(0,0,W,H);
+
+  // Shield fill — visible dome
+  var gf=c.createRadialGradient(cx,cy,0,cx,cy,R);
+  gf.addColorStop(0,'rgba(79,70,229,0.02)');
+  gf.addColorStop(0.6,'rgba(79,70,229,'+(0.05*ss)+')');
+  gf.addColorStop(0.9,'rgba(79,70,229,'+(0.08*ss)+')');
+  gf.addColorStop(1,'transparent');
+  c.fillStyle=gf;c.beginPath();c.arc(cx,cy,R,0,Math.PI*2);c.fill();
+
+  // Shield dome rings — clearly visible
+  for(var ri=0;ri<3;ri++){
+    var ringR=R-ri*8;
+    c.beginPath();c.arc(cx,cy,ringR,0,Math.PI*2);
+    c.strokeStyle='rgba(79,70,229,'+(0.1+ri*0.04+ss*0.1)*pulse+')';
+    c.lineWidth=2-ri*0.5;c.stroke();
+  }
+
+  // Inner ring — subtle
+  c.beginPath();c.arc(cx,cy,R*0.5,0,Math.PI*2);
+  c.strokeStyle='rgba(79,70,229,'+(0.05*ss)+')';c.lineWidth=0.5;c.stroke();
+
+  // Hexagonal mesh — more visible
+  if(!isS){
+    var hexR=isS?20:28;
+    c.strokeStyle='rgba(79,70,229,'+(0.04+ss*0.04)+')';c.lineWidth=0.4;
+    for(var hx=-R;hx<R;hx+=hexR*1.5){
+      for(var hy=-R;hy<R;hy+=hexR*1.73){
+        var px=cx+hx+(Math.abs(Math.floor(hy/(hexR*1.73)))%2===1?hexR*0.75:0);
+        var py=cy+hy;
+        var d=Math.sqrt((px-cx)**2+(py-cy)**2);
+        if(d>R-15||d<R*0.35)continue;
+        // Proximity to cursor brightens hex
+        var hDist=Math.sqrt((px-smx)**2+(py-smy)**2);
+        var hBright=Math.max(0,1-hDist/150)*0.04;
+        if(hBright>0.005){c.strokeStyle='rgba(79,70,229,'+(0.04+ss*0.04+hBright)+')';}
+        c.beginPath();
+        for(var hi=0;hi<6;hi++){
+          var ha=hi*Math.PI/3;
+          var hpx=px+Math.cos(ha)*hexR*0.4;
+          var hpy=py+Math.sin(ha)*hexR*0.4;
+          if(hi===0)c.moveTo(hpx,hpy);else c.lineTo(hpx,hpy);
+        }
+        c.closePath();c.stroke();
+        c.strokeStyle='rgba(79,70,229,'+(0.04+ss*0.04)+')'; // reset
+      }
+    }
+  }
+
+  // Rotating scan arcs — brighter
+  var scanA=t*0.4;
+  c.beginPath();c.arc(cx,cy,R,scanA,scanA+0.7);
+  c.strokeStyle='rgba(79,70,229,'+(0.22+ss*0.15)+')';c.lineWidth=3;c.stroke();
+  // Scan trail
+  c.beginPath();c.arc(cx,cy,R,scanA-0.3,scanA);
+  c.strokeStyle='rgba(79,70,229,'+(0.1+ss*0.06)+')';c.lineWidth=1.5;c.stroke();
+
+  // Second scan
+  c.beginPath();c.arc(cx,cy,R,scanA+Math.PI,scanA+Math.PI+0.5);
+  c.strokeStyle='rgba(79,70,229,'+(0.16+ss*0.1)+')';c.lineWidth=2;c.stroke();
+
+  // Shield service labels — static, positioned around shield, NOT rotated
+  if(W>=800){
+    var labels=['COST CONTROL','QUALITY ASSURANCE','SCHEDULE MANAGEMENT','RISK MITIGATION','COMPLIANCE','SUPERVISION','PROJECT MANAGEMENT'];
+    c.font='bold 9px "JetBrains Mono",monospace';
+    for(var li=0;li<labels.length;li++){
+      var la=(li/(labels.length-1))*Math.PI*1.5+Math.PI*0.4+t*0.012;
+      var lx=cx+Math.cos(la)*(R+25);
+      var ly=cy+Math.sin(la)*(R+25);
+      c.textAlign=lx>cx?'left':'right';
+      c.fillStyle='rgba(67,56,202,'+(0.25+ss*0.12)+')';
+      c.fillText(labels[li],Math.round(lx),Math.round(ly));
+    }
+  } else if(W>=600){
+    var labelsShort=['COST','QUALITY','SCHEDULE','RISK','COMPLIANCE','SUPERVISION','PM'];
+    c.font='bold 7px "JetBrains Mono",monospace';
+    for(var li2=0;li2<labelsShort.length;li2++){
+      var la2=(li2/(labelsShort.length-1))*Math.PI*1.5+Math.PI*0.4+t*0.012;
+      var lx2=cx+Math.cos(la2)*(R+18);
+      var ly2=cy+Math.sin(la2)*(R+18);
+      c.textAlign=lx2>cx?'left':'right';
+      c.fillStyle='rgba(67,56,202,'+(0.22+ss*0.1)+')';
+      c.fillText(labelsShort[li2],Math.round(lx2),Math.round(ly2));
+    }
+  }
+
+  return ss;
+}
+
+function drawVillaIcon(t){
+  var vx=cx,vy=cy+22;
+  var vs=W<600?0.7:W<900?0.85:1;
+
+  // Warm protective glow around villa
+  var vg=c.createRadialGradient(vx,vy,0,vx,vy,35*vs);
+  vg.addColorStop(0,'rgba(79,70,229,0.05)');vg.addColorStop(1,'transparent');
+  c.fillStyle=vg;c.fillRect(vx-35*vs,vy-35*vs,70*vs,70*vs);
+
+  // House body
+  c.fillStyle='rgba(79,70,229,0.12)';
+  c.fillRect(Math.round(vx-20*vs),Math.round(vy-10*vs),Math.round(40*vs),Math.round(24*vs));
+  c.strokeStyle='rgba(79,70,229,0.08)';c.lineWidth=0.5;
+  c.strokeRect(Math.round(vx-20*vs),Math.round(vy-10*vs),Math.round(40*vs),Math.round(24*vs));
+
+  // Roof
+  c.beginPath();c.moveTo(vx-25*vs,vy-10*vs);c.lineTo(vx,vy-28*vs);c.lineTo(vx+25*vs,vy-10*vs);c.closePath();
+  c.fillStyle='rgba(79,70,229,0.14)';c.fill();
+  c.strokeStyle='rgba(79,70,229,0.08)';c.lineWidth=0.5;c.stroke();
+
+  // Door
+  c.fillStyle='rgba(79,70,229,0.08)';
+  c.fillRect(Math.round(vx-5*vs),Math.round(vy+2*vs),Math.round(10*vs),Math.round(12*vs));
+
+  // Windows — warm glow
+  c.fillStyle='rgba(245,200,100,0.12)';
+  c.fillRect(Math.round(vx-16*vs),Math.round(vy-5*vs),Math.round(9*vs),Math.round(7*vs));
+  c.fillRect(Math.round(vx+7*vs),Math.round(vy-5*vs),Math.round(9*vs),Math.round(7*vs));
+}
+
+function draw(t){
+  requestAnimationFrame(draw);t*=0.001;
+  if(W===0)return;
+
+  if(mx>0){smx+=(mx-smx)*0.06;smy+=(my-smy)*0.06}
+  else{smx+=(cx-smx)*0.02;smy+=(cy-smy)*0.02}
+
+  c.clearRect(0,0,W,H);
+
+  // Background — matching join page light
+  var bg=c.createRadialGradient(cx,cy,0,cx,cy,Math.max(W,H)*0.55);
+  bg.addColorStop(0,'#f0f2f8');bg.addColorStop(0.4,'#f5f6fa');bg.addColorStop(1,'#eef0f5');
+  c.fillStyle=bg;c.fillRect(0,0,W,H);
+
+  // Subtle grid
+  c.strokeStyle='rgba(79,70,229,0.03)';c.lineWidth=0.5;
+  for(var gx=0;gx<W;gx+=80){c.beginPath();c.moveTo(gx,0);c.lineTo(gx,H);c.stroke()}
+  for(var gy=0;gy<H;gy+=80){c.beginPath();c.moveTo(0,gy);c.lineTo(W,gy);c.stroke()}
+
+  // Draw shield
+  var shieldStr=drawShield(t);
+
+  // Draw villa
+  drawVillaIcon(t);
+}
+
+window.addEventListener('resize',resize);resize();
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>

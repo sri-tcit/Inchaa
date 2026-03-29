@@ -186,11 +186,11 @@ export function Hero4() {
 
       // Background
       const bg = c.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * 0.55);
-      bg.addColorStop(0, "#0c1020"); bg.addColorStop(0.4, "#080c18"); bg.addColorStop(1, "#060a14");
+      bg.addColorStop(0, "#f0f2f8"); bg.addColorStop(0.4, "#f5f6fa"); bg.addColorStop(1, "#eef0f5");
       c.fillStyle = bg; c.fillRect(0, 0, W, H);
 
       // Grid
-      c.strokeStyle = "rgba(99,102,241,0.012)"; c.lineWidth = 0.5;
+      c.strokeStyle = "rgba(79,70,229,0.03)"; c.lineWidth = 0.5;
       for (let gx = 0; gx < W; gx += 80) { c.beginPath(); c.moveTo(gx, 0); c.lineTo(gx, H); c.stroke(); }
       for (let gy = 0; gy < H; gy += 80) { c.beginPath(); c.moveTo(0, gy); c.lineTo(W, gy); c.stroke(); }
 
@@ -207,32 +207,32 @@ export function Hero4() {
       c.fillStyle = pg; c.fillRect(projX - projW / 2, projY - projH / 2, projW * 2, projH * 2);
 
       c.globalAlpha = projFade;
-      c.fillStyle = "rgba(15,20,35,0.75)";
+      c.fillStyle = "rgba(255,255,255,0.92)";
       roundRect(projX, projY, projW, projH, 10); c.fill();
-      c.strokeStyle = "rgba(99,102,241,0.25)"; c.lineWidth = 1.5;
+      c.strokeStyle = "rgba(79,70,229,0.25)"; c.lineWidth = 1.5;
       roundRect(projX, projY, projW, projH, 10); c.stroke();
 
-      c.fillStyle = "rgba(99,102,241,0.4)";
+      c.fillStyle = "rgba(79,70,229,0.5)";
       roundRect(projX, projY, 4, projH, 2); c.fill();
 
       c.font = (isS ? 14 : 18) + "px sans-serif"; c.textAlign = "left";
       c.fillText(proj.icon, projX + (isS ? 10 : 14), projY + (isS ? 24 : 28));
 
       c.font = `bold ${isS ? 9 : 11}px "Plus Jakarta Sans",sans-serif`;
-      c.fillStyle = "rgba(255,255,255,0.75)";
+      c.fillStyle = "rgba(30,41,59,0.85)";
       c.fillText(proj.type, projX + (isS ? 28 : 38), projY + (isS ? 20 : 24));
 
       c.font = `${isS ? 7 : 9}px "JetBrains Mono",monospace`;
-      c.fillStyle = "rgba(200,210,240,0.35)";
+      c.fillStyle = "rgba(100,116,139,0.7)";
       c.fillText(proj.loc, projX + (isS ? 28 : 38), projY + (isS ? 32 : 38));
 
       c.font = `bold ${isS ? 6 : 7}px "JetBrains Mono",monospace`;
-      c.fillStyle = "rgba(99,102,241,0.5)";
+      c.fillStyle = "rgba(79,70,229,0.6)";
       c.fillText("● NEW PROJECT", projX + (isS ? 10 : 14), projY + projH - (isS ? 14 : 18));
 
       if (quoteCount > 0) {
         c.font = `bold ${isS ? 8 : 9}px "JetBrains Mono",monospace`;
-        c.fillStyle = "rgba(34,197,94,0.55)"; c.textAlign = "right";
+        c.fillStyle = "rgba(34,197,94,0.7)"; c.textAlign = "right";
         c.fillText(`${quoteCount} quote${quoteCount > 1 ? "s" : ""} received`, projX + projW - (isS ? 8 : 12), projY + projH - (isS ? 14 : 18));
         c.textAlign = "left";
       }
@@ -271,27 +271,27 @@ export function Hero4() {
         }
 
         c.globalAlpha = qFade;
-        c.fillStyle = "rgba(12,16,28,0.7)";
+        c.fillStyle = "rgba(255,255,255,0.9)";
         roundRect(qx, qy, qw, qh, 8); c.fill();
-        c.strokeStyle = `rgba(${prof2.col},${aq.arrived ? 0.25 : 0.1})`; c.lineWidth = 1;
+        c.strokeStyle = `rgba(${prof2.col},${aq.arrived ? 0.35 : 0.2})`; c.lineWidth = 1;
         roundRect(qx, qy, qw, qh, 8); c.stroke();
 
-        c.fillStyle = `rgba(${prof2.col},0.35)`;
+        c.fillStyle = `rgba(${prof2.col},0.5)`;
         roundRect(qx, qy, 3, qh, 1); c.fill();
 
         c.font = (isS ? 10 : 13) + "px sans-serif"; c.textAlign = "left";
         c.fillText(prof2.icon, qx + (isS ? 8 : 12), qy + (isS ? 18 : 22));
 
         c.font = `bold ${isS ? 7 : 9}px "Plus Jakarta Sans",sans-serif`;
-        c.fillStyle = "rgba(255,255,255,0.6)";
+        c.fillStyle = "rgba(30,41,59,0.8)";
         c.fillText(prof2.name, qx + (isS ? 22 : 28), qy + (isS ? 16 : 20));
 
         c.font = `${isS ? 6 : 7.5}px "JetBrains Mono",monospace`;
-        c.fillStyle = "rgba(200,210,240,0.3)";
+        c.fillStyle = "rgba(100,116,139,0.65)";
         c.fillText(prof2.type, qx + (isS ? 22 : 28), qy + (isS ? 27 : 32));
 
         c.font = `bold ${isS ? 7 : 8}px "JetBrains Mono",monospace`;
-        c.fillStyle = "rgba(245,200,60,0.4)";
+        c.fillStyle = "rgba(202,138,4,0.7)";
         c.fillText(`★ ${prof2.rating}`, qx + (isS ? 22 : 28), qy + qh - (isS ? 10 : 14));
 
         if (aq.arrived) {
@@ -318,7 +318,7 @@ export function Hero4() {
         for (let ari = 0; ari < 3; ari++) {
           const arX = W * 0.7 + ari * 40;
           const arA = 0.03 + Math.sin(t * 2 + ari) * 0.015;
-          c.strokeStyle = `rgba(99,102,241,${arA})`; c.lineWidth = 1;
+          c.strokeStyle = `rgba(79,70,229,${arA * 2})`; c.lineWidth = 1;
           c.beginPath(); c.moveTo(arX, arrowY - 6); c.lineTo(arX + 8, arrowY); c.lineTo(arX, arrowY + 6); c.stroke();
         }
       }
@@ -328,7 +328,7 @@ export function Hero4() {
       const dotStartX = W / 2 - (projects.length * 8) / 2;
       for (let di = 0; di < projects.length; di++) {
         c.beginPath(); c.arc(Math.round(dotStartX + di * 12), dotY, 2.5, 0, Math.PI * 2);
-        c.fillStyle = di === currentProjectIdx ? "rgba(99,102,241,0.4)" : "rgba(99,102,241,0.08)";
+        c.fillStyle = di === currentProjectIdx ? "rgba(79,70,229,0.55)" : "rgba(79,70,229,0.15)";
         c.fill();
       }
     }
@@ -379,7 +379,7 @@ export function Hero4() {
       {/* Top gradient for navbar readability */}
       <div
         className="absolute top-0 left-0 right-0 h-28 pointer-events-none z-10"
-        style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.4), transparent)" }}
+        style={{ background: "linear-gradient(to bottom, rgba(248,249,251,0.6), transparent)" }}
       />
 
       {/* Left text content */}
@@ -388,19 +388,17 @@ export function Hero4() {
                       pt-32 pb-16 max-w-[540px]">
 
         {/* Headline */}
-        <h1 className="text-white font-bold leading-[1.05] tracking-tight
-                       text-[46px] md:text-[58px] lg:text-[68px] xl:text-[76px]"
-          style={{ textShadow: "0 2px 24px rgba(6,10,20,0.9), 0 0 50px rgba(6,10,20,0.7)" }}>
+        <h1 className="text-[#1e293b] font-bold leading-[1.05] tracking-tight
+                       text-[46px] md:text-[58px] lg:text-[68px] xl:text-[76px]">
           Your Construction<br />Project,{" "}
-          <span style={{ color: "#818cf8" }}>Simplified.</span>
+          <span style={{ color: "#4338ca" }}>Simplified.</span>
         </h1>
 
         {/* Divider */}
         <div className="mt-8 mb-8 w-12 h-[2px] bg-yellow" />
 
         {/* Subtext */}
-        <p className="text-white/55 text-lg md:text-xl leading-relaxed max-w-[460px]"
-          style={{ textShadow: "0 1px 18px rgba(6,10,20,0.95), 0 0 35px rgba(6,10,20,0.8)" }}>
+        <p className="text-[#64748b] text-lg md:text-xl leading-relaxed max-w-[460px]">
           Post your project on Inchaa and receive competing quotes from verified contractors,
           engineers, and consultants across the UAE. Compare, hire, and build with confidence.
         </p>
