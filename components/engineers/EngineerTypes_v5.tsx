@@ -1,71 +1,117 @@
+import Link from "next/link";
+import { Cable, ClipboardCheck, DraftingCompass, Layers, MapPinned } from "lucide-react";
+
 const mainTypes = [
   {
-    title: "Structural Engineers",
-    description: "Foundations, columns, beams, slabs, and load-bearing design. Essential for new builds and structural modifications.",
-    img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900&h=600&fit=crop&q=85",
+    slug: "structural-engineers",
+    title: "Structural engineers",
+    description:
+      "Foundations, columns, beams, slabs, and load-bearing design — for new builds and structural modifications.",
+    img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&h=900&fit=crop&q=85",
+    icon: DraftingCompass,
+    featured: true as const,
   },
   {
-    title: "MEP Engineers",
-    description: "HVAC design, electrical distribution, plumbing layouts, fire systems, and BMS for residential and commercial projects.",
+    slug: "mep-engineers",
+    title: "MEP engineers",
+    description: "HVAC, electrical distribution, plumbing, fire systems, and BMS for homes and commercial space.",
     img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=600&fit=crop&q=85",
+    icon: Cable,
+    featured: false as const,
   },
   {
-    title: "Civil Engineers",
-    description: "Site works, earthworks, drainage, and external infrastructure — everything outside the building envelope.",
+    slug: "civil-engineers",
+    title: "Civil engineers",
+    description: "Site works, grading, drainage, and external infrastructure outside the building envelope.",
     img: "https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=900&h=600&fit=crop&q=85",
+    icon: MapPinned,
+    featured: false as const,
   },
   {
-    title: "Supervision Engineers",
-    description: "On-site quality control ensuring work matches approved drawings, specs, and local regulations.",
+    slug: "supervision-engineers",
+    title: "Supervision engineers",
+    description: "On-site quality control so execution matches approved drawings, specs, and regulations.",
     img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&h=600&fit=crop&q=85",
+    icon: ClipboardCheck,
+    featured: false as const,
   },
   {
-    title: "Geotechnical Engineers",
-    description: "Soil testing and foundation recommendations. A regulatory requirement for most new builds in Dubai and Abu Dhabi.",
+    slug: "geotechnical-engineers",
+    title: "Geotechnical engineers",
+    description: "Soil investigation and foundation recommendations — often required before structural design in the UAE.",
     img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&h=600&fit=crop&q=85",
+    icon: Layers,
+    featured: false as const,
   },
-];
+] as const;
 
-function Card({ type, height }: { type: typeof mainTypes[0]; height: number }) {
+function TypeCard({
+  slug,
+  title,
+  description,
+  img,
+  icon: Icon,
+  featured,
+}: (typeof mainTypes)[number]) {
   return (
-    <div
-      className="relative rounded-xl overflow-hidden"
-      style={{ height }}
+    <Link
+      href={`/engineers/types/${slug}/`}
+      className={`group relative block min-h-[200px] overflow-hidden rounded-2xl border border-[#E5E7EB] bg-navy shadow-sm outline-none ring-navy transition-shadow hover:shadow-md focus-visible:ring-2 focus-visible:ring-offset-2 lg:h-full lg:min-h-0 ${
+        featured ? "min-h-[280px]" : ""
+      }`}
     >
-      <img src={type.img} alt={type.title} className="absolute inset-0 w-full h-full object-cover" />
-      <div
-        className="absolute inset-0"
-        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%)" }}
+      <img
+        src={img}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
       />
-      <div className="absolute bottom-0 left-0 right-0 p-5">
-        <h3 className="text-white font-bold text-base leading-snug">{type.title}</h3>
-        <p className="text-white/70 text-sm leading-relaxed mt-2">{type.description}</p>
+      <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/20" aria-hidden />
+      <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-white backdrop-blur-md ring-1 ring-white/20">
+        <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-yellow" />
-    </div>
+      <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+        <h3
+          className={`font-bold leading-snug text-white ${featured ? "text-xl md:text-2xl" : "text-lg"}`}
+        >
+          {title}
+        </h3>
+        <p
+          className={`mt-2 leading-relaxed text-white/75 ${featured ? "max-w-md text-sm md:text-base" : "text-sm"}`}
+        >
+          {description}
+        </p>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-yellow" aria-hidden />
+    </Link>
   );
 }
 
 export function EngineerTypes_v5() {
+  const [featured, ...rest] = mainTypes;
   return (
-    <section className="bg-white py-14 md:py-20 border-t border-[#E5E7EB]">
-      <div className="max-w-[1100px] mx-auto px-4 md:px-6">
-
-        <h2 className="text-navy text-3xl md:text-[42px] font-bold leading-tight mb-8">
-          Types of Engineers
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
-          {mainTypes.slice(0, 3).map((type) => (
-            <Card key={type.title} type={type} height={300} />
-          ))}
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {mainTypes.slice(3).map((type) => (
-            <Card key={type.title} type={type} height={240} />
-          ))}
+    <section className="border-t border-[#E5E7EB] bg-light-grey/30 py-16 md:py-24">
+      <div className="mx-auto max-w-[1100px] px-4 md:px-6">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-widest text-mid-grey">Disciplines</p>
+          <h2 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-navy md:text-[40px]">
+            Engineer types on Inchaa
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-mid-grey md:text-lg">
+            From structure and MEP to site works and soil reports — post your scope once and compare proposals from
+            verified engineers across the UAE.
+          </p>
         </div>
 
+        <div className="mt-12 flex flex-col gap-4 lg:min-h-[520px] lg:flex-row lg:gap-4">
+          <div className="lg:min-h-0 lg:w-[min(52%,520px)] lg:flex-shrink-0 lg:flex lg:flex-col">
+            <TypeCard {...featured} />
+          </div>
+          <div className="grid flex-1 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4">
+            {rest.map((type) => (
+              <TypeCard key={type.slug} {...type} />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

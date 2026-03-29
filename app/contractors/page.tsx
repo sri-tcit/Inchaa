@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
-import { ContractorHero } from "@/components/contractors/ContractorHero";
+import { ContractorHero } from "@/components/contractors/ContractorHeroAnimation";
 import { ContractorTypes_v5 as ContractorTypes } from "@/components/contractors/ContractorTypes_v5";
 import { ContractorHowItWorks_v5 as ContractorHowItWorks } from "@/components/contractors/ContractorHowItWorks_v5";
 import { ContractorWhyChoose } from "@/components/contractors/ContractorWhyChoose";

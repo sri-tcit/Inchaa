@@ -32,7 +32,7 @@ export default function Home() {
       <CustomerFeatures />
       <ProviderCTA />
       <ProviderFeatures />
-      <Testimonials />
+        <Testimonials />
       <div id="support">
         <HelpSection />
       </div>

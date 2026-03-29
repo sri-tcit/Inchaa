@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
-import { EngineerHero } from "@/components/engineers/EngineerHero";
+import { EngineerHero } from "@/components/engineers/EngineerHeroAnimation";
 import { EngineerTypes_v5 } from "@/components/engineers/EngineerTypes_v5";
 import { EngineerHowItWorks_v3 as EngineerHowItWorks } from "@/components/engineers/EngineerHowItWorks_v3";
 import { EngineerWhyMatters } from "@/components/engineers/EngineerWhyMatters";

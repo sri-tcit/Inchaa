@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
-import { ConsultantHero } from "@/components/consultants/ConsultantHero";
+import { ConsultantHero } from "@/components/consultants/ConsultantHeroAnimation";
 import { ConsultantTypes_v5 } from "@/components/consultants/ConsultantTypes_v5";
 import { ConsultantHowItWorks_v3 as ConsultantHowItWorks } from "@/components/consultants/ConsultantHowItWorks_v3";
 import { ConsultantWhenToHire } from "@/components/consultants/ConsultantWhenToHire";
