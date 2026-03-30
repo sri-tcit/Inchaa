@@ -1,6 +1,11 @@
+"use client";
+
 import { JoinButton } from "./JoinButton";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function JoinHero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative w-full min-h-[680px] md:min-h-[760px] overflow-hidden flex items-end">
       <img
@@ -18,15 +23,14 @@ export function JoinHero() {
       <div className="relative z-10 w-full max-w-[1320px] mx-auto px-4 md:px-6 pb-16 md:pb-24 pt-32">
         <div className="max-w-[680px]">
           <h1 className="text-white text-[36px] md:text-[52px] md:leading-[1.08] font-bold tracking-tight">
-            Grow Your Business with Inchaa
+            {t.joinHero.h1}
           </h1>
           <p className="mt-5 text-white/60 text-sm md:text-base leading-relaxed max-w-lg">
-            Turn your expertise into a steady stream of projects. Create your professional
-            profile on Inchaa as a contractor, engineer, or consultant and connect with
-            homeowners, developers and main contractors actively looking to hire construction
-            professionals across the UAE.
+            {t.joinHero.body}
           </p>
-          <JoinButton className="mt-8" />
+          <JoinButton className="mt-8">
+            {t.common.joinAsPro}
+          </JoinButton>
         </div>
       </div>
     </section>

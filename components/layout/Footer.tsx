@@ -1,25 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-
-const homeownerLinks = [
-  { label: "Find Contractors", href: "/contractors/" },
-  { label: "Find Engineers", href: "/engineers/" },
-  { label: "Find Consultants", href: "/consultants/" },
-  { label: "Post Your Project", href: "#" },
-];
-
-const professionalLinks = [
-  { label: "Sign Up as a Professional", href: "/join" },
-  { label: "Sign In to Portal", href: "https://portal.inchaa.com/login" },
-  { label: "How Professionals Get Leads", href: "/how-it-works" },
-];
-
-const companyLinks = [
-  { label: "About Inchaa", href: "/about" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "FAQs", href: "/faqs" },
-  { label: "Contact Us", href: "mailto:support@inchaa.com" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 function AppleIcon() {
   return (
@@ -65,6 +48,28 @@ function ColHeading({ children }: { children: React.ReactNode }) {
 }
 
 export function Footer() {
+  const { t } = useLanguage();
+
+  const homeownerLinks = [
+    { label: t.footer.findContractors, href: "/contractors/" },
+    { label: t.footer.findEngineers, href: "/engineers/" },
+    { label: t.footer.findConsultants, href: "/consultants/" },
+    { label: t.footer.postYourProject, href: "#" },
+  ];
+
+  const professionalLinks = [
+    { label: t.footer.signUpPro, href: "/join" },
+    { label: t.footer.signInPortal, href: "https://portal.inchaa.com/login" },
+    { label: t.footer.howProGetLeads, href: "/how-it-works" },
+  ];
+
+  const companyLinks = [
+    { label: t.footer.aboutInchaa, href: "/about" },
+    { label: t.footer.howItWorks, href: "/how-it-works" },
+    { label: t.footer.faqs, href: "/faqs" },
+    { label: t.footer.contactUs, href: "mailto:support@inchaa.com" },
+  ];
+
   return (
     <footer className="bg-navy pt-14 pb-8">
       <div className="max-w-[1200px] mx-auto px-6 md:px-10">
@@ -85,7 +90,7 @@ export function Footer() {
             </Link>
 
             <p className="mt-4 text-white/50 text-sm leading-relaxed max-w-[260px]">
-              Connecting homeowners with trusted contractors, engineers, and consultants across the UAE.
+              {t.footer.tagline}
             </p>
 
             {/* Social icons */}
@@ -114,8 +119,8 @@ export function Footer() {
               >
                 <AppleIcon />
                 <span className="leading-tight">
-                  <span className="block text-white/40 text-[10px] uppercase tracking-wide">Download on the</span>
-                  <span className="font-bold text-sm">App Store</span>
+                  <span className="block text-white/40 text-[10px] uppercase tracking-wide">{t.footer.downloadOn}</span>
+                  <span className="font-bold text-sm">{t.footer.appStore}</span>
                 </span>
               </a>
               <a
@@ -124,8 +129,8 @@ export function Footer() {
               >
                 <PlayIcon />
                 <span className="leading-tight">
-                  <span className="block text-white/40 text-[10px] uppercase tracking-wide">Get it on</span>
-                  <span className="font-bold text-sm">Google Play</span>
+                  <span className="block text-white/40 text-[10px] uppercase tracking-wide">{t.footer.getItOn}</span>
+                  <span className="font-bold text-sm">{t.footer.googlePlay}</span>
                 </span>
               </a>
             </div>
@@ -133,7 +138,7 @@ export function Footer() {
 
           {/* For Homeowners */}
           <div>
-            <ColHeading>For Homeowners</ColHeading>
+            <ColHeading>{t.footer.homeownersCol}</ColHeading>
             <ul className="flex flex-col gap-3">
               {homeownerLinks.map((link) => (
                 <li key={link.label}>
@@ -150,7 +155,7 @@ export function Footer() {
 
           {/* For Professionals */}
           <div>
-            <ColHeading>For Professionals</ColHeading>
+            <ColHeading>{t.footer.professionalsCol}</ColHeading>
             <ul className="flex flex-col gap-3">
               {professionalLinks.map((link) => (
                 <li key={link.label}>
@@ -167,7 +172,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <ColHeading>Company</ColHeading>
+            <ColHeading>{t.footer.companyCol}</ColHeading>
             <ul className="flex flex-col gap-3">
               {companyLinks.map((link) => (
                 <li key={link.label}>
@@ -186,11 +191,11 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/30 text-xs">
-            &copy; {new Date().getFullYear()} Menast Inchaa Service Broker. All rights reserved.
+            &copy; {new Date().getFullYear()} Menast Inchaa Service Broker. {t.footer.allRightsReserved}
           </p>
           <div className="flex items-center gap-5 text-white/30 text-xs">
-            <Link href="#" className="hover:text-white/60 transition-colors duration-150">Terms of Use</Link>
-            <Link href="#" className="hover:text-white/60 transition-colors duration-150">Privacy Policy</Link>
+            <Link href="#" className="hover:text-white/60 transition-colors duration-150">{t.footer.terms}</Link>
+            <Link href="#" className="hover:text-white/60 transition-colors duration-150">{t.footer.privacy}</Link>
             <a href="mailto:support@inchaa.com" className="hover:text-white/60 transition-colors duration-150">support@inchaa.com</a>
           </div>
         </div>

@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { PostProjectButton } from "@/components/shared/PostProjectModal";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function ContractorHero() {
+  const { t } = useLanguage();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -301,17 +303,17 @@ export function ContractorHero() {
       <canvas ref={canvasRef} className="absolute inset-0" style={{ width: '100%', height: '100%' }} />
       <div className="relative z-10 text-center max-w-3xl mx-auto px-6 pt-24">
         <h1 className="font-bold leading-[1.08] tracking-tight text-[28px] md:text-[40px] lg:text-[48px]" style={{ color: 'rgba(255,255,255,0.92)', textShadow: '0 1px 8px rgba(0,0,0,0.35)' }}>
-          Find Trusted Contractors
+          {t.contractorHero.h1}
           <br className="hidden md:block" />
-          {" "}in the UAE
+          {" "}{t.contractorHero.h1Line2}
         </h1>
         <p className="mt-6 text-base md:text-lg leading-relaxed max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.72)', textShadow: '0 1px 4px rgba(0,0,0,0.25)' }}>
-          A great contractor builds trust. A poor one builds problems. Inchaa connects
-          you with reliable contractors across the UAE — whether you're renovating a villa
-          or building from the ground up.
+          {t.contractorHero.body}
         </p>
         <div className="mt-10 flex items-center justify-center gap-3 flex-wrap">
-          <PostProjectButton campaign="contractors_hero" size="md" />
+          <PostProjectButton campaign="contractors_hero" size="md">
+            {t.common.postProjectFree}
+          </PostProjectButton>
         </div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.4))" }} />

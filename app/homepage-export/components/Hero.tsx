@@ -41,10 +41,10 @@ export function Hero() {
                         transition={{ duration: 0.5 }}
                         className="flex flex-col gap-6"
                     >
-                        <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/40 bg-white/70 shadow-[0_8px_32px_0_rgba(100,100,150,0.12)] backdrop-blur-[10px] max-w-max">
+                        {/* <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/40 bg-white/70 shadow-[0_8px_32px_0_rgba(100,100,150,0.12)] backdrop-blur-[10px] max-w-max">
                             <span className="flex h-2 w-2 rounded-full bg-blue-600"></span>
                             <span className="text-center text-[#76797B] font-poppins text-sm font-normal leading-[1.5]">Building the Future of Construction</span>
-                        </div>
+                        </div> */}
 
                         <h1 className="max-w-max text-[#323232] font-poppins text-[32px] md:text-[64px] font-bold leading-[110%]">
                             Build Smarter with <span className=" bg-[linear-gradient(112deg,#3399FF_0%,#3040E8_50%,#8C3CDD_100%)]

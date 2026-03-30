@@ -61,24 +61,19 @@ const features = [
 
 export function AllInOneGrid() {
     return (
-        <section className="py-12 md:py-24">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="text-center mb-8 md:mb-16">
-                    <div className="flex items-center justify-center mb-6">
-                        <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#E5E7EB] bg-white shadow-sm max-w-max">
-                            <span className="text-mid-grey text-sm">Features</span>
-                        </div>
-                    </div>
-                    <h2 className="text-navy text-center text-2xl md:text-[34px] font-bold leading-tight tracking-tight pb-4">
-                        Everything you need,{" "}
-                        <span className="text-yellow">all in one place</span>
+        <section className="bg-white py-20 md:py-28 border-t border-[#E5E7EB]">
+            <div className="max-w-[1180px] mx-auto px-4 md:px-8">
+                <div className="text-center mb-12 md:mb-16">
+                    <p className="text-xs font-bold uppercase tracking-widest text-mid-grey mb-3">Features</p>
+                    <h2 className="text-navy text-center text-3xl md:text-[42px] font-bold leading-tight tracking-tight">
+                        Everything you need, all in one place
                     </h2>
-                    <p className="text-mid-grey text-center text-base leading-relaxed max-w-2xl mx-auto">
+                    <p className="mt-4 text-mid-grey text-center text-base leading-relaxed max-w-2xl mx-auto">
                         Powerful tools to streamline your construction journey from start to finish.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {features.map((feature, idx) => {
                         return (
                             <motion.div

@@ -3,19 +3,22 @@
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 const NAV_LINKS = [
-  { label: "Contractors", href: "/contractors/" },
-  { label: "Engineers",   href: "/engineers/" },
-  { label: "Consultants", href: "/consultants/" },
+  { key: "contractors" as const, href: "/contractors/" },
+  { key: "engineers" as const, href: "/engineers/" },
+  { key: "consultants" as const, href: "/consultants/" },
 ];
 
 export function Navbar2() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled]     = useState(false);
-  const [lang, setLang]             = useState<"en" | "ar">("en");
+  const pathname = usePathname();
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -27,6 +30,11 @@ export function Navbar2() {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
+
+  function isActive(href: string) {
+    const clean = href.replace(/\/$/, "");
+    return pathname === href || pathname === clean || pathname.startsWith(clean + "/");
+  }
 
   return (
     <>
@@ -55,11 +63,16 @@ export function Navbar2() {
           <div className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <Link
-                key={link.label}
+                key={link.key}
                 href={link.href}
-                className="text-[13.5px] font-medium text-charcoal/65 hover:text-charcoal px-4 py-2 rounded-lg hover:bg-charcoal/[0.06] transition-all duration-150"
+                className={cn(
+                  "relative text-[13.5px] font-medium px-4 py-2 rounded-lg transition-all duration-150",
+                  isActive(link.href)
+                    ? "text-charcoal font-semibold after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-yellow after:rounded-full"
+                    : "text-charcoal/65 hover:text-charcoal hover:bg-charcoal/[0.06]"
+                )}
               >
-                {link.label}
+                {t.nav[link.key]}
               </Link>
             ))}
           </div>
@@ -95,14 +108,14 @@ export function Navbar2() {
               href="https://portal.inchaa.com/login"
               className="text-[13.5px] font-medium text-charcoal/65 hover:text-charcoal transition-colors duration-150"
             >
-              Sign In
+              {t.nav.signIn}
             </Link>
 
             <Link
               href="/join/"
               className="text-[13.5px] font-bold bg-yellow text-white px-5 py-2 rounded-lg hover:brightness-95 transition-all duration-150"
             >
-              Join as a Professional
+              {t.nav.joinAsPro}
             </Link>
           </div>
 
@@ -128,12 +141,17 @@ export function Navbar2() {
           <div className="flex flex-col divide-y divide-white/08">
             {NAV_LINKS.map((link) => (
               <Link
-                key={link.label}
+                key={link.key}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-base font-medium text-white/70 hover:text-white py-4 transition-colors duration-150"
+                className={cn(
+                  "text-base font-medium py-4 transition-colors duration-150",
+                  isActive(link.href)
+                    ? "text-white font-semibold"
+                    : "text-white/70 hover:text-white"
+                )}
               >
-                {link.label}
+                {t.nav[link.key]}
               </Link>
             ))}
             <Link
@@ -141,7 +159,7 @@ export function Navbar2() {
               onClick={() => setMobileOpen(false)}
               className="text-base font-medium text-white/70 hover:text-white py-4 transition-colors duration-150"
             >
-              Sign In
+              {t.nav.signIn}
             </Link>
           </div>
 
@@ -167,7 +185,7 @@ export function Navbar2() {
             onClick={() => setMobileOpen(false)}
             className="mt-auto w-full flex items-center justify-center bg-yellow text-navy text-sm font-bold px-4 py-3.5 rounded-lg"
           >
-            Join as a Professional
+            {t.nav.joinAsPro}
           </Link>
         </div>
       </div>

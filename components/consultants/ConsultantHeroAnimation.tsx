@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { PostProjectButton } from "@/components/shared/PostProjectModal";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function ConsultantHero() {
+  const { t } = useLanguage();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -331,17 +333,17 @@ export function ConsultantHero() {
       <canvas ref={canvasRef} className="absolute inset-0" style={{ width: '100%', height: '100%' }} />
       <div className="relative z-10 text-center max-w-3xl mx-auto px-6 pt-24">
         <h1 className="text-[#1e293b] font-bold leading-[1.08] tracking-tight text-[28px] md:text-[40px] lg:text-[48px]">
-          Find Trusted Consultants
+          {t.consultantHero.h1}
           <br className="hidden md:block" />
-          {" "}in the UAE
+          {" "}{t.consultantHero.h1Line2}
         </h1>
         <p className="mt-6 text-[#64748b] text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-          Your project is only as good as the people advising it. Inchaa connects you
-          with quantity surveyors, project management consultants, design consultants,
-          and supervision consultants across the UAE.
+          {t.consultantHero.body}
         </p>
         <div className="mt-10 flex items-center justify-center gap-3 flex-wrap">
-          <PostProjectButton campaign="consultants_hero" size="md" />
+          <PostProjectButton campaign="consultants_hero" size="md">
+            {t.common.postProjectFree}
+          </PostProjectButton>
         </div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, rgba(248,249,251,0.8))" }} />

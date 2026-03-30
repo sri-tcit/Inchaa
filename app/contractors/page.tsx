@@ -2,11 +2,8 @@ import type { Metadata } from "next";
 import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
 import { ContractorHero } from "@/components/contractors/ContractorHeroAnimation";
-import { ContractorTypes_v5 as ContractorTypes } from "@/components/contractors/ContractorTypes_v5";
-import { ContractorHowItWorks_v5 as ContractorHowItWorks } from "@/components/contractors/ContractorHowItWorks_v5";
-import { ContractorWhyChoose } from "@/components/contractors/ContractorWhyChoose";
-import { ContractorFAQ } from "@/components/contractors/ContractorFAQ";
-import { ContractorCrossLinks } from "@/components/contractors/ContractorCrossLinks";
+import { ContractorsPageNew } from "@/components/contractors/ContractorsPageNew";
+
 export const metadata: Metadata = {
   title: "Find Trusted Contractors in the UAE | Inchaa",
   description:
@@ -25,11 +22,7 @@ export default function ContractorsPage() {
     <main className="min-h-screen">
       <Navbar />
       <ContractorHero />
-      <ContractorTypes />
-      <ContractorHowItWorks />
-      <ContractorWhyChoose />
-      <ContractorFAQ />
-      <ContractorCrossLinks />
+      <ContractorsPageNew />
       <Footer />
     </main>
   );

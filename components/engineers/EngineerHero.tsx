@@ -1,6 +1,11 @@
+"use client";
+
 import { PostProjectButton } from "@/components/shared/PostProjectModal";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function EngineerHero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center">
 
@@ -12,17 +17,17 @@ export function EngineerHero() {
       <div className="relative z-10 text-center max-w-3xl mx-auto px-6 pt-24">
         <h1 className="text-white font-bold leading-[1.08] tracking-tight
                        text-[28px] md:text-[40px] lg:text-[48px]">
-          Find Trusted Engineers
+          {t.engineerHero.h1}
           <br className="hidden md:block" />
-          {" "}in the UAE
+          {" "}{t.engineerHero.h1Line2}
         </h1>
         <p className="mt-6 text-white/65 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-          The right engineer can save your project. The wrong one can cost you everything.
-          Inchaa connects you with reliable structural, MEP, civil, and supervision
-          engineers across the UAE.
+          {t.engineerHero.body}
         </p>
         <div className="mt-10 flex items-center justify-center gap-3 flex-wrap">
-          <PostProjectButton campaign="engineers_hero" size="md" />
+          <PostProjectButton campaign="engineers_hero" size="md">
+            {t.common.postProjectFree}
+          </PostProjectButton>
         </div>
       </div>
 

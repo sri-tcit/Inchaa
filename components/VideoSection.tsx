@@ -36,8 +36,12 @@ export function VideoSection() {
                             </div>
                         </div>
                     </div>
-                    {/* Ideally an <img> tag with a poster here */}
-                    <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900" />
+                    {/* Thumbnail — swap with a real screenshot/poster when ready */}
+                    <img
+                        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&h=800&fit=crop&q=85"
+                        alt="Inchaa platform overview"
+                        className="w-full h-full object-cover"
+                    />
                 </motion.div>
             </div>
         </section>

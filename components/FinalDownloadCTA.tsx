@@ -20,7 +20,8 @@ export function FinalDownloadCTA() {
                                 Start building <br /> smarter with <span className="text-yellow">Inchaa</span>
                             </h2>
 
-                            <p className="text-mid-grey text-base leading-relaxed pb-8 max-w-md">
+                            <p className="text-mid-
+                             text-base leading-relaxed pb-8 max-w-md">
                                 Your platform for managing projects, quotes, and professionals.
                             </p>
 
@@ -38,7 +39,7 @@ export function FinalDownloadCTA() {
                                     <div className="flex flex-wrap gap-4 md:gap-[24px]">
 
                                         <div className="flex items-center gap-2">
-                                            <div className="flex w-10 h-10 justify-center items-center rounded-xl bg-navy shrink-0">
+                                            <div className="flex w-10 h-10 justify-center items-center rounded-xl bg-yellow shrink-0">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                                     <path d="M12.5007 1.6665H5.00065C4.55862 1.6665 4.1347 1.8421 3.82214 2.15466C3.50958 2.46722 3.33398 2.89114 3.33398 3.33317V16.6665C3.33398 17.1085 3.50958 17.5325 3.82214 17.845C4.1347 18.1576 4.55862 18.3332 5.00065 18.3332H15.0007C15.4427 18.3332 15.8666 18.1576 16.1792 17.845C16.4917 17.5325 16.6673 17.1085 16.6673 16.6665V5.83317L12.5007 1.6665Z" stroke="white" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M11.666 1.6665V4.99984C11.666 5.44186 11.8416 5.86579 12.1542 6.17835C12.4667 6.49091 12.8907 6.6665 13.3327 6.6665H16.666" stroke="white" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
@@ -51,7 +52,7 @@ export function FinalDownloadCTA() {
                                         </div>
 
                                         <div className="flex items-center gap-2">
-                                            <div className="flex w-10 h-10 justify-center items-center rounded-xl bg-navy shrink-0">
+                                            <div className="flex w-10 h-10 justify-center items-center rounded-xl bg-yellow shrink-0">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                                     <path d="M12.5007 1.6665H5.00065C4.55862 1.6665 4.1347 1.8421 3.82214 2.15466C3.50958 2.46722 3.33398 2.89114 3.33398 3.33317V16.6665C3.33398 17.1085 3.50958 17.5325 3.82214 17.845C4.1347 18.1576 4.55862 18.3332 5.00065 18.3332H15.0007C15.4427 18.3332 15.8666 18.1576 16.1792 17.845C16.4917 17.5325 16.6673 17.1085 16.6673 16.6665V5.83317L12.5007 1.6665Z" stroke="white" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M11.666 1.6665V4.99984C11.666 5.44186 11.8416 5.86579 12.1542 6.17835C12.4667 6.49091 12.8907 6.6665 13.3327 6.6665H16.666" stroke="white" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
@@ -64,7 +65,7 @@ export function FinalDownloadCTA() {
                                         </div>
 
                                         <div className="flex items-center gap-2">
-                                            <div className="flex w-10 h-10 justify-center items-center rounded-xl bg-navy shrink-0">
+                                            <div className="flex w-10 h-10 justify-center items-center rounded-xl bg-yellow shrink-0">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                                     <path d="M12.5007 1.6665H5.00065C4.55862 1.6665 4.1347 1.8421 3.82214 2.15466C3.50958 2.46722 3.33398 2.89114 3.33398 3.33317V16.6665C3.33398 17.1085 3.50958 17.5325 3.82214 17.845C4.1347 18.1576 4.55862 18.3332 5.00065 18.3332H15.0007C15.4427 18.3332 15.8666 18.1576 16.1792 17.845C16.4917 17.5325 16.6673 17.1085 16.6673 16.6665V5.83317L12.5007 1.6665Z" stroke="white" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M11.666 1.6665V4.99984C11.666 5.44186 11.8416 5.86579 12.1542 6.17835C12.4667 6.49091 12.8907 6.6665 13.3327 6.6665H16.666" stroke="white" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />

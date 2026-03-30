@@ -5,9 +5,7 @@ import { Hero } from "@/components/Hero";
 import { VideoSection } from "@/components/VideoSection";
 import { JourneySteps } from "@/components/JourneySteps";
 import { AllInOneGrid } from "@/components/AllInOneGrid";
-import { CustomerCTA } from "@/components/CustomerCTA";
 import { CustomerFeatures } from "@/components/CustomerFeatures";
-import { ProviderCTA } from "@/components/ProviderCTA";
 import { ProviderFeatures } from "@/components/ProviderFeatures";
 import { Testimonials } from "@/components/Testimonials";
 import { HelpSection } from "@/components/HelpSection";
@@ -16,7 +14,7 @@ import { Footer } from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#F8F9FB] overflow-hidden">
+    <main className="min-h-screen bg-white overflow-hidden">
       <Navbar />
       <Hero />
       <VideoSection />
@@ -27,10 +25,8 @@ export default function Home() {
         <AllInOneGrid />
       </div>
       <div id="why-inchaa">
-        <CustomerCTA />
+        <CustomerFeatures />
       </div>
-      <CustomerFeatures />
-      <ProviderCTA />
       <ProviderFeatures />
       <Testimonials />
       <div id="support">

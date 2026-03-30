@@ -2,11 +2,7 @@ import type { Metadata } from "next";
 import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Footer } from "@/components/layout/Footer";
 import { JoinHero } from "@/components/join/JoinHero";
-import { JoinWhatYouGet } from "@/components/join/JoinWhatYouGet";
-import { JoinWhoCanJoin } from "@/components/join/JoinWhoCanJoin";
-import { JoinHowToJoin } from "@/components/join/JoinHowToJoin";
-import { JoinFAQ } from "@/components/join/JoinFAQ";
-import { JoinFinalCTA } from "@/components/join/JoinFinalCTA";
+import { JoinPageNew } from "@/components/join/JoinPageNew";
 
 export const metadata: Metadata = {
   title: "Join as a Professional | Inchaa – UAE Construction Marketplace",
@@ -26,11 +22,7 @@ export default function JoinPage() {
     <main className="min-h-screen">
       <Navbar />
       <JoinHero />
-      <JoinWhatYouGet />
-      <JoinWhoCanJoin />
-      <JoinHowToJoin />
-      <JoinFAQ />
-      <JoinFinalCTA />
+      <JoinPageNew />
       <Footer />
     </main>
   );
