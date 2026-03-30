@@ -1,0 +1,71 @@
+Primary Brand Colors
+
+Inchaa Yellow
+The primary brand color used to highlight key actions, important UI elements, and brand accents. This color brings energy and visibility to the interface and is commonly used for buttons, highlights, and calls-to-action.
+
+HEX: #E6E62E
+
+⸻
+
+Deep Navy
+The core structural color of the brand used for navigation bars, headers, footers, and strong contrast areas. It provides depth, stability, and a professional tone across the interface.
+
+HEX: #1C2136
+
+⸻
+
+Supporting Brand Colors
+
+Charcoal
+Primary text color used for headings and body copy where strong readability is required.
+
+HEX: #323232
+
+⸻
+
+Pure White
+Base background color used for pages, cards, and clean layout surfaces to maintain clarity and visual balance.
+
+HEX: #FFFFFF
+
+⸻
+
+Secondary / UI Palette
+
+Light Grey
+Used for background sections and subtle layout separation.
+
+HEX: #F5F5F7
+Usage: Backgrounds
+
+⸻
+
+Blue Tint
+Used for informational highlights, subtle UI feedback, and notification backgrounds.
+
+HEX: #EEF0FC
+Usage: Information Background
+
+⸻
+
+Success Green
+Indicates successful actions, confirmations, or completed processes.
+
+HEX: #16A34A
+Usage: Status — Success
+
+⸻
+
+Alert Red
+Used for errors, warnings, and destructive actions requiring attention.
+
+HEX: #DC2626
+Usage: Status — Error
+
+⸻
+
+Mid Grey
+Used for captions, helper text, and secondary labels within the interface.
+
+HEX: #9CA3AF
+Usage: Supporting Text

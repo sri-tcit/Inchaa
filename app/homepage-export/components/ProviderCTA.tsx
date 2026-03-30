@@ -1,0 +1,37 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+
+export function ProviderCTA() {
+    const { t } = useLanguage();
+    const p = t.homePage.providerCta;
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="container mx-auto px-4 md:px-6 py-12 md:pt-24 text-center max-w-[990px] mx-auto"
+        >
+            <div className="flex items-center justify-center mb-6">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 bg-white/70 shadow-sm backdrop-blur-[10px] max-w-max">
+                    <span className="text-center text-[#76797B] font-poppins text-sm font-normal leading-[1.5]">{p.eyebrow}</span>
+                </div>
+            </div>
+            <h2 className="text-[#323232] text-center font-poppins text-[24px] md:text-[34px] font-bold leading-[130%] pb-[8px]">
+                {p.h2}
+            </h2>
+            <p className="text-[#76797B] text-center font-poppins text-[16px] font-normal leading-[150%] pb-[16px]">
+                {p.body}
+            </p>
+            <button
+                type="button"
+                className="flex w-[220px] h-[44px] px-[24px] py-[8px] justify-center items-center rounded-[16px] bg-yellow text-white font-semibold mx-auto cursor-pointer hover:brightness-95 transition-all"
+            >
+                {p.cta}
+            </button>
+        </motion.div>
+    );
+}

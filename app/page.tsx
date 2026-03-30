@@ -1,18 +1,16 @@
 "use client";
 
-import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { VideoSection } from "@/components/VideoSection";
-import { JourneySteps } from "@/components/JourneySteps";
-import { AllInOneGrid } from "@/components/AllInOneGrid";
-import { CustomerCTA } from "@/components/CustomerCTA";
-import { CustomerFeatures } from "@/components/CustomerFeatures";
-import { ProviderCTA } from "@/components/ProviderCTA";
-import { ProviderFeatures } from "@/components/ProviderFeatures";
-import { Testimonials } from "@/components/Testimonials";
-import { HelpSection } from "@/components/HelpSection";
-import { FinalDownloadCTA } from "@/components/FinalDownloadCTA";
-import { Footer } from "@/components/Footer";
+import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
+import { Footer } from "@/components/layout/Footer";
+import { Hero } from "./homepage-export/components/Hero";
+import { VideoSection } from "./homepage-export/components/VideoSection";
+import { JourneySteps } from "./homepage-export/components/JourneySteps";
+import { AllInOneGrid } from "./homepage-export/components/AllInOneGrid";
+import { CustomerFeatures } from "./homepage-export/components/CustomerFeatures";
+import { ProviderCTA } from "./homepage-export/components/ProviderCTA";
+import { ProviderFeatures } from "./homepage-export/components/ProviderFeatures";
+import { HelpSection } from "./homepage-export/components/HelpSection";
+import { FinalDownloadCTA } from "./homepage-export/components/FinalDownloadCTA";
 
 export default function Home() {
   return (
@@ -27,12 +25,10 @@ export default function Home() {
         <AllInOneGrid />
       </div>
       <div id="why-inchaa">
-        <CustomerCTA />
+        <CustomerFeatures />
       </div>
-      <CustomerFeatures />
       <ProviderCTA />
       <ProviderFeatures />
-        <Testimonials />
       <div id="support">
         <HelpSection />
       </div>

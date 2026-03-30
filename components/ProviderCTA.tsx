@@ -22,7 +22,7 @@ export function ProviderCTA() {
             <p className="text-[#76797B] text-center font-poppins text-[16px] font-normal leading-[150%] pb-[16px]">
                 Inchaa helps service providers grow their business by connecting them directly with customers looking for verified professionals.
             </p>
-            <button className="flex w-[220px] h-[44px] px-[24px] py-[8px] justify-center items-center rounded-[16px] bg-[linear-gradient(108deg,#39F_0%,#3040E8_50%,#8C3CDD_100%)] text-white font-semibold mx-auto cursor-pointer">
+            <button className="flex w-[220px] h-[44px] px-[24px] py-[8px] justify-center items-center rounded-[16px] bg-yellow text-white font-semibold mx-auto cursor-pointer">
                 Join as Provider
             </button>
         </motion.div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 
 interface FeatureHighlightProps {
@@ -44,7 +43,7 @@ export function FeatureHighlight({ title, description, points, imageSide = "left
                             transition={{ delay: 0.1 * idx, duration: 0.3 }}
                             className="flex items-start gap-3"
                         >
-                            <div className="flex w-[24px] h-[24px] justify-center items-center shrink-0 rounded-full bg-[rgba(60,73,221,0.1)]">
+                            <div className="flex w-[24px] h-[24px] justify-center items-center shrink-0 rounded-full bg-yellow/10">
                                 <Image src="/assets/tick-icon.png" alt="Check" width={14} height={14} />
                             </div>
                             <span className="text-[#323232] font-poppins text-[16px] font-normal leading-[150%]">{point}</span>
@@ -62,7 +61,6 @@ export function FeatureHighlight({ title, description, points, imageSide = "left
                     transition={{ duration: 0.5 }}
                     className={`relative aspect-square md:aspect-[4/3] rounded-3xl ${gradient} p-8 md:p-12 overflow-hidden`}
                 >
-
                     <div className="h-[300px] md:h-[550px] w-full">
                         <Image
                             src={imagePath || ""}

@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
+import { Footer } from "@/components/layout/Footer";
 import { useIsEmbedded } from "@/lib/hooks";
 
 const termsSections = [

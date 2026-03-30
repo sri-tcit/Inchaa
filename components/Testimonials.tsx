@@ -52,7 +52,7 @@ export function Testimonials() {
     const testimonials = activeTab === "customers" ? customerTestimonials : providerTestimonials;
 
     return (
-        <section className="py-12 md:py-20 bg-gray-50">
+        <section className="py-12 md:py-20 bg-light-grey/40 border-t border-[#E5E7EB]">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-8 md:mb-[48px]">
                     <motion.div
@@ -62,36 +62,40 @@ export function Testimonials() {
                         transition={{ duration: 0.5 }}
                         className="flex items-center justify-center mb-6"
                     >
-                        <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 bg-white/70 shadow-sm backdrop-blur-[10px] max-w-max">
-                            <span className="text-center text-[#76797B] font-poppins text-sm font-normal leading-[1.5]">Testimonials</span>
+                        <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#E5E7EB] bg-white shadow-sm max-w-max">
+                            <span className="text-mid-grey text-sm">Testimonials</span>
                         </div>
                     </motion.div>
-                    <h2 className="text-[#1D2030] text-center font-poppins text-[24px] md:text-[34px] font-bold leading-[130%] pb-[16px]">What Our Users Say</h2>
-                    <p className="text-[#76797B] text-center font-poppins text-base font-normal leading-6">
-                    Hear from customers and service providers who trust Inchaa for their needs
+                    <h2 className="text-navy text-center text-2xl md:text-[34px] font-bold leading-tight tracking-tight pb-4">
+                        What our users say
+                    </h2>
+                    <p className="text-mid-grey text-center text-base leading-relaxed max-w-xl mx-auto">
+                        Hear from customers and service providers who trust Inchaa.
                     </p>
                 </div>
 
-                <div className="flex items-center justify-center mb-8 md:mb-[48px]">
-                    <button 
+                <div className="flex flex-wrap items-center justify-center gap-2 mb-8 md:mb-12">
+                    <button
+                        type="button"
                         onClick={() => setActiveTab("customers")}
-                        className={`flex flex-col items-center justify-center px-6 py-3 rounded-full text-center font-poppins text-[14px] font-semibold leading-[130%] transition-all cursor-pointer ${
-                            activeTab === "customers" 
-                                ? "bg-[#3C49DD] text-white" 
-                                : "bg-transparent text-[#76797B] hover:bg-gray-100"
+                        className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-150 cursor-pointer ${
+                            activeTab === "customers"
+                                ? "bg-yellow text-white shadow-sm"
+                                : "bg-white text-mid-grey border border-[#E5E7EB] hover:bg-light-grey/60"
                         }`}
                     >
-                        Customers & Builders
+                        Customers &amp; builders
                     </button>
-                    <button 
+                    <button
+                        type="button"
                         onClick={() => setActiveTab("providers")}
-                        className={`flex flex-col items-center justify-center px-6 py-3 rounded-full text-center font-poppins text-[14px] font-semibold leading-[130%] transition-all cursor-pointer ${
-                            activeTab === "providers" 
-                                ? "bg-[#3C49DD] text-white" 
-                                : "bg-transparent text-[#76797B] hover:bg-gray-100"
+                        className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-150 cursor-pointer ${
+                            activeTab === "providers"
+                                ? "bg-yellow text-white shadow-sm"
+                                : "bg-white text-mid-grey border border-[#E5E7EB] hover:bg-light-grey/60"
                         }`}
                     >
-                        Service Providers
+                        Service providers
                     </button>
                 </div>
 
@@ -109,27 +113,27 @@ export function Testimonials() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1 }}
-                            className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between"
+                            className="bg-white p-8 rounded-2xl shadow-sm border border-[#E5E7EB] flex flex-col justify-between"
                         >
                             <div className="mb-[24px]">
                                <Image src="/assets/double-quote.png" alt="Quote" width={32} height={48} className="pb-[16px]" />
-                                <p className="text-[#76797B] font-poppins text-[16px] font-normal leading-[150%]">"{item.quote}"</p>
+                                <p className="text-mid-grey text-base leading-relaxed">&ldquo;{item.quote}&rdquo;</p>
                             </div>
                             <div className="flex justify-between items-center">
                                
                                <div className="flex items-center gap-4">
-                                    <div className="flex w-[48px] h-[48px] justify-center items-center shrink-0 rounded-full bg-[rgba(60,73,221,0.1)] text-[#3743D8] font-poppins text-[16px] font-semibold leading-[130%] text-center" >
-                                    أح
+                                    <div className="flex w-12 h-12 justify-center items-center shrink-0 rounded-full bg-yellow/10 text-yellow text-base font-semibold text-center">
+                                        {item.author.trim().charAt(0)}
                                     </div>
                                     <div>
-                                        <div className="text-[#323232] font-poppins text-[16px] font-semibold leading-[130%]">{item.author}</div>
-                                        <div className="text-[#76797B] font-poppins text-[14px] font-normal leading-[150%]">{item.role}</div>
+                                        <div className="text-charcoal text-base font-semibold">{item.author}</div>
+                                        <div className="text-mid-grey text-sm leading-relaxed">{item.role}</div>
                                     </div>
                                 </div>
                                 
                                 <div className="flex gap-1">
                                     {[...Array(item.stars)].map((_, i) => (
-                                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                                        <Star key={i} className="w-4 h-4 fill-orange text-orange" />
                                     ))}
                                 </div>
                             </div>
