@@ -156,7 +156,7 @@ export function Navbar() {
                         {/* Right Side Actions */}
                         <div className="flex items-center gap-3 md:gap-12">
                             <span className="hidden md:block text-sm font-medium text-[#76797B]">Join as Provider</span>
-                            <button className="bg-[linear-gradient(108deg,#39F_0%,#3040E8_50%,#8C3CDD_100%)] text-white px-3 py-2 md:px-5 md:py-2.5 rounded-[16px] text-xs md:text-sm font-medium transition-all shadow-lg shadow-blue-600/20 whitespace-nowrap">
+                            <button className="bg-yellow text-white px-3 py-2 md:px-5 md:py-2.5 rounded-[16px] text-xs md:text-sm font-medium transition-all shadow-lg shadow-yellow/25 whitespace-nowrap">
                                 Get the App
                             </button>
                             <button 
@@ -195,35 +195,35 @@ export function Navbar() {
                         <Link 
                             href="#how-it-works" 
                             onClick={(e) => handleSmoothScroll(e, 'how-it-works')}
-                            className="text-base font-medium text-[#76797B] hover:text-[#3C49DD] transition-colors py-3 px-2 rounded-lg hover:bg-gray-50"
+                            className="text-base font-medium text-[#76797B] hover:text-yellow transition-colors py-3 px-2 rounded-lg hover:bg-gray-50"
                         >
                             How It Works
                         </Link>
                         <Link 
                             href="#features" 
                             onClick={(e) => handleSmoothScroll(e, 'features')}
-                            className="text-base font-medium text-[#76797B] hover:text-[#3C49DD] transition-colors py-3 px-2 rounded-lg hover:bg-gray-50"
+                            className="text-base font-medium text-[#76797B] hover:text-yellow transition-colors py-3 px-2 rounded-lg hover:bg-gray-50"
                         >
                             Features
                         </Link>
                         <Link 
                             href="#why-inchaa" 
                             onClick={(e) => handleSmoothScroll(e, 'why-inchaa')}
-                            className="text-base font-medium text-[#76797B] hover:text-[#3C49DD] transition-colors py-3 px-2 rounded-lg hover:bg-gray-50"
+                            className="text-base font-medium text-[#76797B] hover:text-yellow transition-colors py-3 px-2 rounded-lg hover:bg-gray-50"
                         >
                             Why Inchaa
                         </Link>
                         <Link 
                             href="#support" 
                             onClick={(e) => handleSmoothScroll(e, 'support')}
-                            className="text-base font-medium text-[#76797B] hover:text-[#3C49DD] transition-colors py-3 px-2 rounded-lg hover:bg-gray-50"
+                            className="text-base font-medium text-[#76797B] hover:text-yellow transition-colors py-3 px-2 rounded-lg hover:bg-gray-50"
                         >
                             Support
                         </Link>
                         <div className="pt-6 mt-4 border-t border-gray-200">
                             <div className="py-2 px-2">
                                 <span className="text-sm font-medium text-[#76797B] block mb-4">Join as Provider</span>
-                                <button className="w-full bg-[linear-gradient(108deg,#39F_0%,#3040E8_50%,#8C3CDD_100%)] text-white px-4 py-3 rounded-[16px] text-sm font-medium shadow-lg shadow-blue-600/20">
+                                <button className="w-full bg-yellow text-white px-4 py-3 rounded-[16px] text-sm font-medium shadow-lg shadow-yellow/25">
                                     Get the App
                                 </button>
                             </div>

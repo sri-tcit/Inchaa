@@ -47,6 +47,12 @@ function ColHeading({ children }: { children: React.ReactNode }) {
   );
 }
 
+const LINK_APP_STORE = "https://apps.apple.com/ae/app/inchaa/id6752644267";
+const LINK_PLAY_STORE = "https://play.google.com/store/apps/details?id=com.inchaa";
+const LINK_LINKEDIN = "https://www.linkedin.com/company/inchaauae/";
+const LINK_INSTAGRAM = "https://www.instagram.com/inchaauae/";
+const LINK_PORTAL_SIGNUP = "https://portal.inchaa.com/signup";
+
 export function Footer() {
   const { t } = useLanguage();
 
@@ -57,10 +63,10 @@ export function Footer() {
     { label: t.footer.postYourProject, href: "#" },
   ];
 
-  const professionalLinks = [
-    { label: t.footer.signUpPro, href: "/join" },
-    { label: t.footer.signInPortal, href: "https://portal.inchaa.com/login" },
-    { label: t.footer.howProGetLeads, href: "/how-it-works" },
+  const professionalLinks: { label: string; href: string; external?: boolean }[] = [
+    { label: t.footer.signUpPro, href: LINK_PORTAL_SIGNUP, external: true },
+    { label: t.footer.signInPortal, href: "https://portal.inchaa.com/login", external: true },
+    { label: t.footer.howProGetLeads, href: "/join/" },
   ];
 
   const companyLinks = [
@@ -96,14 +102,18 @@ export function Footer() {
             {/* Social icons */}
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="#"
+                href={LINK_LINKEDIN}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn"
                 className="w-9 h-9 flex items-center justify-center rounded-md border border-white/15 text-white/50 hover:text-white hover:border-white/35 transition-colors duration-150"
               >
                 <LinkedInIcon />
               </a>
               <a
-                href="#"
+                href={LINK_INSTAGRAM}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="w-9 h-9 flex items-center justify-center rounded-md border border-white/15 text-white/50 hover:text-white hover:border-white/35 transition-colors duration-150"
               >
@@ -114,7 +124,9 @@ export function Footer() {
             {/* App download buttons */}
             <div className="mt-5 flex flex-col sm:flex-row gap-2">
               <a
-                href="#"
+                href={LINK_APP_STORE}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-white/20 text-white text-xs font-medium px-4 py-2.5 rounded-lg hover:border-white/40 transition-colors duration-150"
               >
                 <AppleIcon />
@@ -124,7 +136,9 @@ export function Footer() {
                 </span>
               </a>
               <a
-                href="#"
+                href={LINK_PLAY_STORE}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-white/20 text-white text-xs font-medium px-4 py-2.5 rounded-lg hover:border-white/40 transition-colors duration-150"
               >
                 <PlayIcon />
@@ -159,12 +173,21 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               {professionalLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-white/60 text-sm hover:text-white transition-colors duration-150"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      className="text-white/60 text-sm hover:text-white transition-colors duration-150"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-white/60 text-sm hover:text-white transition-colors duration-150"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

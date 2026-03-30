@@ -25,14 +25,14 @@ export function FeatureHighlight({ title, description, points, imageSide = "left
                 transition={{ duration: 0.5 }}
                 className="flex-1 space-y-8 px-0 lg:p-[0px_40px] order-2 lg:order-none"
             >
-                <h2 className="text-navy text-2xl md:text-[28px] font-bold leading-tight tracking-tight pb-4 mb-0">
+                <h2 className="text-[#323232] font-poppins text-[24px] font-bold leading-[130%] pb-[16px] mb-0">
                     {title}
                 </h2>
-                <p className="text-mid-grey text-sm md:text-base leading-relaxed pb-6 mb-0">
+                <p className="text-[#76797B] font-poppins text-[14px] font-normal leading-[150%] pb-[24px] mb-0">
                     {description}
                 </p>
 
-                <h3 className="text-navy text-base font-semibold leading-snug pb-4 mb-0">{pointsTitle}</h3>
+                <h3 className="text-[#76797B] font-poppins text-[16px] font-semibold leading-[130%] pb-[24px] mb-0">{pointsTitle}</h3>
                 <ul className="space-y-4">
                     {points.map((point, idx) => (
                         <motion.li
@@ -43,10 +43,10 @@ export function FeatureHighlight({ title, description, points, imageSide = "left
                             transition={{ delay: 0.1 * idx, duration: 0.3 }}
                             className="flex items-start gap-3"
                         >
-                            <div className="flex w-6 h-6 justify-center items-center shrink-0 rounded-full bg-yellow/10">
-                                <Image src="/assets/tick-icon.png" alt="" width={14} height={14} />
+                            <div className="flex w-[24px] h-[24px] justify-center items-center shrink-0 rounded-full bg-yellow/10">
+                                <Image src="/assets/tick-icon.png" alt="Check" width={14} height={14} />
                             </div>
-                            <span className="text-charcoal text-base leading-relaxed">{point}</span>
+                            <span className="text-[#323232] font-poppins text-[16px] font-normal leading-[150%]">{point}</span>
                         </motion.li>
                     ))}
                 </ul>
@@ -61,7 +61,6 @@ export function FeatureHighlight({ title, description, points, imageSide = "left
                     transition={{ duration: 0.5 }}
                     className={`relative aspect-square md:aspect-[4/3] rounded-3xl ${gradient} p-8 md:p-12 overflow-hidden`}
                 >
-
                     <div className="h-[300px] md:h-[550px] w-full">
                         <Image
                             src={imagePath || ""}

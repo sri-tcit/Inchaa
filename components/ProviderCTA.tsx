@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { JoinButton } from "@/components/join/JoinButton";
 
 export function ProviderCTA() {
     return (
@@ -13,21 +12,19 @@ export function ProviderCTA() {
             className="container mx-auto px-4 md:px-6 py-12 md:pt-24 text-center max-w-[990px] mx-auto"
         >
             <div className="flex items-center justify-center mb-6">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#E5E7EB] bg-white shadow-sm max-w-max">
-                    <span className="text-mid-grey text-sm text-center">For service providers</span>
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 bg-white/70 shadow-sm backdrop-blur-[10px] max-w-max">
+                    <span className="text-center text-[#76797B] font-poppins text-sm font-normal leading-[1.5]">For Service Providers (Web Portal Experience)</span>
                 </div>
             </div>
-            <h2 className="text-navy text-center text-2xl md:text-[34px] font-bold leading-tight tracking-tight pb-2">
+            <h2 className="text-[#323232] text-center font-poppins text-[24px] md:text-[34px] font-bold leading-[130%] pb-[8px]">
                 Get discovered. Win more projects. Work smarter.
             </h2>
-            <p className="text-mid-grey text-center text-base leading-relaxed pb-6 max-w-2xl mx-auto">
-                Inchaa connects your business with customers who are actively looking for verified contractors, engineers, and consultants.
+            <p className="text-[#76797B] text-center font-poppins text-[16px] font-normal leading-[150%] pb-[16px]">
+                Inchaa helps service providers grow their business by connecting them directly with customers looking for verified professionals.
             </p>
-            <div className="flex justify-center">
-                <JoinButton size="md" className="w-full max-w-[260px] justify-center">
-                    Join as a professional
-                </JoinButton>
-            </div>
+            <button className="flex w-[220px] h-[44px] px-[24px] py-[8px] justify-center items-center rounded-[16px] bg-yellow text-white font-semibold mx-auto cursor-pointer">
+                Join as Provider
+            </button>
         </motion.div>
     );
 }

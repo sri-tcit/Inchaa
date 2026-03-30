@@ -77,7 +77,7 @@ export function Testimonials() {
                         onClick={() => setActiveTab("customers")}
                         className={`flex flex-col items-center justify-center px-6 py-3 rounded-full text-center font-poppins text-[14px] font-semibold leading-[130%] transition-all cursor-pointer ${
                             activeTab === "customers" 
-                                ? "bg-[#3C49DD] text-white" 
+                                ? "bg-yellow text-white" 
                                 : "bg-transparent text-[#76797B] hover:bg-gray-100"
                         }`}
                     >
@@ -87,7 +87,7 @@ export function Testimonials() {
                         onClick={() => setActiveTab("providers")}
                         className={`flex flex-col items-center justify-center px-6 py-3 rounded-full text-center font-poppins text-[14px] font-semibold leading-[130%] transition-all cursor-pointer ${
                             activeTab === "providers" 
-                                ? "bg-[#3C49DD] text-white" 
+                                ? "bg-yellow text-white" 
                                 : "bg-transparent text-[#76797B] hover:bg-gray-100"
                         }`}
                     >
@@ -118,7 +118,7 @@ export function Testimonials() {
                             <div className="flex justify-between items-center">
                                
                                <div className="flex items-center gap-4">
-                                    <div className="flex w-[48px] h-[48px] justify-center items-center shrink-0 rounded-full bg-[rgba(60,73,221,0.1)] text-[#3743D8] font-poppins text-[16px] font-semibold leading-[130%] text-center" >
+                                    <div className="flex w-[48px] h-[48px] justify-center items-center shrink-0 rounded-full bg-yellow/10 text-yellow font-poppins text-[16px] font-semibold leading-[130%] text-center" >
                                     أح
                                     </div>
                                     <div>

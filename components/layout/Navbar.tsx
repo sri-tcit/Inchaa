@@ -98,12 +98,12 @@ export function Navbar() {
               Sign In
             </Link>
 
-            <Link
-              href="/join/"
+            <a
+              href="https://portal.inchaa.com/signup"
               className="text-[13.5px] font-bold bg-navy text-white px-5 py-2 rounded-lg hover:bg-[#252c42] transition-colors duration-150"
             >
               Join as a Professional
-            </Link>
+            </a>
           </div>
 
           {/* Mobile hamburger */}
@@ -162,13 +162,13 @@ export function Navbar() {
             ))}
           </div>
 
-          <Link
-            href="/join/"
+          <a
+            href="https://portal.inchaa.com/signup"
             onClick={() => setMobileOpen(false)}
             className="mt-auto w-full flex items-center justify-center bg-navy text-white text-sm font-bold px-4 py-3.5 rounded-lg"
           >
             Join as a Professional
-          </Link>
+          </a>
         </div>
       </div>
     </>

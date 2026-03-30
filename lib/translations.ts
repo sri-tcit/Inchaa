@@ -1,3 +1,8 @@
+import type { HomePageTranslations } from "./homePageTranslations";
+import { homePageEn, homePageAr } from "./homePageTranslations";
+
+export type { HomePageTranslations };
+
 export interface FeatureItem {
   title: string;
   body: string;
@@ -220,6 +225,7 @@ export interface Translations {
     consultantsH2: string;
     consultantsBody: string;
   };
+  homePage: HomePageTranslations;
 }
 
 export const en: Translations = {
@@ -960,6 +966,7 @@ export const en: Translations = {
     consultantsH2: "Looking for contractors or engineers?",
     consultantsBody: "Inchaa connects you with general contractors, MEP contractors, structural, civil, and MEP engineers across the UAE.",
   },
+  homePage: homePageEn,
 };
 
 export const ar: Translations = {
@@ -1700,4 +1707,5 @@ export const ar: Translations = {
     consultantsH2: "تبحث عن مقاولين أو مهندسين؟",
     consultantsBody: "إنشاء تربطك بالمقاولين العامين ومقاولي الكهروميكانيكا والمهندسين الإنشائيين والمدنيين والكهروميكانيكيين عبر الإمارات.",
   },
+  homePage: homePageAr,
 };

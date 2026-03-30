@@ -14,7 +14,7 @@ interface FeatureHighlightProps {
     imagePath?: string;
 }
 
-export function FeatureHighlight({ title, description, points, imageSide = "left", gradient = "from-purple-100 to-blue-100", pointsTitle, imagePath }: FeatureHighlightProps) {
+export function FeatureHighlight({ title, description, points, imageSide = "left", gradient = "from-blue-tint to-light-grey", pointsTitle, imagePath }: FeatureHighlightProps) {
     return (
         <div className={`flex flex-col gap-6 md:gap-10 lg:gap-[60px] items-center w-full ${imageSide === "right" ? "lg:flex-row" : "lg:flex-row-reverse"}`}>
 
@@ -44,7 +44,7 @@ export function FeatureHighlight({ title, description, points, imageSide = "left
                             transition={{ delay: 0.1 * idx, duration: 0.3 }}
                             className="flex items-start gap-3"
                         >
-                            <div className="flex w-[24px] h-[24px] justify-center items-center shrink-0 rounded-full bg-[rgba(60,73,221,0.1)]">
+                            <div className="flex w-[24px] h-[24px] justify-center items-center shrink-0 rounded-full bg-yellow/10">
                                 <Image src="/assets/tick-icon.png" alt="Check" width={14} height={14} />
                             </div>
                             <span className="text-[#323232] font-poppins text-[16px] font-normal leading-[150%]">{point}</span>

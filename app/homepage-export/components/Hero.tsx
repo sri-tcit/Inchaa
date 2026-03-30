@@ -1,10 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play, CheckCircle2 } from "lucide-react";
+import { Package } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Hero() {
+    const { t } = useLanguage();
+    const h = t.homePage.hero;
 
     const imageArr = [
         {
@@ -47,32 +50,24 @@ export function Hero() {
                         </div> */}
 
                         <h1 className="max-w-max text-[#323232] font-poppins text-[32px] md:text-[64px] font-bold leading-[110%]">
-                            Build Smarter with <span className=" bg-[linear-gradient(112deg,#3399FF_0%,#3040E8_50%,#8C3CDD_100%)]
-  bg-clip-text
-  text-transparent
-  font-poppins
-  text-[64px]
-  font-bold
-  leading-[110%]">Inchaa</span>
+                            {h.h1Before}{" "}
+                            <span className="text-yellow font-poppins text-[32px] md:text-[64px] font-bold leading-[110%]">{h.h1Brand}</span>
                         </h1>
 
                         <p className="text-[#323232] font-poppins text-base font-normal leading-6 w-full max-w-[628px]">
-                            Inchaa is a digital platform that connects customers with verified contractors, and consultants. Find trusted professionals, request quotations, and manage projects in one seamless experience.
+                            {h.body}
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full">
-                            <button className="flex items-center justify-center gap-2 h-[44px] px-8 rounded-[16px] w-full sm:w-auto
-bg-[linear-gradient(104deg,#39F_0%,#3040E8_50%,#8C3CDD_100%)] 
-shadow-[0_16px_48px_0_rgba(100,100,150,0.15)]
-text-white text-center font-poppins text-base font-semibold leading-[130%] cursor-pointer">
+                        {/* <div className="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full">
+                            <button className="flex items-center justify-center gap-2 h-[44px] px-8 rounded-[16px] w-full sm:w-auto bg-yellow shadow-[0_16px_48px_0_rgba(49,54,172,0.25)] text-white text-center font-poppins text-base font-semibold leading-[130%] cursor-pointer hover:brightness-95 transition-all">
                                 Get Started Now <ArrowRight className="w-4 h-4" />
                             </button>
                             <button className="flex items-center justify-center gap-2 h-[44px] px-8 rounded-[16px] w-full sm:w-auto bg-[rgba(255,255,255,0.70)] shadow-[0_16px_48px_0_rgba(100,100,150,0.15)] text-[#323232] text-center font-poppins text-base font-semibold leading-[130%] cursor-pointer">
                                 <Play className="w-4 h-4 fill-current" /> Watch Demo
                             </button>
-                        </div>
+                        </div> */}
 
-                        <div className="flex items-start flex-col gap-4 mt-6 text-sm text-gray-600">
+                        {/* <div className="flex items-start flex-col gap-4 mt-6 text-sm text-gray-600">
                             <p className="text-[#76797B] flex gap-2 font-poppins text-base font-normal leading-6">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <g clipPath="url(#clip0_1_2946)">
@@ -101,7 +96,7 @@ text-white text-center font-poppins text-base font-semibold leading-[130%] curso
                                     5k+
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </motion.div>
 
                     {/* Right Image/Mockup */}
@@ -114,7 +109,7 @@ text-white text-center font-poppins text-base font-semibold leading-[130%] curso
                         <div className="relative h-[400px] md:h-full w-full max-w-[460px]">
                             <Image
                                 src="/assets/banner.webp"
-                                alt="Inchaa"
+                                alt={h.bannerAlt}
                                 fill
                                 className="object-contain"
                             />
@@ -134,7 +129,7 @@ text-white text-center font-poppins text-base font-semibold leading-[130%] curso
                         className="flex flex-row items-center justify-center gap-4 md:gap-[100px] p-6 md:p-12 max-w-4xl mx-auto rounded-[24px] border border-white/40 bg-white/70 shadow-[0_8px_32px_0_rgba(100,100,150,0.12)] backdrop-blur-[10px]"
                     >
                         <div className="flex flex-col items-center  gap-[12px]">
-                            <div className="flex w-[64px] h-[64px] justify-center items-center rounded-[16px] bg-[#3C49DD] shadow-[0_8px_24px_0_rgba(100,100,150,0.12)]">
+                            <div className="flex w-[64px] h-[64px] justify-center items-center rounded-[16px] bg-yellow shadow-[0_8px_24px_0_rgba(100,100,150,0.12)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                                     <path d="M21.3307 28V25.3333C21.3307 23.9188 20.7688 22.5623 19.7686 21.5621C18.7684 20.5619 17.4119 20 15.9974 20H7.9974C6.58291 20 5.22635 20.5619 4.22616 21.5621C3.22597 22.5623 2.66406 23.9188 2.66406 25.3333V28" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
                                     <path d="M11.9974 14.6667C14.9429 14.6667 17.3307 12.2789 17.3307 9.33333C17.3307 6.38781 14.9429 4 11.9974 4C9.05188 4 6.66406 6.38781 6.66406 9.33333C6.66406 12.2789 9.05188 14.6667 11.9974 14.6667Z" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
@@ -142,10 +137,10 @@ text-white text-center font-poppins text-base font-semibold leading-[130%] curso
                                     <path d="M21.3359 4.17334C22.4832 4.46707 23.5 5.13427 24.2261 6.06975C24.9523 7.00523 25.3464 8.15578 25.3464 9.34001C25.3464 10.5242 24.9523 11.6748 24.2261 12.6103C23.5 13.5457 22.4832 14.2129 21.3359 14.5067" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </div>
-                            <p className="text-[#323232] text-center font-poppins text-sm font-semibold leading-[130%]">Customers</p>
+                            <p className="text-[#323232] text-center font-poppins text-sm font-semibold leading-[130%]">{h.customers}</p>
                         </div>
                         <div className="flex flex-col items-center  gap-[12px]">
-                            <div className="flex w-[64px] h-[64px] justify-center items-center rounded-[16px] bg-[#3C49DD] shadow-[0_8px_24px_0_rgba(100,100,150,0.12)]">
+                            <div className="flex w-[64px] h-[64px] justify-center items-center rounded-[16px] bg-yellow shadow-[0_8px_24px_0_rgba(100,100,150,0.12)]">
                           <svg xmlns="http://www.w3.org/2000/svg" width="34" height="32" viewBox="0 0 34 32" fill="none">
   <path d="M24.5231 10.4995C24.9394 10.4995 25.277 10.8371 25.277 11.2534V11.3755L25.9547 11.5767C27.5911 12.0616 28.7575 13.4739 28.9254 15.1714L28.9684 15.5991H29.319C29.7352 15.5991 30.0729 15.9368 30.0729 16.353C30.0727 16.7691 29.7351 17.1069 29.319 17.1069H28.7135V17.1899C28.5397 19.5159 27.4864 21.8461 25.4821 22.8726C25.7462 23.3512 26.1535 23.6912 26.6588 23.8472C26.9407 23.934 27.6443 24.1013 28.2819 24.2476C28.5995 24.3204 28.8993 24.3878 29.1198 24.437C29.23 24.4616 29.3206 24.4817 29.3834 24.4956C29.4146 24.5025 29.4391 24.5076 29.4557 24.5112C29.464 24.5131 29.4709 24.5152 29.4752 24.5161C29.4771 24.5165 29.4791 24.5169 29.4801 24.5171H29.4811C29.6481 24.5539 30.4557 24.7488 31.2653 25.2319C32.0744 25.7149 32.9009 26.4952 33.0739 27.7065C33.1691 28.3717 33.2717 29.0205 33.3512 29.5034C33.3909 29.7446 33.4249 29.9448 33.4489 30.0845C33.4608 30.1541 33.4706 30.2092 33.4772 30.2466C33.4804 30.2651 33.4823 30.2799 33.484 30.2896C33.4845 30.2925 33.4846 30.2953 33.485 30.2974H33.486L33.4879 30.3052H33.4869C33.5208 30.4969 33.4787 30.6935 33.3717 30.854L33.3219 30.9204C33.1789 31.0914 32.9673 31.1899 32.7448 31.1899H13.5621C13.3671 31.1899 13.1803 31.1144 13.0406 30.981L12.984 30.9204C12.8414 30.7499 12.7803 30.5242 12.819 30.3052H12.8199C12.8271 30.2632 12.881 29.9513 12.9547 29.5034C13.0342 29.0205 13.1378 28.3717 13.233 27.7065C13.4058 26.4984 14.2278 25.7191 15.0348 25.2358C15.8387 24.7545 16.6414 24.5574 16.819 24.5181H16.8199L16.8297 24.5151H16.8317C16.8359 24.5142 16.8421 24.513 16.8502 24.5112C16.8669 24.5076 16.8921 24.5025 16.9235 24.4956C16.9863 24.4817 17.077 24.4616 17.1871 24.437C17.4076 24.3878 17.7074 24.3204 18.025 24.2476C18.6627 24.1013 19.3663 23.9339 19.6481 23.8472C20.1672 23.6868 20.5789 23.3312 20.8317 22.8677C18.8363 21.8401 17.7885 19.5233 17.6168 17.2388L17.6158 17.2319V17.1069H16.9879C16.5713 17.1069 16.2342 16.7691 16.234 16.353C16.234 15.9368 16.5712 15.5991 16.9879 15.5991H17.3268L17.3727 15.1577C17.5464 13.4681 18.7121 12.0636 20.3414 11.5796L21.0397 11.3716V11.2515C21.0407 10.8362 21.3779 10.4996 21.7936 10.4995H24.5231ZM26.8795 29.6821H29.2496V26.0171C29.0018 25.9581 28.2372 25.7866 27.8571 25.7007L26.8795 29.6821ZM20.4987 25.1304C20.3476 25.1923 20.0706 25.2861 19.9166 25.3354L21.0231 29.6821H25.3268L26.3932 25.3374C26.2419 25.2896 25.975 25.2003 25.8297 25.1421L23.653 26.9106C23.5145 27.0234 23.3463 27.0795 23.1783 27.0796C23.0106 27.0796 22.8417 27.0236 22.7037 26.9116L20.4987 25.1304ZM15.5485 26.7095C15.1369 27.0091 14.7989 27.405 14.7252 27.9204C14.6326 28.5675 14.532 29.1986 14.4528 29.6821H15.5485V26.7095ZM30.7574 29.6812H31.8531C31.7739 29.1979 31.6728 28.5671 31.5807 27.9204C31.507 27.4054 31.1692 27.0098 30.7574 26.7104V29.6812ZM17.0563 26.0171V29.6812H19.4674L18.4537 25.6997C18.0727 25.786 17.3048 25.958 17.0563 26.0171ZM22.2819 23.3374C22.139 23.6535 21.9572 23.9408 21.7408 24.1958L23.1764 25.355L24.5758 24.2183C24.3491 23.9573 24.1608 23.6635 24.0172 23.3423C23.7453 23.3862 23.4637 23.4175 23.1647 23.4175C22.8546 23.4175 22.5626 23.3843 22.2819 23.3374ZM19.1227 17.1743L19.1696 17.6147C19.3109 18.6411 19.6738 19.6477 20.2623 20.4272C20.933 21.3155 21.896 21.9097 23.1647 21.9097C24.4329 21.9096 25.3952 21.3156 26.066 20.4214C26.7388 19.5245 27.1174 18.325 27.2076 17.1255V17.1069H19.1227V17.1743ZM25.277 15.5991H27.4528L27.4254 15.3208L27.3981 15.1187C27.2237 14.1237 26.5068 13.3129 25.526 13.022L25.277 12.9478V15.5991ZM22.5387 15.5991H23.7692V12.0073H22.5465L22.5387 15.5991ZM20.7701 13.0249C19.7285 13.3344 18.9835 14.232 18.8727 15.312L18.8434 15.5991H21.0309L21.0358 12.9448L20.7701 13.0249Z" fill="white" stroke="white" strokeWidth="0.2"/>
   <path d="M8.1051 0.702637C8.73403 0.0742319 9.75519 0.0344614 10.4342 0.585449L10.566 0.703613L10.567 0.70459L17.8356 8.08057C18.2327 8.47678 18.2055 8.97341 18.1949 9.21533L18.191 10.4634L18.1871 10.5435C18.1468 10.9398 17.8119 11.2495 17.4049 11.2495C16.9709 11.2494 16.619 10.8973 16.6188 10.4634V10.3989C16.6191 10.3592 16.6203 10.3021 16.6207 10.2339C16.6217 10.0974 16.6226 9.91499 16.6237 9.73193C16.6247 9.54875 16.6254 9.3647 16.6256 9.2251C16.6257 9.16098 16.6258 9.10655 16.6256 9.06592L9.44983 1.81201C9.39803 1.76015 9.33492 1.74515 9.27502 1.77295L9.21643 1.81592L1.81213 9.19092C1.80117 9.20223 1.79129 9.21966 1.78381 9.24561C1.77606 9.27259 1.77307 9.30358 1.77307 9.3335V29.519C1.77309 29.6285 1.86187 29.7173 1.97131 29.7173H9.58655C10.0208 29.7173 10.3727 30.0702 10.3727 30.5044C10.3725 30.9384 10.0206 31.2905 9.58655 31.2905H1.97131C0.994691 31.2905 0.199829 30.4961 0.199829 29.519V9.3335C0.199829 8.8517 0.375414 8.40357 0.701782 8.07764L8.1051 0.702637Z" fill="white" stroke="white" strokeWidth="0.4"/>
@@ -159,10 +154,10 @@ text-white text-center font-poppins text-base font-semibold leading-[130%] curso
   <path d="M5.08752 12.6655H7.2428C7.54908 12.6655 7.79822 12.9139 7.79846 13.2202C7.79846 13.5267 7.54929 13.7759 7.2428 13.7759H5.08752C4.78124 13.7756 4.53284 13.5266 4.53284 13.2202C4.53308 12.9141 4.78138 12.6658 5.08752 12.6655Z" fill="white" stroke="white" strokeWidth="0.0625"/>
 </svg>
                             </div>
-                            <p className="text-[#323232] text-center font-poppins text-sm font-semibold leading-[130%]">Contractors</p>
+                            <p className="text-[#323232] text-center font-poppins text-sm font-semibold leading-[130%]">{h.contractors}</p>
                         </div>
                         <div className="flex flex-col items-center  gap-[12px]">
-                            <div className="flex w-[64px] h-[64px] justify-center items-center rounded-[16px] bg-[#3C49DD] shadow-[0_8px_24px_0_rgba(100,100,150,0.12)]">
+                            <div className="flex w-[64px] h-[64px] justify-center items-center rounded-[16px] bg-yellow shadow-[0_8px_24px_0_rgba(100,100,150,0.12)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="33" viewBox="0 0 28 33" fill="none">
                                     <path d="M10.9003 5.04468C12.8526 4.58842 14.812 4.59312 16.7206 5.05542C17.7666 5.3086 18.5523 6.17262 18.7264 7.25171L18.7665 7.50073C18.8291 7.88511 19.1568 8.16382 19.5468 8.16382C19.9947 8.16401 20.4333 8.52374 20.4335 9.0105C20.4335 11.7394 19.708 14.2247 18.5253 16.0349C17.3439 17.8429 15.6846 19.0037 13.8202 19.0037C11.9574 19.0035 10.3003 17.8427 9.12 16.0349C7.93817 14.2247 7.21375 11.7394 7.21375 9.0105C7.21381 8.78585 7.30296 8.56972 7.46179 8.41089L7.52429 8.35522C7.67489 8.23239 7.86424 8.16383 8.06042 8.16382H8.06238C8.46515 8.16382 8.80276 7.86286 8.84753 7.46265L8.8573 7.37769C8.9767 6.31164 9.70294 5.41909 10.6981 5.10132L10.9003 5.04468ZM16.3221 6.70093C14.6746 6.30286 12.9802 6.29948 11.2841 6.69409C10.8937 6.785 10.5894 7.13096 10.5409 7.56616L10.5311 7.65112V7.6521C10.4235 8.60863 9.7835 9.38591 8.92566 9.70288C9.03074 11.8284 9.61404 13.7211 10.4862 15.0867C11.385 16.4937 12.5649 17.3091 13.8202 17.3093C15.0766 17.3093 16.2575 16.4946 17.1571 15.0886C18.0297 13.7248 18.6139 11.8344 18.7206 9.71167C17.8739 9.41431 17.2437 8.68805 17.0946 7.77222L17.0546 7.52124C16.9894 7.11708 16.689 6.79005 16.3221 6.70093Z" fill="white" stroke="white" strokeWidth="0.476869" />
                                     <path d="M13.6512 0.256104C15.3961 0.133358 16.8545 0.674786 17.6962 1.82153L17.993 2.22583C18.9013 2.26107 19.7464 2.67703 20.327 3.3811C20.9338 4.11696 21.1774 5.07755 20.995 6.01392L20.3817 9.17114C20.2931 9.62845 19.8505 9.93146 19.3895 9.84009V9.84106C18.9308 9.7518 18.6302 9.30727 18.7196 8.8479L19.3329 5.69067C19.4178 5.25191 19.3044 4.80323 19.0204 4.45923H19.0194C18.7355 4.1144 18.3169 3.91626 17.87 3.91626C17.4645 3.91614 17.0777 3.74616 16.8046 3.45337L16.6952 3.32056L16.3309 2.82446V2.82349C16.0201 2.39975 15.5644 2.16629 15.0839 2.04517C14.6027 1.92394 14.1127 1.92019 13.7606 1.94556H13.7567C13.5022 1.95984 12.7196 2.02418 11.829 2.28931C10.9353 2.55536 9.95803 3.01623 9.28601 3.80884C8.62666 4.58642 8.34474 5.61514 8.47546 6.89185L8.89246 8.8313C8.99089 9.28872 8.69989 9.73763 8.24304 9.83618L8.24402 9.83716C8.1826 9.85077 8.12185 9.85669 8.06433 9.85669C7.67385 9.85669 7.32247 9.58421 7.23718 9.18677L6.8114 7.20337L6.81238 7.20239C6.80524 7.17082 6.79942 7.14171 6.79675 7.11841V7.11743C6.60676 5.3738 7.00216 3.88322 7.99402 2.71313C8.91023 1.63221 10.1795 1.02882 11.2802 0.690674C12.3785 0.353275 13.3313 0.27407 13.6512 0.256104Z" fill="white" stroke="white" strokeWidth="0.476869" />
@@ -172,7 +167,13 @@ text-white text-center font-poppins text-base font-semibold leading-[130%] curso
                                     <path d="M17.5336 19.551C17.6559 19.0981 18.1239 18.8308 18.5726 18.9534L18.6547 18.9807C19.0554 19.1342 19.2833 19.5692 19.1693 19.9924L15.9017 32.0881C15.7992 32.4661 15.4573 32.7141 15.0844 32.7141C15.0118 32.7141 14.937 32.7058 14.8627 32.6858V32.6848C14.4114 32.5624 14.1444 32.0982 14.266 31.6467L17.5336 19.551Z" fill="white" stroke="white" strokeWidth="0.476869" />
                                 </svg>
                             </div>
-                            <p className="text-[#323232] text-center font-poppins text-sm font-semibold leading-[130%]">Consultants</p>
+                            <p className="text-[#323232] text-center font-poppins text-sm font-semibold leading-[130%]">{h.consultants}</p>
+                        </div>
+                        <div className="flex flex-col items-center gap-[12px]">
+                            <div className="flex w-[64px] h-[64px] justify-center items-center rounded-[16px] bg-yellow shadow-[0_8px_24px_0_rgba(100,100,150,0.12)]">
+                                <Package className="w-8 h-8 text-white" strokeWidth={2} aria-hidden />
+                            </div>
+                            <p className="text-[#323232] text-center font-poppins text-sm font-semibold leading-[130%]">{h.suppliers}</p>
                         </div>
                     </motion.div>
                 </div>

@@ -66,9 +66,9 @@ export function Navbar2() {
                 key={link.key}
                 href={link.href}
                 className={cn(
-                  "relative text-[13.5px] font-medium px-4 py-2 rounded-lg transition-all duration-150",
+                  "text-[13.5px] font-medium px-4 py-2 rounded-lg transition-colors duration-150",
                   isActive(link.href)
-                    ? "text-charcoal font-semibold after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-yellow after:rounded-full"
+                    ? "text-charcoal font-semibold bg-charcoal/[0.09]"
                     : "text-charcoal/65 hover:text-charcoal hover:bg-charcoal/[0.06]"
                 )}
               >
@@ -111,12 +111,12 @@ export function Navbar2() {
               {t.nav.signIn}
             </Link>
 
-            <Link
-              href="/join/"
+            <a
+              href="https://portal.inchaa.com/signup"
               className="text-[13.5px] font-bold bg-yellow text-white px-5 py-2 rounded-lg hover:brightness-95 transition-all duration-150"
             >
               {t.nav.joinAsPro}
-            </Link>
+            </a>
           </div>
 
           {/* Mobile hamburger */}
@@ -180,13 +180,13 @@ export function Navbar2() {
             ))}
           </div>
 
-          <Link
-            href="/join/"
+          <a
+            href="https://portal.inchaa.com/signup"
             onClick={() => setMobileOpen(false)}
             className="mt-auto w-full flex items-center justify-center bg-yellow text-navy text-sm font-bold px-4 py-3.5 rounded-lg"
           >
             {t.nav.joinAsPro}
-          </Link>
+          </a>
         </div>
       </div>
     </>
