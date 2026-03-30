@@ -57,6 +57,8 @@ export interface Translations {
     disciplines: string;
     doneRight: string;
     inchaa: string;
+    postProjectAppModalTitle: string;
+    postProjectAppModalSubtitle: string;
   };
   contractorHero: {
     h1: string;
@@ -254,6 +256,9 @@ export const en: Translations = {
     disciplines: "Disciplines",
     doneRight: "Done Right",
     inchaa: "Inchaa",
+    postProjectAppModalTitle: "Post your project on the Inchaa app",
+    postProjectAppModalSubtitle:
+      "Scan this QR code with your phone to download the app and post your project.",
   },
   contractorHero: {
     h1: "Find Trusted Contractors",
@@ -995,6 +1000,9 @@ export const ar: Translations = {
     disciplines: "التخصصات",
     doneRight: "تم باحترافية",
     inchaa: "إنشاء",
+    postProjectAppModalTitle: "انشر مشروعك من تطبيق إنشاء",
+    postProjectAppModalSubtitle:
+      "امسح رمز الاستجابة السريعة بهاتفك لتنزيل التطبيق ونشر مشروعك.",
   },
   contractorHero: {
     h1: "ابحث عن مقاولين موثوقين",
