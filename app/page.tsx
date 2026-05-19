@@ -1,6 +1,6 @@
 "use client";
 
-import { Navbar } from "@/components/Navbar";
+import { Navbar2 as Navbar } from "@/components/layout/Navbar2";
 import { Hero } from "@/components/Hero";
 import { VideoSection } from "@/components/VideoSection";
 import { JourneySteps } from "@/components/JourneySteps";
@@ -12,7 +12,7 @@ import { ProviderFeatures } from "@/components/ProviderFeatures";
 import { Testimonials } from "@/components/Testimonials";
 import { HelpSection } from "@/components/HelpSection";
 import { FinalDownloadCTA } from "@/components/FinalDownloadCTA";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/layout/Footer";
 
 export default function Home() {
   return (
